@@ -21,28 +21,40 @@ Similarly the adapter and the outbound service are linked it the following fashi
 
 All adapters are named as `<ProviderName><ChannelName>Adapter`; for example GupshupWhatsappAdapter. Adapters should extend `AbstractProvider` and implement `IProvider`. Thus, it needs to implement the following methods:
 
-- ```java
-    public XMessage convertMessageToXMsg(Object msg) // Converts API response object to XMessage
-  ```
-- ```java
-    public void processInBoundMessage(XMessage nextMsg) //Converts XMessage object to API response and call it.
-  ```
+- ```public Mono<XMessage> convertMessageToXMsg(Object msg) // Converts API response object to XMessage ```
+
+- ```public Mono<XMessage> processOutBoundMessageF(XMessage nextMsg) //Converts XMessage object to API response and call it.```
 
 These methods are called by `inbound` and `outbound` services internally to process the incoming and outgoing messages.
 
-All adapters with the above implementation will be valid. An example adapter can be found [here]().
+All adapters with the above implementation will be valid. An example adapter can be found [here](https://github.com/samagra-comms/adapter/blob/release-4.8.0/src/main/java/com/uci/adapter/netcore/whatsapp/NetcoreWhatsappAdapter.java).
+
+#### 1. Incoming content
+Currently we accepts text/media/location/quickReplyButton/list messages. It should be implemeted according to the network provider(Netcore/Gupshup) [documentation](https://wadocs.pepipost.com/webhooks/overview/incoming-message).
+
+To enable these, we have to add them in ```convertMessageToXMsg``` and convert these according to the [xMessage spec](XMessage Spec.md)
+
+
+#### 2. Outgoing Content
+We can also send text/media/location/quickReplyButton/list messages to user. As we are using the ODK forms, we use bind::stylingTags, bind::caption to show the media file or to show the select choices as list/quick reply buttons. There are a few constraints which will be applied with the quickReplyButton/list content.
+
+Below are the few styling tags we have allowed for now.
+
+- image //To send image file
+- audio //To send audio file
+- video //To send video file
+- document //To send document file
+- buttonsForListItems //To send choices as quick reply buttons
+- list //To send choices as list
+
+To send this type of content to user, adapter should implement it according to the network provider(Netcore/Gupshup) [documentation](https://wadocs.pepipost.com/webhooks/overview/incoming-message).
+
 
 ## 3. List of Adapter Implementations
 
 - Gupshup-Whatsapp
-- Gupshup-SMS
+- Netcore-Whatsapp
 
 ## 4. FAQs
 
 To be updated based on incoming feedback. Feel free to write into tech@samagragovernance.in in case you have questions, feedback or want to know more!
-
-## Coming Soon
-
-- CDAC-SMS Adapter
-- Gmail-Mail (Mailtrain)
-- AmazonSES-Mail (Mailtrain)
