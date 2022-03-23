@@ -1,7 +1,7 @@
 ---
-id: debug
-title: Debug
-sidebar_label: Debug
+id: debugServices
+title: Debug Services
+sidebar_label: Debug Services
 ---
 
 ## 1. Overview
