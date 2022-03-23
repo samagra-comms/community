@@ -1,7 +1,7 @@
 ---
-id: UCIBuildFlow
-title: UCI Build Flow
-sidebar_label: Overview
+id: UCIBuildExecutionFlow
+title: UCI Build & Execution Flow
+sidebar_label: UCI Build & Execution Flow
 ---
 
 ## 1. Overview
