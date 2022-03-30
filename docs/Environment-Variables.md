@@ -1,3 +1,9 @@
+---
+id: environmentVariables
+title: Environment Variables
+sidebar_label: Environment Variables
+---
+
 # 1. Add enviorment variable in IDE
 
 ## 1.1 Kafka

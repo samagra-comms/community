@@ -1,3 +1,9 @@
+---
+id: manualInstallation
+title: Manual Installation
+sidebar_label: Manual Installation
+---
+
 # Getting Started
 ## 1. Introduction
 The Unified Communications Interface (UCI) aims to democratize the use of different communication channels such as WhatsApp, Telegram, SMS, email and more for governance use cases through a standard configurable manner that is reusable and scalable across all governance use cases.
