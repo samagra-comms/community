@@ -1,3 +1,3 @@
 # Database Schema :
 
-![Database-Schema](~/media/schema.pdf)
+![Database-Schema](../media/schema.pdf)
