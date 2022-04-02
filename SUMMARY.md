@@ -1,7 +1,13 @@
 # Table of contents
 
 * [Overview](README.md)
-* [docs](docs/README.md)
+* Learn
+* [Use Cases](Use Cases.md)
+* [Tech Architecture](Tech Architecture/README.md)
+  * [Tech Architecture](Tech Architecture/1. Tech Architecture.md)
+  * [Design Principles](Tech Architecture/2. Design Principles.md)
+  * [Tech Stack](Tech Architecture/3. Tech Stack.md)
+* [Installation Guide](docs/README.md)
   * [Conversation Channel Adapters](docs/Adapter.md)
   * [UCI Build & Execution Flow](docs/Build-Execution-Flow.md)
   * [Debug Services](docs/Debug-Services.md)
