@@ -1,2 +1,2 @@
-# docs
+# Installation Guide
 
