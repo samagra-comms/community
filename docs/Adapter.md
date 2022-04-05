@@ -55,6 +55,25 @@ To send this type of content to user, adapter should implement it according to t
 - Gupshup-Whatsapp
 - Netcore-Whatsapp
 
-## 4. FAQs
+## 4. How to setup adapter
+
+Setup the adapter repository to start working on it. Follow the steps given to add a new adapter & test it. 
+
+1. Fork the below repository & clone it.
+
+	```https://github.com/samagra-comms/adapter/```
+
+2. Checkout to the recent branch.
+
+3. Open the project in any IDE spring/intellij.
+
+4. Follow [point 2](#2-creating-your-own-adapters) to create a new adapter.
+
+5. Write test cases for inbound method ```convertMessageToXMsg``` & outbound method ```processOutBoundMessageF```.
+
+6. A simple example to test the send text message is given in the [file](https://github.com/samagra-comms/adapter/blob/release-4.8.0/src/test/java/com/uci/adapter/netcore/whatsapp/NetcoreServiceTest.java).  
+
+
+## 5. FAQs
 
 To be updated based on incoming feedback. Feel free to write into tech@samagragovernance.in in case you have questions, feedback or want to know more!
