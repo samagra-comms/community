@@ -13,7 +13,26 @@ Adapters convert information provided by channels (SMS, Whatsapp) for each speci
 
 A simplified diagram of what adapters do is shown below. ![](https://samagra-development.github.io/docs/img/adapter.jpg)
 
-## 2. Creating your own Adapters
+## 2. How to setup adapter
+
+Setup the adapter repository to start working on it. Follow the steps given to add a new adapter & test it. 
+
+1. Fork the below repository & clone it.
+
+	```https://github.com/samagra-comms/adapter/```
+
+2. Checkout to the recent branch.
+
+3. Open the project in any IDE spring/intellij.
+
+4. Follow [point 3](#3-creating-your-own-adapters) to create a new adapter.
+
+5. Write test cases for inbound method ```convertMessageToXMsg``` & outbound method ```processOutBoundMessageF```.
+
+6. A simple example to test the send text message is given in the [file](https://github.com/samagra-comms/adapter/blob/release-4.8.0/src/test/java/com/uci/adapter/netcore/whatsapp/NetcoreServiceTest.java). 
+
+
+## 3. Creating your own Adapters
 
 The adapter and the inbound service are linked together as shown in the figure below. ![](https://samagra-development.github.io/docs/img/adapter-internal.jpg)
 
@@ -49,30 +68,10 @@ Below are the few styling tags we have allowed for now.
 
 To send this type of content to user, adapter should implement it according to the network provider(Netcore/Gupshup) [documentation](https://wadocs.pepipost.com/webhooks/overview/incoming-message).
 
-
-## 3. List of Adapter Implementations
+## 4. List of Adapter Implementations
 
 - Gupshup-Whatsapp
 - Netcore-Whatsapp
-
-## 4. How to setup adapter
-
-Setup the adapter repository to start working on it. Follow the steps given to add a new adapter & test it. 
-
-1. Fork the below repository & clone it.
-
-	```https://github.com/samagra-comms/adapter/```
-
-2. Checkout to the recent branch.
-
-3. Open the project in any IDE spring/intellij.
-
-4. Follow [point 2](#2-creating-your-own-adapters) to create a new adapter.
-
-5. Write test cases for inbound method ```convertMessageToXMsg``` & outbound method ```processOutBoundMessageF```.
-
-6. A simple example to test the send text message is given in the [file](https://github.com/samagra-comms/adapter/blob/release-4.8.0/src/test/java/com/uci/adapter/netcore/whatsapp/NetcoreServiceTest.java).  
-
 
 ## 5. FAQs
 
