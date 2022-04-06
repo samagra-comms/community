@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "3e992471-58e0-478e-adb3-93163849ef11",
+		"name": "DataExhaust APIs - UCI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ondemand Data Exhaust",
+			"item": [
+				{
+					"name": "Get Job Info",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Analytics Platform - Healthy\"] = jsonData.result.healthy === true;",
+									"",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "X-Channel-ID",
+								"value": "{{orgId}}"
+							},
+							{
+								"key": "x-authenticated-user-token",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "X-Authenticated-Userid",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/dataset/v1/request/read/7ed871f7-0d5b-4bb0-86a0-a00151352701?requestId=EE8031071F3F73285BA1ABDCAD3BD2DB",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"dataset",
+								"v1",
+								"request",
+								"read",
+								"7ed871f7-0d5b-4bb0-86a0-a00151352701"
+							],
+							"query": [
+								{
+									"key": "x-authenticated-user-token",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "requestId",
+									"value": "EE8031071F3F73285BA1ABDCAD3BD2DB"
+								}
+							]
+						},
+						"description": "Get Job Info"
+					},
+					"response": []
+				},
+				{
+					"name": "Data Exhaust - Request API",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Response code is OK\"] = jsonData.responseCode === \"OK\";",
+									"",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "X-Channel-ID",
+								"value": "{{orgId}}"
+							},
+							{
+								"key": "x-authenticated-user-token",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "X-Authenticated-Userid",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"ekstep.analytics.job.request.submit\",\n  \"ver\": \"1.0\",\n  \"ts\": \"2022-02-15T10:07:00+05:30\",\n  \"params\": {\n    \"msgid\": \"06fb2660-88ba-11ec-bea0-578c52d1ac65\"\n  },\n  \"request\": {\n        \"dataset\": \"uci-response-exhaust\",\n        \"tag\": \"7ed871f7-0d5b-4bb0-86a0-a00151352701\",\n        \"requestedBy\":\"user_id\",\n        \"requestedChannel\": \"01309282781705830427\",\n        \"datasetConfig\": {\n            \"type\": \"uci-response-exhaust\",\n            \"conversationId\": \"27ca2b9c-efbd-4902-a03c-bbc6e7d0e9e7\",\n            \"startDate\": \"2022-02-06\",\n            \"endDate\": \"2022-02-10\"\n        },\n        \"output_format\":\"csv\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{host}}/dataset/v1/request/submit",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"dataset",
+								"v1",
+								"request",
+								"submit"
+							]
+						},
+						"description": "Data Exhaust - Request API"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Job List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Analytics Platform - Healthy\"] = jsonData.result.healthy === true;",
+									"",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "X-Channel-ID",
+								"value": "{{orgId}}"
+							},
+							{
+								"key": "x-authenticated-user-token",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "X-Authenticated-Userid",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/dataset/v1/request/list/{{tag(bot/conversation Id)}}?limit=5",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"dataset",
+								"v1",
+								"request",
+								"list",
+								"{{tag(bot/conversation Id)}}"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						},
+						"description": "Get Job List"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
