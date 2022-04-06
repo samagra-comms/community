@@ -1,18 +1,18 @@
 ---
-id: exhaustApi
-title: Exhaust API
-sidebar_label: Exhaust API
+id: dataExhaust
+title: Data Exhaust
+sidebar_label: Data Exhaust
 ---
 
 ## 1. Overview
 
-We can generate a exhaust which is nothing but a list of conversations between the bot & user. When the bot & user converse, our service sends an event (AKA telemetry event) to a third party service which then uploads it to the blob storage.
+We can generate a data exhaust which is a list of conversations between the bot & user. When the bot & user converse, our service sends an event (AKA telemetry event) to a third party service which then uploads it to the blob storage.
 
 When a messages is sent to the user & user replies to it, a telemetry event will be generated & will be sent to the third party service. We can then download a list of these events for a specific conversation for a time period using the apis mentioned in the document. 
 
 The telemetry event sent is generated according the specification mentioned in the [link](https://github.com/sunbird-specs/Telemetry/blob/master/learn/specification.md). 
 
-## 2. Exhaust Requests
+## 2. Data Exhaust Requests
 
 We can generate a job for two types of exhaust requests.
 
@@ -24,7 +24,7 @@ This will provide a list of conversation done by any user, between the time peri
 
 This will provide a list of users that have conversed with the bot. It consists of user phone number(If consented by user), device id, username etc. The device id is the one that connects the response & private exhaust. To identify the phone number for the conversation done by the user, check the device id from the response exhaust, it should exists in the private exhaust. A sample for the [uci private exhaust](../media/UCI-Private-Exhaust.csv) 
 
-## 3. Apis
+## 3. Data Exhaust Apis
 
 #### 1. Api to submit a job request for response/private exhaust
 
@@ -103,6 +103,8 @@ This api will submit a job request to fetch the response/ptivate exhaust for a s
 #### 2. Api to get job info of a job
 
 This api is used to get the job info which includes the job status (Eg. Submitted, Success, Failed), download urls (if the job is successful), job request params etc. Tag & Request Id for the request will be used from the submitted job request.
+
+The download url is a signed url which is valid for one day only.
 
 1. URL
 ```
@@ -224,3 +226,24 @@ Postman collection: [Link](../media/DataExhaust-APIs-postman_collection.json)
 
 Environment: [Link](../media/Data Exhuast-postman_environment.json)
 
+## 4. Execute Data Exhaust Job
+
+The jobs will be executed via a cron job that runs daily at 02.00 AM. We should check the job info, the next day to check the job's current status. 
+
+If we need an immediate result we can also run a job from jenkins AnalyticsReplayJobs service. Follow below step to execute the jobs.
+
+1. Login to jenkins & Go to the AnalyticsReplayJobs service from the Deploy->Dev->DataPipeline services list or directly hit the [url](https://10.20.0.14/jenkins/job/Deploy/job/dev/job/DataPipeline/job/AnalyticsReplayJobs/).
+
+2. Go to Build with Parameter.
+
+3. Select ```replay-job``` from the ```job_type``` dropdown.
+
+4. Select ```uci-response-exhaust```/```uci-private-exhaust``` from the ```job_id``` dropdown. 
+![Screenshot](../media/exhaust-jenkins-job.png)
+
+5. Leave the rest as it is & click build. It will run all the submitted jobs.
+
+6. When its done, run the [job info api](#2-api-to-get-job-info-of-a-job) to fetch the job response. The job will have either the success/failed status. If the job is successful it will have a download url in the reponse. 
+```
+Eg. https://sunbirddevprivate.blob.core.windows.net/reports/uci-response-exhaust/84B26F9012D6E2E53BFC422B245C6350/d655cf03-1f6f-4510-acf6-d3f51b488a5e_response_20220405.csv?sv=2017-04-17&se=2022-04-06T10%3A08%3A26Z&sr=b&sp=r&sig=6N9Kz4P/t9wZ1sCn3mYdVWZ22IfyyqrUNp3dNyelpJ0%3D
+```
