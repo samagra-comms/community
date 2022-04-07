@@ -2,7 +2,7 @@
 
 * [Overview of Sunbird UCI](README.md)
 
-## Learn
+## 📙 Learn
 
 * [Use Cases](learn/use-cases.md)
 * [Tech Architecture](learn/tech-architecture/README.md)
@@ -19,3 +19,11 @@
   * [ODK Transformer](learn/docs/odk-transformer.md)
   * [Conversation Transformer](learn/docs/transformer.md)
   * [XMessage Specification](learn/docs/xmessage-spec.md)
+
+## 🚀 Use
+
+* [Page 1](use/page-1.md)
+
+## 🤝 Engage
+
+* [Discuss](engage/discuss.md)
