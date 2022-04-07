@@ -1,16 +1,16 @@
 # Use Cases
 
-UCI enables primarily two different kinds of use cases&#x20;
+Unified Communications Interface (UCI) aims to democratize the use of different communication channels such as WhatsApp, Telegram, SMS, email and more across all governance use cases.
 
-![](<../.gitbook/assets/Screenshot 2022-04-07 at 10.26.36 PM.png>)
+![](<../.gitbook/assets/UCI across sectors.png>)
 
 The table below covers some of the major and representative use cases that UCI can potentially enable:
 
 | Category               | As a               | I want to                                               | So that                                                                   |
 | ---------------------- | ------------------ | ------------------------------------------------------- | ------------------------------------------------------------------------- |
 | Administrative Surveys | Government Officer | report progress for educational government initiatives  | I can inform senior government officers about progress in my jurisdiction |
-| Assessments            |                    |                                                         |                                                                           |
-| Reports/Dashboards     |                    |                                                         |                                                                           |
+| Assessments            | Student            |                                                         |                                                                           |
+| Reports/Dashboards     | Teacher            |                                                         |                                                                           |
 | Content broadcasts     |                    |                                                         |                                                                           |
 |                        |                    |                                                         |                                                                           |
 
