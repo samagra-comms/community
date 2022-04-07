@@ -9,6 +9,7 @@
   * [Tech Architecture](learn/tech-architecture/tech-architecture.md)
   * [Design Principles](learn/tech-architecture/design-principles.md)
   * [Tech Stack](learn/tech-architecture/tech-stack.md)
+* [Example Usage Scenario](learn/example-usage-scenario.md)
 * [Product Roadmap](learn/product-roadmap.md)
 
 ## 🚀 Use
