@@ -1,12 +1,12 @@
 # Overview of Sunbird UCI
 
-Everyone needs nudges to get something done,
+`Everyone needs nudges to get something done,`
 
-_whether it is a student prepping for an examination or_&#x20;
+_`whether it is a student prepping for an examination or`_&#x20;
 
-_a district official assessing state of education in their district or_&#x20;
+_`a district official assessing state of education in their district or`_&#x20;
 
-_a youngster looking for a job._&#x20;
+_`a youngster looking for a job.`_&#x20;
 
 Unified Communications Interface (UCI) is an open source platform that enables exactly this - a configurable platform to enable personalised chatbot nudges and micro experiences across channels such as WhatsApp, Telegram, SMS, email and more. With UCI you can plugin any federated set of users, any micro experience generating transformers and any distribution channel adapters.
 
