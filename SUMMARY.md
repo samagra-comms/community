@@ -13,6 +13,7 @@
 
 ## 🚀 Use
 
+* [Source Code](https://github.com/samagra-comms)
 * [Installation Guide](use/docs/README.md)
   * [Conversation Channel Adapters](use/docs/adapter.md)
   * [UCI Build & Execution Flow](use/docs/build-execution-flow.md)
@@ -31,7 +32,7 @@
   * [Create a Transformer](use/contribution-guide/create-a-transformer.md)
   * [Integrate User Data](use/contribution-guide/integrate-user-data.md)
 
-## Reference Solutions & Demos
+## 🎮 Reference Solutions & Demos
 
 * [DIKSHA Tara Bot](reference-solutions-and-demos/diksha-tara-bot.md)
 * [Rozgar Bot](reference-solutions-and-demos/rozgar-bot.md)
