@@ -26,4 +26,4 @@
 
 ## 🤝 Engage
 
-* [Discuss](engage/discuss.md)
+* [Discuss](https://github.com/samagra-comms/community/discussions)
