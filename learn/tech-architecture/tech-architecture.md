@@ -22,3 +22,17 @@ Following is a summary of the relation between the different blocks of UCI :
 `Conversation Logic = {Transformers} + Adapter`&#x20;
 
 `Bot = {Conversation Logics} + {User segments}`
+
+| Real World                                                     | UCI Platform                                                                                                                                            |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Set of end users in a state                                    | User segment 1 containing user registry uri, user ids, user metadata including phone numbers                                                            |
+| Single end user phone number part of the state (eg. 938490834) | User phone number field in user segment object                                                                                                          |
+| Whatsapp                                                       | Communication Channel referenced in the Adapter 1 config                                                                                                |
+| Gupshup                                                        | Service provider referenced in the Adapter 1 config                                                                                                     |
+| Business account phone number 908092348                        | Meta data for adapter 1, referenced in Adapter config                                                                                                   |
+| If fail, then this message                                     | Transformer 1 referencing an XForm with pass/fail message logic                                                                                         |
+| Translate message from English to Hindi                        | Transformer 2 referencing a translation microservice                                                                                                    |
+| Given fail, send message via Whatsapp to student               | Conversation logic 1 = Transformer 1 + Transformer 2 + Adapter 1                                                                                        |
+| Given fail, send same message via SMS to student               | Conversation logic 2 = Transformer 1 + Transformer 2 + Adapter 2 (where adapter 2 config references SMS communication channel and SMS service provider) |
+| Lifecycle of conversation                                      | Conversation = Conversation logic 1 + Conversation logic 2 + User segment 1                                                                             |
+
