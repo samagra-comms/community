@@ -42,12 +42,14 @@ Bind tag indicates which type of message to be sent.
 
 ### 1.3 Example for ODK form of List Message
 
-- ![Survey Tab](../media/ListMessage_SurveyTab.png)
-- ![Choices Tab](../media/ListMessage_CoicesTab.png)
+- Survey Tab  
+![Survey Tab](../../media/ListMessage_SurveyTab.png)
+- Choices Tab  
+![Choices Tab](../../media/ListMessage_CoicesTab.png)
 
 ### 1.4 Example of List Message Preview
 
-![List Message](../media/ListMessage_example.jpeg)
+![List Message](../../media/ListMessage_example.jpeg)
 
 ## 2. Quick Reply Button
 
@@ -89,9 +91,11 @@ Bind tag indicates which type of message to be sent.
 
 ### 2.3 Example for ODK form of Quick Reply Button
 
-- ![Survey Tab](../media/QuickReplyButton_SurveyTab.png)
-- ![Choices Tab](../media/QuickReplyButton_CoicesTab.png)
+- Survey Tab  
+![Survey Tab](../../media/QuickReplyButton_SurveyTab.png)
+- Choices Tab  
+![Choices Tab](../../media/QuickReplyButton_CoicesTab.png)
 
 ### 2.4 Example of Quick Reply Button Preview
 
-![Quick Reply Button](../media/QuickReplyButton_Example.jpeg)
+![Quick Reply Button](../../media/QuickReplyButton_Example.jpeg)
