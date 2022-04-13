@@ -94,7 +94,7 @@ Bind tag indicates which type of message to be sent.
 - Survey Tab  
 ![Survey Tab](../../media/QuickReplyButton_SurveyTab.png)
 - Choices Tab  
-![Choices Tab](../../media/QuickReplyButton_CoicesTab.png)
+![Choices Tab](../../media/QuickReplyButton_ChoicesTab.png)
 
 ### 2.4 Example of Quick Reply Button Preview
 
