@@ -22,11 +22,6 @@ In name, write the same Field Name that we wrote in **type**.
 - **label** : `<text>`\
 In label, we can write text content that we want to attach with the message.
 
-- **required** : `Yes`\
-This field has to be Yes, as the user will select at least one of the options from list items.
-
-- **bind::flow** : `employerReg`
-
 - **bind::stylingTags** : `list`
 Bind tag indicates which type of message to be sent.
 
@@ -45,6 +40,14 @@ Bind tag indicates which type of message to be sent.
 - In label of a list item we write up to 24 characters.
 - In label, Alpha Numeric and Spaces are allowed.
 
+### 1.3 Example for ODK form of List Message
+
+- ![Survey Tab](../media/ListMessage_SurveyTab.png)
+- ![Choices Tab](../media/ListMessage_CoicesTab.png)
+
+### 1.4 Example of List Message Preview
+
+![List Message](../media/ListMessage_example.jpeg)
 
 ## 2. Quick Reply Button
 
@@ -66,11 +69,6 @@ In name, write same Field Name that we wrote in **type**.
 - **label** : `<text>`\
 In label, we can write text content that we want to attach with a message.
 
-- **required** : `Yes`\
-This field has to be Yes, as the user will click at least one of Quick Reply Buttons.
-
-- **bind::flow** : `employerReg`
-
 - **bind::stylingTags** : `buttonsForListItems`
 Bind tag indicates which type of message to be sent.
 
@@ -88,3 +86,12 @@ Bind tag indicates which type of message to be sent.
 - We can add up to 3 Buttons in a single Quick Reply Message. 
 - In label of a button we write up to 20 characters.
 - In label, Alpha Numeric and Spaces are allowed.
+
+### 2.3 Example for ODK form of Quick Reply Button
+
+- ![Survey Tab](../media/QuickReplyButton_SurveyTab.png)
+- ![Choices Tab](../media/QuickReplyButton_CoicesTab.png)
+
+### 2.4 Example of Quick Reply Button Preview
+
+![Quick Reply Button](../media/QuickReplyButton_Example.jpeg)
