@@ -20,7 +20,7 @@ Column _type_ describes the property of any particular message.
 Column _name_ refers to unique _field_name_ of any message.
  
 - **label** : `<text>`\
-In label, we can write text content that we want to send to user, If there are any choices available for say _slect one field_ the choices will be appended with this text content.
+In label, we can write text content that we want to send to user, If there are any choices available for say _select one field_, the choices will be appended with this text content.
  
 - **bind::stylingTags** : `list`\
 Bind tag indicates, how a _select choice_ option should be displayed to user as list or buttons. It is also used to define the media type a message.
@@ -69,7 +69,7 @@ Column _type_ describes the property of any particular message.
 Column _name_ refers to unique _field_name_ of any message.
  
 - **label** : `<text>`\
-In label, we can write text content that we want to send to the user, If there are any choices available for say _slect one field_ the choices will be appended with this text content.
+In label, we can write text content that we want to send to user, If there are any choices available for say _select one field_, the choices will be appended with this text content.
  
 - **bind::stylingTags** : `buttonsForListItems`\
 Bind tag indicates, how a select choice option should be displayed to user as list or buttons. It is also used to define the media type a message.
