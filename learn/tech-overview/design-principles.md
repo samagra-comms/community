@@ -1,7 +1,5 @@
 # Design Principles
 
-**Population scale** - Asynchronous everywhere with independently scalable small services. Databases that scale horizontally - Cassandra for persistence; Kafka pipeline for decoupling the Saga transactions. Caching at all levels. Deployment auto scalable based on Kafka queue - HPA (k8s).
-
 **Plugin Based -** Adapters, Transformers and Users can all be injected by external providers. Allowing for un-opinionated implementation of specs (which are kept minimal) allowing for simpler, wider and faster adoption.
 
 **Minimal Micro-services -** A simple structure on how the micro-services will interact with each other (specs) and how the information will be stored and processed.
@@ -15,3 +13,5 @@
 **Data Federation** - All data is secured using JWT and with extreme automation on the building of APIs using data specs.
 
 ![](https://lh6.googleusercontent.com/kpq39YFklZIt1EuxVHMwTzRuqoLF5PKTWF8GIJOdo7yDAt5MdWLuGHLUgHXM9FSFrn9jD75kHJ5dS2fzu2QHDBFyzzT6FZM7oPbpMmq8sUbHv2RaVsosGh8\_xMooy6W7lBQ5KBCC)
+
+**Population scale** - Asynchronous everywhere with independently scalable small services. Databases that scale horizontally - Cassandra for persistence; Kafka pipeline for decoupling the Saga transactions. Caching at all levels. Deployment auto scalable based on Kafka queue - HPA (k8s).

@@ -1,4 +1,8 @@
-# Use Cases
+---
+coverY: 0
+---
+
+# UCI use cases different in sectors
 
 Unified Communications Interface (UCI) aims to democratize the use of different communication channels such as WhatsApp, Telegram, SMS, email and more across all governance use cases.
 

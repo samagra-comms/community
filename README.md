@@ -6,3 +6,12 @@ Unified Communications Interface (UCI) is an open source platform that enables e
 
 UCI powers governments to create and manage conversations with citizens and with its own officials. Through UCI governments can seamlessly setup simple and complex conversations using a multi-channel approach.
 
+**Problem Statement**
+
+**Vision of UCI**
+
+**Benefits of UCI**
+
+**How UCI Functions**
+
+**What UCI offers**

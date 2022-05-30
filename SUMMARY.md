@@ -4,13 +4,13 @@
 
 ## 📙 Learn
 
-* [Use Cases](learn/use-cases.md)
-* [Tech Architecture](learn/tech-architecture/README.md)
-  * [Tech Architecture](learn/tech-architecture/tech-architecture.md)
-  * [Design Principles](learn/tech-architecture/design-principles.md)
-  * [Tech Stack](learn/tech-architecture/tech-stack.md)
-* [Example Usage Scenario](learn/example-usage-scenario.md)
-* [Product Roadmap](learn/product-roadmap.md)
+* [UCI use cases different in sectors](learn/uci-use-cases.md)
+* [UCI in Action - Quiz on Whatsapp Bot](learn/uci-in-action.md)
+* [Tech Overview](learn/tech-overview/README.md)
+  * [Glossary](learn/tech-overview/glossary.md)
+  * [High-level Architecture Design](learn/tech-overview/high-level-tech-architecture.md)
+  * [Design Principles](learn/tech-overview/design-principles.md)
+  * [Tech Stack](learn/tech-overview/tech-stack.md)
 
 ## 🚀 Use
 
