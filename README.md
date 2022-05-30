@@ -15,3 +15,11 @@ UCI powers governments to create and manage conversations with citizens and with
 **How UCI Functions**
 
 **What UCI offers**
+
+****
+
+**ToDo:**
+
+* Define the Sections, sub-sections - Saket
+* Add details in each sub-section - Saket
+* Make each sub-section interactive with some images - Saket via Prasanna

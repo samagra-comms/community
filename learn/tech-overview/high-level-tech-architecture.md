@@ -1,4 +1,4 @@
-# Tech Architecture
+# High-level Architecture Design
 
 The block diagram below outlines various components that come together to form the Unified Communications Interface (UCI):
 
@@ -36,3 +36,9 @@ Following is a summary of the relation between the different blocks of UCI :
 | Given fail, send same message via SMS to student               | Conversation logic 2 = Transformer 1 + Transformer 2 + Adapter 2 (where adapter 2 config references SMS communication channel and SMS service provider) |
 | Lifecycle of conversation                                      | Conversation = Conversation logic 1 + Conversation logic 2 + User segment 1                                                                             |
 
+
+
+**ToDo:**
+
+* Move some sections and content from this page - Pankaj
+* Review this page and its sections - Saket

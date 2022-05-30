@@ -1,2 +1,0 @@
-# DIKSHA Tara Bot
-

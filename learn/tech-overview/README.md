@@ -12,3 +12,10 @@ The section is structured in 4 parts:
 
 ****[**Tech Stack**](tech-stack.md) **** - This section gives an introduction to the tech stack used of UCI
 
+
+
+**ToDo:**
+
+* Update Overview section - saket
+* Write a brief description about each of the steps - Saket
+
