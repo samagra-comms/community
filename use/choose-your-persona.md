@@ -1,15 +1,10 @@
+---
+description: Choose the Persona that fits you best to view next steps
+---
+
 # Choose your Persona
 
-****[**Adopter**](adopter/) **** - I want to use Sunbird UCI in my own project and I want to set up my own instance of Sunbird UCI
-
-****[**Developer**](developer/) **** - I am an open-source enthusiast and I want to contribute to the Sunbird UCI
-
-****[**Auditor**](auditor/) **** - I am exploring Sunbird UCI, I want to experience and explore the power of Sunbird UCI
-
-
-
-
-
-**ToDo:**
-
-* Make this page more engaging with persona icons - saket
+![Adopter&#x20;
+"I want to setup and use Sunbird UCI on my own server for my project"](../.gitbook/assets/Adopter.png) ![Developer&#x20;
+"I am an open-source enthusiast and I want to contribute to the Sunbird UCI"](../.gitbook/assets/Developer.png) ![Auditor
+"I am exploring Sunbird UCI, I want to experience and explore the features"](../.gitbook/assets/Auditor.png)
