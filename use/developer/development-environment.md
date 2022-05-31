@@ -162,26 +162,32 @@ In this doc we'll configure an IDE (Eclipse/IntelliJ) for setting up development
     ```
     Then open project as <b>maven project</b> in IntelliJ.
 
-* For importing multiple projects in intelliJ click on <b>maven</b> (in right toolbar) and click on <b>+</b> for opening multiple projects.  
+* For importing multiple projects in intelliJ click on <b>maven</b> (in right toolbar) and click on <b>+</b> for opening multiple projects.
+
 ![add multiple projects](../../media/add_multiple_projects.png)
 
 * After importing all the projects in your IntelliJ, now reload all maven project for first time setup.
+
 ![reload projects](../../media/reload_all_maven_projects.png)
 
-### 2.2 setting configurations
+### 2.2 Setting configurations
 
 For setting configuration for any project follow below steps :
 
-* Goto edit configuration. 
+* Goto edit configuration.
+
 ![edit config](../../media/edit_configuration.png)
 
 * Add new configuration of type Application.
+
 ![new conf type application](../../media/type_application.png)
 
 * Now give name to config, select module, select JRE, give path of main class of that module, select working directory as shown in picture. 
+
 ![define properties](../../media/add_name_and_module.png)
 
 * For handling enviorment variables, click on edit enviorment variables (if this colum not shown by default, enable it from <b>modify-options</b>).
+
 ![enviorment variables](../../media/env_variable.png)
 
 * Make these configuration for following projects :  
@@ -192,7 +198,7 @@ outbound
 
 ### 2.3 Build and Run :
 
-now we can build and Run the projects using below steps :
+Now we can build and Run the projects using below steps :
 
 * Required Plugins to build the project :  
     maven  
