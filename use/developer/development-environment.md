@@ -1,20 +1,20 @@
 # Development environment
 
-**Backend Setup**
+[Backend Setup](#backend-setup)
 
-**Setting up IDE**
+[Setting up IDE](#setting-up-ide)
 
-**Environment variable setup**
+[Environment variable setup](#enviroment-variable-setup)
 
-**Build and Execute UCI**
+[Debug services](#debug-services)
 
-**Debug services**
+[Build and Execute UCI](#build-and-execute-uci)
 
-**Testing the API**
+[Testing the API](#testing-the-api)
 
-**Frontend Setup (Admin Console)**
+[Frontend Setup (Admin Console)](#frontend-setup-admin-console)
 
-**Frontend Setup (PWA)**
+[Frontend Setup (PWA)](#frontend-setup-pwa)
 
 # Backend Setup
 

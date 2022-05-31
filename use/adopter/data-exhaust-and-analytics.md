@@ -1,9 +1,5 @@
 # Data Exhaust and Analytics
 
-
-
-
-
 ### **Overview**
 
 We can generate a data exhaust, which is a list of conversations between the bot and the user. When the bot and user converse, our service sends an event (AKA telemetry event) to a third-party service, which then uploads it to the blob storage.

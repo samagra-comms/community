@@ -1,14 +1,14 @@
 # UCI Basics
 
-**XMessage Specification**
+[XMessage Specification](#xmessage-specification)
 
-**Transformer - ODK, Conversation**
+[Transformer ODK Conversation](#transformer-odk-conversation)
 
-**Creating a new transformer**
+[Creating a new transformer](#creating-a-new-transformer)
 
-**User Segment**
+[User Segment](#user-segment)
 
-**Adapters - Overview and how to add a new adapter**
+[Adapters Overview and how to add a new adapter](#adapters-overview-and-how-to-add-a-new-adapter)
 
 ****
 
@@ -374,7 +374,7 @@ This specification does not provide a mechanism for removing styling from indivi
 To be updated based on incoming feedback. Feel free to write into tech@samagragovernance.in in case you have questions, feedback or want to know more!
 
 
-# Transformer - ODK, Conversation
+# Transformer ODK Conversation
 
 
 ## 1. Overview
@@ -524,7 +524,9 @@ It saves the gupshup message entity & gupshup state entity with properties user 
 
 # Creating a new transformer
 
-# Adapters - Overview and how to add a new adapter
+# User Segment
+
+# Adapters Overview and how to add a new adapter
 
 ## 1. Conversation Channel Adapters
 
