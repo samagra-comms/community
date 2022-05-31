@@ -22,8 +22,8 @@ All transformers are named as `<Action>Transformer`; for example PDFTransformer 
     public XMessage transform(XMessage nextMsg) //Takes in XMessage and return the next message.
   ```
 
+
 ## 3. Sample Code
-Sample code to transform text to lowercase characters before sendind to outbound
 
     ```java
         public class DemoTransformer extends TransformerProvider {
@@ -83,7 +83,6 @@ Sample code to transform text to lowercase characters before sendind to outbound
             }
         }
     ```
-
 
 All transformers with the implementation same as above exmaple will be valid. A detailed example transformer can be found [here](https://github.com/samagra-comms/transformer/blob/release-4.9.0/src/main/java/com/uci/transformer/odk/ODKConsumerReactive.java).
 
