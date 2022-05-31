@@ -2,7 +2,9 @@
 
 **Backend Setup**
 
-**Frontend Setup**
+**Frontend Setup (Admin Console)**
+
+**Frontend Setup (PWA)**
 
 **Environment variable setup**
 
