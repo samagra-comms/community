@@ -14,479 +14,457 @@
 
 **Build and Execute UCI**
 
-****
+## Backend Setup
 
-**ToDo:**
+### Getting Started
 
-*   ## Development environment
+### 1. Introduction
 
-    **Backend Setup**
+The Unified Communications Interface (UCI) aims to democratize the use of different communication channels such as WhatsApp, Telegram, SMS, email and more for governance use cases through a standard configurable manner that is reusable and scalable across all governance use cases.
 
-    **Frontend Setup (Admin Console)**
+### 2. Overview
 
-    **Frontend Setup (PWA)**
+This Document help you to Setup UCI (Unified Communications Interface) Project and test APIs on your local machine.
 
-    **Environment variable setup**
+### 3. Prerequisite
 
-    **Testing the API**
+1. Install Git
 
-    **Debug services**
+```
+    $ sudo apt update
+    $ sudo apt install git
+```
 
-    **Build and Execute UCI**
+1. Install Java 11
 
-    ***
+```
+    $ sudo apt-get install openjdk-11-jdk
+```
 
-    ## Backend Setup
+1. Install Docker
+   * install docker using [docker](https://docs.docker.com/engine/install/ubuntu/) installation guide.
+2. Install Cassandra
+   * install cassandra using [cassandra](https://cassandra.apache.org/doc/latest/cassandra/getting\_started/installing.html) installation guide.
+3. Install Maven
 
-    ### Getting Started
+```
+    $ sudo apt install maven
+```
 
-    ### 1. Introduction
+1. Lombok Enabled
+   * Enable [lombok](https://www.baeldung.com/lombok-ide) in eclipse / STS / intelliJ.
+2. Install IDE ([STS](https://spring.io/tools) / [Eclipse](https://www.eclipse.org/downloads/) / [IntelliJ](https://www.jetbrains.com/idea/download/))
+3. Install [Postman](https://www.postman.com/downloads/) (for testing API)
+4. Install Kafka, Zookeeper
+   * install kafka using [kafka](https://www.onlinetutorialspoint.com/kafka/how-to-install-apache-kafka-on-ubuntu-18-04.html) installation guide.
+5. Install Redis
+   * Install Redis using installation [guide](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-redis-on-ubuntu-18-04).
+6. Install Postgresql
+   * Setup PostgreSQL using [Quickstart](https://www.postgresql.org/download/linux/ubuntu/) guide.
 
-    The Unified Communications Interface (UCI) aims to democratize the use of different communication channels such as WhatsApp, Telegram, SMS, email and more for governance use cases through a standard configurable manner that is reusable and scalable across all governance use cases.
+### 4. Setup
 
-    ### 2. Overview
+#### 4.1 For first time :
 
-    This Document help you to Setup UCI (Unified Communications Interface) Project and test APIs on your local machine.
+1. Fork following repositories :
 
-    ### 3. Prerequisite
+```
+    https://github.com/samagra-comms/dao
+    https://github.com/samagra-comms/utils
+    https://github.com/samagra-comms/message-rosa
+    https://github.com/samagra-comms/adapter
+    https://github.com/samagra-comms/outbound
+    https://github.com/samagra-comms/orchestrator
+    https://github.com/samagra-comms/inbound
+    https://github.com/samagra-comms/transformer
+```
 
-    1. Install Git
+1. Clone all forked repositories
 
-    ```
-        $ sudo apt update
-        $ sudo apt install git
-    ```
+```
+    git clone repository-link
+```
 
-    1. Install Java 11
+1. Import all cloned repos into IDE
+2. if project is not build by default then build using :
 
-    ```
-        $ sudo apt-get install openjdk-11-jdk
-    ```
+```
+    $ mvn clean install -U 
+```
 
-    1. Install Docker
-       * install docker using [docker](https://docs.docker.com/engine/install/ubuntu/) installation guide.
-    2. Install Cassandra
-       * install cassandra using [cassandra](https://cassandra.apache.org/doc/latest/cassandra/getting\_started/installing.html) installation guide.
-    3. Install Maven
+1. Add [Enviorment Variable](../docs/environment-variables.md) in IDE.
 
-    ```
-        $ sudo apt install maven
-    ```
+#### 4.2 Routine :
 
-    1. Lombok Enabled
-       * Enable [lombok](https://www.baeldung.com/lombok-ide) in eclipse / STS / intelliJ.
-    2. Install IDE ([STS](https://spring.io/tools) / [Eclipse](https://www.eclipse.org/downloads/) / [IntelliJ](https://www.jetbrains.com/idea/download/))
-    3. Install [Postman](https://www.postman.com/downloads/) (for testing API)
-    4. Install Kafka, Zookeeper
-       * install kafka using [kafka](https://www.onlinetutorialspoint.com/kafka/how-to-install-apache-kafka-on-ubuntu-18-04.html) installation guide.
-    5. Install Redis
-       * Install Redis using installation [guide](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-redis-on-ubuntu-18-04).
-    6. Install Postgresql
-       * Setup PostgreSQL using [Quickstart](https://www.postgresql.org/download/linux/ubuntu/) guide.
+1. Run spring boot application for following projects :
+   * Inbound
+   * Orchestrator
+   * Transformer
+   * Outbound
 
-    ### 4. Setup
+### 5. Testing API
 
-    #### 4.1 For first time :
+#### 5.1 For first time :
 
-    1. Fork following repositories :
+1. import following files to postman :
 
-    ```
-        https://github.com/samagra-comms/dao
-        https://github.com/samagra-comms/utils
-        https://github.com/samagra-comms/message-rosa
-        https://github.com/samagra-comms/adapter
-        https://github.com/samagra-comms/outbound
-        https://github.com/samagra-comms/orchestrator
-        https://github.com/samagra-comms/inbound
-        https://github.com/samagra-comms/transformer
-    ```
+```
+    Samagra Inbound - Apis.postman_collection
+    Samagra Transformer - Apis.postman_collection
+```
 
-    1. Clone all forked repositories
+1.  create new enviorment **inbound** with properties :
 
-    ```
-        git clone repository-link
-    ```
+    | Variable |   Type  |  Initial Value |  Current Value |
+    | :------: | :-----: | :------------: | :------------: |
+    |  baseUrl | default | localhost:8085 | localhost:8085 |
+2.  create new enviorment **transformer** with following properties :
 
-    1. Import all cloned repos into IDE
-    2. if project is not build by default then build using :
+    | Variable |   Type  |  Initial Value |  Current Value |
+    | :------: | :-----: | :------------: | :------------: |
+    |  baseUrl | default | localhost:9091 | localhost:9091 |
 
-    ```
-        $ mvn clean install -U 
-    ```
+#### 5.2 Routine :
 
-    1. Add [Enviorment Variable](../docs/environment-variables.md) in IDE.
+1. Test bot APIs with :
 
-    #### 4.2 Routine :
+```
+    Collections
+    .
+    └── Samagra Inbound - Apis 
+                └── Bot - Messages
+                        └── ...
+```
 
-    1. Run spring boot application for following projects :
-       * Inbound
-       * Orchestrator
-       * Transformer
-       * Outbound
+## Setting up IDE
 
-    ### 5. Testing API
+### 1. Overview
 
-    #### 5.1 For first time :
+In this doc we'll configure an IDE (Eclipse/IntelliJ) for setting up development enviorment for UCI.
 
-    1. import following files to postman :
+### 2. Setting up IntelliJ
 
-    ```
-        Samagra Inbound - Apis.postman_collection
-        Samagra Transformer - Apis.postman_collection
-    ```
+#### 2.1 Importing Projects :
 
-    1.  create new enviorment **inbound** with properties :
-
-        | Variable |   Type  |  Initial Value |  Current Value |
-        | :------: | :-----: | :------------: | :------------: |
-        |  baseUrl | default | localhost:8085 | localhost:8085 |
-    2.  create new enviorment **transformer** with following properties :
-
-        | Variable |   Type  |  Initial Value |  Current Value |
-        | :------: | :-----: | :------------: | :------------: |
-        |  baseUrl | default | localhost:9091 | localhost:9091 |
-
-    #### 5.2 Routine :
-
-    1. Test bot APIs with :
+*   **Import new project :**
 
     ```
-        Collections
-        .
-        └── Samagra Inbound - Apis 
-                    └── Bot - Messages
-                            └── ...
+        File -> New -> Project from existing source  
     ```
 
-    ## Setting up IDE
+    Then open project as **maven project** in IntelliJ.
+* For importing multiple projects in intelliJ click on **maven** (in right toolbar) and click on **+** for opening multiple projects.\
 
-    ### 1. Overview
+* After importing all the projects in your IntelliJ, now reload all maven project for first time setup.&#x20;
 
-    In this doc we'll configure an IDE (Eclipse/IntelliJ) for setting up development enviorment for UCI.
+#### 2.2 setting configurations
 
-    ### 2. Setting up IntelliJ
+For setting configuration for any project follow below steps :
 
-    #### 2.1 Importing Projects :
+* Goto edit configuration.&#x20;
+* Add new configuration of type Application.&#x20;
+* Now give name to config, select module, select JRE, give path of main class of that module, select working directory as shown in picture.&#x20;
+* For handling enviorment variables, click on edit enviorment variables (if this colum not shown by default, enable it from **modify-options**).&#x20;
+* Make these configuration for following projects :\
+  inbound\
+  orchestrator\
+  transformer\
+  outbound
 
-    *   **Import new project :**
+#### 2.3 Build and Run :
 
-        ```
-            File -> New -> Project from existing source  
-        ```
+now we can build and Run the projects using below steps :
 
-        Then open project as **maven project** in IntelliJ.
-    * For importing multiple projects in intelliJ click on **maven** (in right toolbar) and click on **+** for opening multiple projects.\
+* Required Plugins to build the project :\
+  maven\
+  docker\
+  lombok
+* Now simply select configuration and click on Run(Shift+F10), to run the project.
 
-    * After importing all the projects in your IntelliJ, now reload all maven project for first time setup.&#x20;
+### 3. Setting up Eclipse
 
-    #### 2.2 setting configurations
+#### 3.1 Importing Projects :
 
-    For setting configuration for any project follow below steps :
+* **Import Projects into Eclipse :**
 
-    * Goto edit configuration.&#x20;
-    * Add new configuration of type Application.&#x20;
-    * Now give name to config, select module, select JRE, give path of main class of that module, select working directory as shown in picture.&#x20;
-    * For handling enviorment variables, click on edit enviorment variables (if this colum not shown by default, enable it from **modify-options**).&#x20;
-    * Make these configuration for following projects :\
-      inbound\
-      orchestrator\
-      transformer\
-      outbound
+```
+File 
+    -> Import 
+        -> Projects From Git 
+            -> Existing Local Repository 
+                -> Select You project
+                    -> Finish
+```
 
-    #### 2.3 Build and Run :
+Import all the project like this.
 
-    now we can build and Run the projects using below steps :
+* After Importing, Update all project for first time setup.
 
-    * Required Plugins to build the project :\
-      maven\
-      docker\
-      lombok
-    * Now simply select configuration and click on Run(Shift+F10), to run the project.
+```
+Project
+    -> Update Maven Project
+        -> Select All Projects
+            -> Update
+```
 
-    ### 3. Setting up Eclipse
+#### 3.2 setting configurations
 
-    #### 3.1 Importing Projects :
+For setting configuration for any project follow below steps :
 
-    * **Import Projects into Eclipse :**
+* Make new Configuration for spring-boot-app
 
-    ```
-    File 
-        -> Import 
-            -> Projects From Git 
-                -> Existing Local Repository 
-                    -> Select You project
-                        -> Finish
-    ```
+```
+Run
+    -> Run Configurations
+        -> Spring Boot App
+```
 
-    Import all the project like this.
+* Now give name to config, select project, select main class of project and click Apply.\
 
-    * After Importing, Update all project for first time setup.
+* Now for handling Enviorment Variables click on Enviorment in config window.\
+  Here we can put enviorment variable's value.&#x20;
+* Make these configuration for following projects :\
+  inbound\
+  orchestrator\
+  transformer\
+  outbound
 
-    ```
-    Project
-        -> Update Maven Project
-            -> Select All Projects
-                -> Update
-    ```
+#### 3.3 Build and Run :
 
-    #### 3.2 setting configurations
+To build and Run in Eclipse, Simply Run the project as Spring Boot App.
 
-    For setting configuration for any project follow below steps :
+```
+Run
+    -> Run As
+        -> Spring Boot App
+```
 
-    * Make new Configuration for spring-boot-app
+## Enviroment variable setup
 
-    ```
-    Run
-        -> Run Configurations
-            -> Spring Boot App
-    ```
+### 1. Add enviorment variable in IDE
 
-    * Now give name to config, select project, select main class of project and click Apply.\
+#### 1.1 Kafka
 
-    * Now for handling Enviorment Variables click on Enviorment in config window.\
-      Here we can put enviorment variable's value.&#x20;
-    * Make these configuration for following projects :\
-      inbound\
-      orchestrator\
-      transformer\
-      outbound
+Kafka is used to build real-time streaming data pipelines and real-time streaming applications. A data pipeline reliably processes and moves data from one system to another, and a streaming application is an application that consumes streams of data.
 
-    #### 3.3 Build and Run :
+we use XMessage to converse between our services, It is sent to Kafka topics. Then different services consume these XMessages from Kafka and process further.
 
-    To build and Run in Eclipse, Simply Run the project as Spring Boot App.
+* Setup Kafka with [quickstart](https://kafka.apache.org/quickstart) guide.
+* Generate the following Kafka topics and add following values :
 
-    ```
-    Run
-        -> Run As
-            -> Spring Boot App
-    ```
+```
+    BOOTSTRAP_SERVERS = # Kafka bootstrap server host/IP
+    REGISTRY_URL = # Schema Registry URL generated from kafka
+    # kafka topics for sending and receiving XMessage from our services
+    KAFKA_CAMPAIGN_TOPIC=campaign
+    KAFKA_INBOUND_ERROR_TOPIC=inbound-error
+    KAFKA_INBOUND_GS_OPTED_OUT_TOPIC=gs-opted-out
+    KAFKA_INBOUND_PROCESSED_TOPIC=inbound-processed
+    KAFKA_INBOUND_UNPROCESSED_TOPIC=inbound-unprocessed
+    KAFKA_LOGS_TOPIC=uci-telemetry-logs
+    KAFKA_ODK_TRANSFORMER_TOPIC=com.odk.transformer
+    KAFKA_ODK_TRANSFORMER_TOPIC_PATTERN=com.odk.*
+    KAFKA_OUTBOUND_TOPIC=outbound
+    KAFKA_TELEMETRY_TOPIC=telemetry
+```
 
-    ## Enviroment variable setup
+#### 1.2 Redis :
 
-    ### 1. Add enviorment variable in IDE
+We are using Redis for caching the latest XMessage sent/received by user. We would be further using this for caching other elements.
 
-    #### 1.1 Kafka
+* Host Redis Using Redis [Quickstart](https://redis.io/topics/quickstart) and add below values :
 
-    Kafka is used to build real-time streaming data pipelines and real-time streaming applications. A data pipeline reliably processes and moves data from one system to another, and a streaming application is an application that consumes streams of data.
+```
+    REDIS_DB_INDEX = # Database Index
+    REDIS_HOST = # Redis Host
+    REDIS_PORT = # Redis port
+```
 
-    we use XMessage to converse between our services, It is sent to Kafka topics. Then different services consume these XMessages from Kafka and process further.
+#### 1.3 ODK (Open Data Kit):
 
-    * Setup Kafka with [quickstart](https://kafka.apache.org/quickstart) guide.
-    * Generate the following Kafka topics and add following values :
+ODK is being used to define the flow/logic of a bot. use this link [ODK](https://docs.getodk.org/aggregate-digital-ocean/) to set up and generate its credentials.
 
-    ```
-        BOOTSTRAP_SERVERS = # Kafka bootstrap server host/IP
-        REGISTRY_URL = # Schema Registry URL generated from kafka
-        # kafka topics for sending and receiving XMessage from our services
-        KAFKA_CAMPAIGN_TOPIC=campaign
-        KAFKA_INBOUND_ERROR_TOPIC=inbound-error
-        KAFKA_INBOUND_GS_OPTED_OUT_TOPIC=gs-opted-out
-        KAFKA_INBOUND_PROCESSED_TOPIC=inbound-processed
-        KAFKA_INBOUND_UNPROCESSED_TOPIC=inbound-unprocessed
-        KAFKA_LOGS_TOPIC=uci-telemetry-logs
-        KAFKA_ODK_TRANSFORMER_TOPIC=com.odk.transformer
-        KAFKA_ODK_TRANSFORMER_TOPIC_PATTERN=com.odk.*
-        KAFKA_OUTBOUND_TOPIC=outbound
-        KAFKA_TELEMETRY_TOPIC=telemetry
-    ```
+```
+    ODK_PASS = # ODK Passowrd
+    ODK_URL = # ODK URL
+    ODK_USER = # ODK Username
+```
 
-    #### 1.2 Redis :
+#### 1.4 FusionAuth :
 
-    We are using Redis for caching the latest XMessage sent/received by user. We would be further using this for caching other elements.
+Fusion Auth is being used to store and Authenticate user data it also stores the user consent to fetch its data (in decrypted form). Deploy Fusion Auth with installation [Guide](https://fusionauth.io/docs/v1/tech/installation-guide/docker).
 
-    * Host Redis Using Redis [Quickstart](https://redis.io/topics/quickstart) and add below values :
+* Generate Fusion Auth Key and Url using [Documentation](https://fusionauth.io/docs/v1/tech/apis/keys#generate-a-key).
 
-    ```
-        REDIS_DB_INDEX = # Database Index
-        REDIS_HOST = # Redis Host
-        REDIS_PORT = # Redis port
-    ```
+```
+    FUSIONAUTH_KEY = # Generated Fusion Key
+    FUSIONAUTH_URL = # Generated Fusion URL
+```
 
-    #### 1.3 ODK (Open Data Kit):
+#### 1.5 Assessment answer comparison characters :
 
-    ODK is being used to define the flow/logic of a bot. use this link [ODK](https://docs.getodk.org/aggregate-digital-ocean/) to set up and generate its credentials.
+We are using assessment characters to go to the previous state or restart the conversation.
 
-    ```
-        ODK_PASS = # ODK Passowrd
-        ODK_URL = # ODK URL
-        ODK_USER = # ODK Username
-    ```
+```
+    # To restart the bot
+    ASSESSMENT_GO_TO_START_CHAR=*
+    # To go back to the previous state
+    ASSESSMENT_ONE_LEVEL_UP_CHAR=#
+```
 
-    #### 1.4 FusionAuth :
+#### 1.6 Caffeine :
 
-    Fusion Auth is being used to store and Authenticate user data it also stores the user consent to fetch its data (in decrypted form). Deploy Fusion Auth with installation [Guide](https://fusionauth.io/docs/v1/tech/installation-guide/docker).
+Caffeine is a high-performance Java 8 based caching library providing a near-optimal hit rate. It provides an in-memory cache very similar to the Google Guava API.
 
-    * Generate Fusion Auth Key and Url using [Documentation](https://fusionauth.io/docs/v1/tech/apis/keys#generate-a-key).
+Caffeine is being used to cache all the API calls to [federation service](https://github.com/samagra-comms/uci-apis/).
 
-    ```
-        FUSIONAUTH_KEY = # Generated Fusion Key
-        FUSIONAUTH_URL = # Generated Fusion URL
-    ```
+```
+    CAFFEINE_CACHE_EXPIRE_DURATION=300
+    CAFFEINE_CACHE_MAX_SIZE=0
+```
 
-    #### 1.5 Assessment answer comparison characters :
+#### 1.7 Postgresql :
 
-    We are using assessment characters to go to the previous state or restart the conversation.
+PostgreSQL is an advanced, enterprise-class, and open-source relational database system. PostgreSQL supports both SQL (relational) and JSON (non-relational) querying.
 
-    ```
-        # To restart the bot
-        ASSESSMENT_GO_TO_START_CHAR=*
-        # To go back to the previous state
-        ASSESSMENT_ONE_LEVEL_UP_CHAR=#
-    ```
+It is being used to store the question and assessment data and respective to ODK form questions.
 
-    #### 1.6 Caffeine :
+* Setup postgreSQL using [guide](https://zhao-li.medium.com/getting-started-with-postgresql-using-docker-compose-34d6b808c47c).
+* Create a new Database and add the following values :
 
-    Caffeine is a high-performance Java 8 based caching library providing a near-optimal hit rate. It provides an in-memory cache very similar to the Google Guava API.
+```
+    FORMS_DB_HOST = # Database Host
+    FORMS_DB_NAME = # Database Name
+    FORMS_DB_USERNAME = # Database Username
+    FORMS_DB_PASSWORD = # Database Password
+    FORMS_DB_PORT = # Port
+    FORMS_DB_URL = # Database URL
+```
 
-    Caffeine is being used to cache all the API calls to [federation service](https://github.com/samagra-comms/uci-apis/).
+#### 1.8 Netcore :
 
-    ```
-        CAFFEINE_CACHE_EXPIRE_DURATION=300
-        CAFFEINE_CACHE_MAX_SIZE=0
-    ```
+Netcore is a service provider which is being used to sent/receive messages from the user for various channels (Whats App, Telegram, etc.)
 
-    #### 1.7 Postgresql :
+Please contact the Netcore administrator to get these details
 
-    PostgreSQL is an advanced, enterprise-class, and open-source relational database system. PostgreSQL supports both SQL (relational) and JSON (non-relational) querying.
+```
+    NETCORE_WHATSAPP_AUTH_TOKEN = # Authentication Token 
+    NETCORE_WHATSAPP_SOURCE = # Source ID for sending messages to Netcore 
+    NETCORE_WHATSAPP_URI = # Netcore API Base URL
+```
 
-    It is being used to store the question and assessment data and respective to ODK form questions.
+#### 1.9 Cassandra :
 
-    * Setup postgreSQL using [guide](https://zhao-li.medium.com/getting-started-with-postgresql-using-docker-compose-34d6b808c47c).
-    * Create a new Database and add the following values :
+Cassandra is one of the most efficient and widely-used NoSQL databases. One of the key benefits of this system is that it offers highly-available service and no single point of failure.
 
-    ```
-        FORMS_DB_HOST = # Database Host
-        FORMS_DB_NAME = # Database Name
-        FORMS_DB_USERNAME = # Database Username
-        FORMS_DB_PASSWORD = # Database Password
-        FORMS_DB_PORT = # Port
-        FORMS_DB_URL = # Database URL
-    ```
+Cassandra is being used to store XMessages.
 
-    #### 1.8 Netcore :
+deploy Apache [Cassandra](https://hub.docker.com/r/bitnami/cassandra/) and add below values
 
-    Netcore is a service provider which is being used to sent/receive messages from the user for various channels (Whats App, Telegram, etc.)
+```
+    CASSANDRA_KEYSPACE = # Keyspace name
+    CASSANDRA_PORT = # Cassandra Port
+    CASSANDRA_URL = # Cassandra URL
+```
 
-    Please contact the Netcore administrator to get these details
+#### 1.10 Campaign URL and token :
 
-    ```
-        NETCORE_WHATSAPP_AUTH_TOKEN = # Authentication Token 
-        NETCORE_WHATSAPP_SOURCE = # Source ID for sending messages to Netcore 
-        NETCORE_WHATSAPP_URI = # Netcore API Base URL
-    ```
+To connect to [federation service](https://github.com/samagra-comms/uci-apis/) API use the below details:
 
-    #### 1.9 Cassandra :
+Generate campaign admin token using [uci-apis](https://github.com/samagra-comms/uci-apis) project.
 
-    Cassandra is one of the most efficient and widely-used NoSQL databases. One of the key benefits of this system is that it offers highly-available service and no single point of failure.
+```
+    CAMPAIGN_ADMIN_TOKEN = # Authentication token
+    CAMPAIGN_URL = # federation service base URl
+```
 
-    Cassandra is being used to store XMessages.
+#### 1.12 Transport Socket Base URL :
 
-    deploy Apache [Cassandra](https://hub.docker.com/r/bitnami/cassandra/) and add below values
+Outbound base URL for Diksha service provider. We can generate Transport Socket Base URL with [transport-socket](https://github.com/samagra-comms/transport-socket/tree/uci-pwa) Project
 
-    ```
-        CASSANDRA_KEYSPACE = # Keyspace name
-        CASSANDRA_PORT = # Cassandra Port
-        CASSANDRA_URL = # Cassandra URL
-    ```
+```
+    # Sunbird Adapater Outbound URL
+    TRANSPORT_SOCKET_BASE_URL = # Transport Socket Base URL
+```
 
-    #### 1.10 Campaign URL and token :
+#### 1.13 Telemetry
 
-    To connect to [federation service](https://github.com/samagra-comms/uci-apis/) API use the below details:
+we are sending events to telemetry for exhaust generation, the telemetry specs being used is [here](https://github.com/sunbird-specs/Telemetry/blob/master/learn/specification.md).\
+the PData is a unique id assigned to this component
 
-    Generate campaign admin token using [uci-apis](https://github.com/samagra-comms/uci-apis) project.
+```
+    TELEMETRY_EVENT_PDATA_ID = # Telemetry Exhaust PDATA
+```
 
-    ```
-        CAMPAIGN_ADMIN_TOKEN = # Authentication token
-        CAMPAIGN_URL = # federation service base URl
-    ```
+#### 1.14 Other enviorment variables :
 
-    #### 1.12 Transport Socket Base URL :
+```
+    # In which enviorment we are working
+    ENV = dev 
+    WEBCLIENT_HTTP_REQUEST_TIMEOUT = 5
+```
 
-    Outbound base URL for Diksha service provider. We can generate Transport Socket Base URL with [transport-socket](https://github.com/samagra-comms/transport-socket/tree/uci-pwa) Project
+## Testing the API
 
-    ```
-        # Sunbird Adapater Outbound URL
-        TRANSPORT_SOCKET_BASE_URL = # Transport Socket Base URL
-    ```
+## Debug services
 
-    #### 1.13 Telemetry
+#### 1. Overview
 
-    we are sending events to telemetry for exhaust generation, the telemetry specs being used is [here](https://github.com/sunbird-specs/Telemetry/blob/master/learn/specification.md).\
-    the PData is a unique id assigned to this component
+A service can be debugged via a IDE tool if you are using one to run the services or via checking the docker conatiner logs if you are using the docker image to run it.
 
-    ```
-        TELEMETRY_EVENT_PDATA_ID = # Telemetry Exhaust PDATA
-    ```
+#### 2. Order of debugging services
 
-    #### 1.14 Other enviorment variables :
+To debug any issue or error, follow below order. We should check the service in this order as the message processes in this order only.
 
-    ```
-        # In which enviorment we are working
-        ENV = dev 
-        WEBCLIENT_HTTP_REQUEST_TIMEOUT = 5
-    ```
+1. Inbound
+2. Orchestrator
+3. Transformer
+4. Outbound
 
-    ## Testing the API
+A message will be first received in the inbound service to convert the message to XMessage format then it will be sent to the kafka topic which is being listened by the orchestrator service. To check the build/execution flow of the services [click chere](../docs/build-execution-flow.md).
 
-    ## Debug services
+#### 3. Debug on IDE Tool
 
-    #### 1. Overview
+When a service is started from a IDE tool, it will also show the logs associated with the service. If you are not receiving message reply or the service is not starting, please see the logs to check the issue, and work on the solution accordingly.
 
-    A service can be debugged via a IDE tool if you are using one to run the services or via checking the docker conatiner logs if you are using the docker image to run it.
+You can also add debugger to the IDE tool to add break points in the code to check where the issues is generating from. If you don't know how to, check below videos for reference.
 
-    #### 2. Order of debugging services
+* How to add debugger in [Spring boot tool](https://www.youtube.com/watch?v=w5woL3znVuA)
+* How to add debugger in [intellij](https://www.youtube.com/watch?v=1bCgzjatcr4)
 
-    To debug any issue or error, follow below order. We should check the service in this order as the message processes in this order only.
+#### 4. Debug for Docker Image
 
-    1. Inbound
-    2. Orchestrator
-    3. Transformer
-    4. Outbound
+If you have started the services using docker images, you should follow below steps to debug them.
 
-    A message will be first received in the inbound service to convert the message to XMessage format then it will be sent to the kafka topic which is being listened by the orchestrator service. To check the build/execution flow of the services [click chere](../docs/build-execution-flow.md).
+**1. Check All Services logs**
 
-    #### 3. Debug on IDE Tool
+*   Run command below to check logs for all the running services.
 
-    When a service is started from a IDE tool, it will also show the logs associated with the service. If you are not receiving message reply or the service is not starting, please see the logs to check the issue, and work on the solution accordingly.
+    `docker-compose logs --follow --tail 10`
 
-    You can also add debugger to the IDE tool to add break points in the code to check where the issues is generating from. If you don't know how to, check below videos for reference.
+**2. Check Single Service logs**
 
-    * How to add debugger in [Spring boot tool](https://www.youtube.com/watch?v=w5woL3znVuA)
-    * How to add debugger in [intellij](https://www.youtube.com/watch?v=1bCgzjatcr4)
+*   If you are sure about the service which is giving error, we can check the logs for that particular service. First check the container id by running the command below.
 
-    #### 4. Debug for Docker Image
+    `docker ps`
 
-    If you have started the services using docker images, you should follow below steps to debug them.
+It will return a list of running containers. Each container has a container id as shown in the image.
 
-    **1. Check All Services logs**
+*   To check logs for the container, run command
 
-    *   Run command below to check logs for all the running services.
+    `docker logs --follow --tail 10 container_id`
 
-        `docker-compose logs --follow --tail 10`
+To check the logs for kafka/redis etc services, you should follow the above steps.
 
-    **2. Check Single Service logs**
+**5. Common mistakes or errors**
 
-    *   If you are sure about the service which is giving error, we can check the logs for that particular service. First check the container id by running the command below.
+1. Missing environment variables
+2. Connection issues with kafka/cassandra/postgresql etc.
+3. Port in use by another service.
+4. Java version conflict
 
-        `docker ps`
+## Build and Execute UCI
 
-    It will return a list of running containers. Each container has a container id as shown in the image.
+## Frontend Setup (Admin Console)
 
-    *   To check logs for the container, run command
-
-        `docker logs --follow --tail 10 container_id`
-
-    To check the logs for kafka/redis etc services, you should follow the above steps.
-
-    **5. Common mistakes or errors**
-
-    1. Missing environment variables
-    2. Connection issues with kafka/cassandra/postgresql etc.
-    3. Port in use by another service.
-    4. Java version conflict
-
-    ## Build and Execute UCI
-
-    ## Frontend Setup (Admin Console)
-
-    ## Frontend Setup (PWA
+## Frontend Setup (PWA
