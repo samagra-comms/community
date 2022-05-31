@@ -4,7 +4,7 @@
 
 ## 📙 Learn
 
-* [UCI use cases different in sectors](learn/uci-use-cases.md)
+* [UCI use cases across sectors](learn/uci-use-cases.md)
 * [UCI in Action - Quiz on Whatsapp Bot](learn/uci-in-action.md)
 * [Tech Overview](learn/tech-overview/README.md)
   * [Glossary](learn/tech-overview/glossary.md)
