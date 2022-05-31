@@ -16,8 +16,6 @@
 
 **Frontend Setup (PWA)**
 
-****
-
 # Backend Setup
 
 ## Getting Started
