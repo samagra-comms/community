@@ -23,66 +23,67 @@ All transformers are named as `<Action>Transformer`; for example PDFTransformer 
   ```
 
 
-## 3. Sample Code
+## 3. Sample Code 
+Sample code to transform text to lowercase characters before sendind to outbound
 
-    ```java
-        public class DemoTransformer extends TransformerProvider {
-            private final Flux<ReceiverRecord<String, String>> reactiveKafkaReceiver;
-            
-            @Value("${processOutbound}")
-            private String processOutboundTopic;
+```java
+    public class DemoTransformer extends TransformerProvider {
+        private final Flux<ReceiverRecord<String, String>> reactiveKafkaReceiver;
+        
+        @Value("${processOutbound}")
+        private String processOutboundTopic;
 
-            @EventListener(ApplicationStartedEvent.class)
-            public void onMessage() {
-                reactiveKafkaReceiver
-                        .doOnNext(new Consumer<ReceiverRecord<String, String>>() {
-                            @Override
-                            public void accept(ReceiverRecord<String, String> stringMessage) {
-                                try {
-                                    XMessage msg = XMessageParser.parse(new ByteArrayInputStream(stringMessage.value().getBytes()));
-                                    transform(msg)
-                                            .subscribe(new Consumer<XMessage>() {
-                                                @Override
-                                                public void accept(XMessage transformedMessage) {
-                                                    if (transformedMessage != null) {
-                                                        try {
-                                                            kafkaProducer.send(processOutboundTopic, transformedMessage.toXML());
-                                                        } catch (JAXBException e) {
-                                                            e.printStackTrace();
-                                                        }
+        @EventListener(ApplicationStartedEvent.class)
+        public void onMessage() {
+            reactiveKafkaReceiver
+                    .doOnNext(new Consumer<ReceiverRecord<String, String>>() {
+                        @Override
+                        public void accept(ReceiverRecord<String, String> stringMessage) {
+                            try {
+                                XMessage msg = XMessageParser.parse(new ByteArrayInputStream(stringMessage.value().getBytes()));
+                                transform(msg)
+                                        .subscribe(new Consumer<XMessage>() {
+                                            @Override
+                                            public void accept(XMessage transformedMessage) {
+                                                if (transformedMessage != null) {
+                                                    try {
+                                                        kafkaProducer.send(processOutboundTopic, transformedMessage.toXML());
+                                                    } catch (JAXBException e) {
+                                                        e.printStackTrace();
                                                     }
                                                 }
-                                            });
-                                } catch (JAXBException e) {
-                                    e.printStackTrace();
-                                } catch (NullPointerException e) {
-                                    log.error("An error occured : "+e.getMessage() + " at line no : "+ e.getStackTrace()[0].getLineNumber()
-                                            +" in class : "+e.getStackTrace()[0].getClassName());
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
+                                            }
+                                        });
+                            } catch (JAXBException e) {
+                                e.printStackTrace();
+                            } catch (NullPointerException e) {
+                                log.error("An error occured : "+e.getMessage() + " at line no : "+ e.getStackTrace()[0].getLineNumber()
+                                        +" in class : "+e.getStackTrace()[0].getClassName());
+                            } catch (Exception e) {
+                                e.printStackTrace();
                             }
-                        })
-                        .doOnError(new Consumer<Throwable>() {
-                            @Override
-                            public void accept(Throwable e) {
-                                System.out.println(e.getMessage());
-                                log.error("KafkaFlux exception", e);
-                            }
-                        }).subscribe();
+                        }
+                    })
+                    .doOnError(new Consumer<Throwable>() {
+                        @Override
+                        public void accept(Throwable e) {
+                            System.out.println(e.getMessage());
+                            log.error("KafkaFlux exception", e);
+                        }
+                    }).subscribe();
 
-            }
-
-            /* Transform text to lower case */
-            public XMessage transform(XMessage nextMsg) {
-                Payload payload = nextMsg.getPayload();
-                String text = payload.getText();
-                payload.setText(text.toLowerCase());
-                nextMsg.setPayload(payload);
-                return nextMsg;
-            }
         }
-    ```
+
+        /* Transform text to lower case */
+        public XMessage transform(XMessage nextMsg) {
+            Payload payload = nextMsg.getPayload();
+            String text = payload.getText();
+            payload.setText(text.toLowerCase());
+            nextMsg.setPayload(payload);
+            return nextMsg;
+        }
+    }
+```
 
 All transformers with the implementation same as above exmaple will be valid. A detailed example transformer can be found [here](https://github.com/samagra-comms/transformer/blob/release-4.9.0/src/main/java/com/uci/transformer/odk/ODKConsumerReactive.java).
 
