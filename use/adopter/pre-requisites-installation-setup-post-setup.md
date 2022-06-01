@@ -1,6 +1,12 @@
 # Pre-requisites, Installation Setup, Post Setup
 
-**Pre-requisites**
+[Pre-requisites](#pre-requisites)
+
+[Installation](#installation-setup)
+
+[Post Setup](#post-setup)
+
+# Pre-requisites
 
 1. Install Docker if not already installed. [Click Here](https://docs.docker.com/engine/install/ubuntu/)
 2. Infra :&#x20;
@@ -16,7 +22,7 @@
    * Rest apis
 4. Please make sure all of the ports mentioned used in the [file](https://github.com/samagra-comms/docker-deploy/blob/main/docs/ports.md) are open & are not being used by any other service on the server.
 
-**Installation Setup**
+# Installation Setup
 
 1.  Take a clone of this repository.
 
@@ -75,7 +81,7 @@
 
 **Note**: If the services are updated on any server, use the server's IP instead of localhost. E.g. [http://143.112.x.x:9080](http://143.112.x.x:9080/)
 
-**Post Setup**
+# Post Setup
 
 1. [Tracking Tables](https://hasura.io/docs/latest/graphql/core/databases/postgres/schema/using-existing-database.html#step-1-track-tables-views). Go to the url [http://localhost:15003/console/data/default/schema/public](http://localhost:15003/console/data/default/schema/public) and track all tables and relations. The admin secret can be controlled using this [line](https://github.com/samagra-comms/docker-deploy/blob/10bdbc4b837a61f74a1270ce53467b15f63d182d/.env#L67)
 2. Adding default data for transformers
