@@ -241,17 +241,22 @@ Run
         -> Spring Boot App
 ```
 
-* Now give name to config, select project, select main class of project and click Apply.\
+* Now give name to config, select project, select main class of project and click Apply.
+
+![](../../media/sts\_name\_config.png)
+
+![](../../media/sts\_name\_config.png)
 
 * Now for handling Enviorment Variables click on Enviorment in config window.\
-  Here we can put enviorment variable's value. ![Enviorment Variable](../../media/sts\_env\_variable.png)
+  Here we can put enviorment variable's value.
+
+![](../../media/sts\_env\_variable.png)
+
 * Make these configuration for following projects :\
   inbound\
   orchestrator\
   transformer\
   outbound
-
-![](../../media/sts\_name\_config.png)
 
 #### 3.3 Build and Run :
 
