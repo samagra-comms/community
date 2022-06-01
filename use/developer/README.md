@@ -8,7 +8,7 @@ description: I am an open-source enthusiast and I want to contribute to the Sunb
 
 ****[**Contribution guidelines**](contribution-guidelines.md) ****&#x20;
 
-****[**Development environment**](development-environment.md)****
+****[**Development environment**](development-environment/)****
 
 ****[**UCI Basics**](uci-basics.md)****
 

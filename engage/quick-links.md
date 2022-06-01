@@ -4,7 +4,7 @@
 
 ****[**Deployment Steps**](../use/adopter/pre-requisites-installation-setup-post-setup.md)****
 
-****[**Developer Setup**](../use/developer/development-environment.md)****
+****[**Developer Setup**](../use/developer/development-environment/)****
 
 ****[**Discussion Forum**](https://github.com/samagra-comms/community/discussions)****
 
