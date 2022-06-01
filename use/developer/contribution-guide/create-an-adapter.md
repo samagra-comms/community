@@ -7,7 +7,11 @@ Adapters convert information provided by channels (SMS, Whatsapp) for each speci
 * Convert API/webhook data from channel (and provider) to xMessages
 * Convert xMessages back to API/webhook data format for the specific channel(and provider)
 
-A simplified diagram of what adapters do is shown below.&#x20;
+A simplified diagram of what adapters do is shown below.
+
+&#x20;
+
+![](https://samagra-development.github.io/docs/img/adapter.jpg)
 
 ![](https://samagra-development.github.io/docs/img/adapter.jpg)
 
@@ -30,7 +34,11 @@ The adapter and the inbound service are linked together as shown in the figure b
 
 ![](https://samagra-development.github.io/docs/img/adapter-internal.jpg)
 
+![](https://samagra-development.github.io/docs/img/adapter-internal.jpg)
+
 Similarly the adapter and the outbound service are linked in the following fashion.&#x20;
+
+![](https://samagra-development.github.io/docs/img/outbound.jpeg)
 
 ![](https://samagra-development.github.io/docs/img/outbound.jpeg)
 
