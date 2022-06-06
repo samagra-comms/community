@@ -12,6 +12,8 @@
 
 [Adapters Overview and how to add a new adapter](contribution-guide/create-an-adapter.md)
 
+**Schema Overview**
+
 ***
 
 ## XMessage Specification
