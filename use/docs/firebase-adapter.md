@@ -30,13 +30,12 @@ We can store these registered tokens in UCI & use UCI fetch api to get these tok
     }'
     ```
 
-2. The tokens registered can be fetched via the api.
-```http://143.110.255.220:8080/fusionAuth/fetchFcmTokens``` 
+2. The tokens registered can be fetched via the [api](http://143.110.255.220:8080/fusionAuth/fetchFcmTokens). 
 
 3. Create a new service [here](http://143.110.255.220:15003/console/data/default/schema/public/tables/service/browse) with the fetch token api in config.
 
 4.  Create a new user segment [here](http://143.110.255.220:15003/console/data/default/schema/public/tables/userSegment/browse) with the service created in step 3. 
-Or we have already create a user segment for this case, you can just use this user segment ```cf085492-266f-46d1-841c-1b38e93bce3f```.
+Or you can use an already created user segment for this case. ```cf085492-266f-46d1-841c-1b38e93bce3f```.
 
 5. Create a new conversation logic with below logic
     ```
@@ -159,7 +158,7 @@ We can also use third party apis that have registered FCM tokens in a specific f
     }'
     ```
 
-6. Share your Firebase Project service key for which these FCM tokens are registsred with us. We will put this key in settings to allow the firebase notifications to be sent.
+6. Share your Firebase Project service key for which these FCM tokens are registered with [UCI](#3-contact-the-administrator). We will put this key in settings to allow the firebase notifications to be sent.
 
 7. Hit the below api using the created bot id to send firebase notification to all registered FCM tokens.
     ```
