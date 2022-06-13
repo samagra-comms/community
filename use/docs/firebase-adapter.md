@@ -11,7 +11,7 @@ We can trigger these notification in two ways.
 ### 1. Use UCI Internal Apis
 We can store these registered tokens in UCI & use UCI fetch api to get these tokens for notification. Follow below steps to do this.  
 
-1. Register FCM token on UCI using below api: 
+1. Register FCM tokens on any mobile or web application using the [firebase details of UCI](#3-contact-the-administrator). Add this FCM token on UCI using below api: 
     ```
     curl --location --request POST 'http://143.110.255.220:8085/fusionAuth/registerUserFcmToken' \
     --header 'Content-Type: application/json' \
@@ -165,3 +165,7 @@ We can also use third party apis that have registered FCM tokens in a specific f
     ```
     curl --location --request GET 'http://143.110.255.220:9999/campaign/start?campaignId=1ea5346d-8d98-4cf4-a470-9c234476f3d1'
     ```
+
+## 3. Contact the administrator
+
+Please write to the Maintainer - Chakshu (chakshu@samagragovernance.in), and cc - Saket (saket@samagragovernance.in), Sukhpreet (sukhpreet@samagragovernance.in)
