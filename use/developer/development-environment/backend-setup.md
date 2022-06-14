@@ -77,11 +77,11 @@ This Document help you to Setup UCI (Unified Communications Interface) Project a
     $ mvn clean install -U 
 ```
 
-5. Add projects in IDE [link](./setting-up-ide)
+5. Add projects in IDE [link](./setting-up-ide.md)
 
 6. Add [Enviorment Variable](../../docs/environment-variables.md) in IDE.
 
-7. If you want to run these services on docker [link](./build-and-execute-uci)
+7. If you want to run these services on docker [link](./build-and-execute-uci.md)
 
 #### 4.2 Routine
 
