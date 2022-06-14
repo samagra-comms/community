@@ -47,8 +47,13 @@ Inbound receives the messages from a channel, and uses the channel adapter to co
 ```
     mvn clean install -DskipTests
 ```
+We can use any IDE tool to run it on a local machine or we can also run this service on terminal using below command.
 
-We can use any IDE tool to run it on a local machine or use docker to create its image & then run it on any server/local.
+```
+    mvn spring-boot:run
+```
+
+We can also create its docker image & run the service on any server/local machine.
 
 1. Create docker image
 
@@ -76,7 +81,13 @@ Orchestrator authenticates & processes the user data from whom the message is re
     mvn clean install -DskipTests
 ```
 
-We can use any IDE tool to run it on a local machine or use docker to create its image & then run it on any server/local.
+We can use any IDE tool to run it on a local machine or we can also run this service on terminal using below command.
+
+```
+    mvn spring-boot:run
+```
+
+We can also create its docker image & run the service on any server/local machine.
 
 1. Create docker image
 
@@ -104,7 +115,13 @@ Transformers transforms the previous xMessage from the user to one that needs to
     mvn clean install -DskipTests
 ```
 
-We can use any IDE tool to run it on a local machine or use docker to create its image & then run it on any server/local.
+We can use any IDE tool to run it on a local machine or we can also run this service on terminal using below command.
+
+```
+    mvn spring-boot:run
+```
+
+We can also create its docker image & run the service on any server/local machine.
 
 1. Create docker image
 
@@ -132,7 +149,13 @@ Outbound converts the xMessage to the one that will be sent to the channel(sms/w
     mvn clean install -DskipTests
 ```
 
-We can use any IDE tool to run it on a local machine or use docker to create its image & then run it on any server/local.
+We can use any IDE tool to run it on a local machine or we can also run this service on terminal using below command.
+
+```
+    mvn spring-boot:run
+```
+
+We can also create its docker image & run the service on any server/local machine.
 
 1. Create docker image
 

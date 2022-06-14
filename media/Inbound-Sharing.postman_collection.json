@@ -1,0 +1,319 @@
+{
+	"info": {
+		"_postman_id": "3821622f-16b4-4a33-bed2-cb318b6fd391",
+		"name": "Inbound - Sharing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Bot - Messages",
+			"item": [
+				{
+					"name": "Netcore Send First Message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"messages\": [\n        {\n            \"message_id\": \"ABEGkZlgQyWAAgo-sDVSUOa9jH0z\",\n            \"from\": \"917597185708\",\n            \"received_at\": \"1636621428\",\n            \"context\": {\n                \"ncmessage_id\": null,\n                \"message_id\": null\n            },\n            \"message_type\": \"TEXT\",\n            \"text_type\": {\n                \"text\": \"Hi UCI\"\n            }\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/netcore/whatsApp",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"netcore",
+								"whatsApp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Netcore Send Message - Consent Reply",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"messages\": [\n        {\n            \"message_id\": \"ABEGkXWXGFcIAgo-sOZ9vI8UF_Lg\",\n            \"from\": \"917597185708\",\n            \"received_at\": \"1632975819\",\n            \"context\": {\n                \"ncmessage_id\": null,\n                \"message_id\": null\n            },\n            \"message_type\": \"TEXT\",\n            \"text_type\": {\n                \"text\": \"1\"\n            }\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/netcore/whatsApp",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"netcore",
+								"whatsApp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gupshup Send Message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "mobile",
+									"value": "917597185708",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "text",
+									"type": "text"
+								},
+								{
+									"key": "text",
+									"value": "Hi UCI",
+									"type": "text"
+								},
+								{
+									"key": "messageId",
+									"value": "f3af59b6-57c3-4238-93d4-06bad3d79398",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/gupshup/whatsApp",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gupshup",
+								"whatsApp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sunbird Send First Message - Diksha Web",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"body\": \"Hi Tara 3\",\n    \"userId\": \"67630c26-e29e-46ae-acb6-756704362d84\",\n    \"appId\": \"chatbot\",\n    \"channel\": null,\n    \"from\": \"1638178653435\",\n    \"context\": null,\n    \"to\": \"1c120d80-869d-490a-a358-1a405cd0ae4b\",\n    \"messageId\": \"f3af59b6-57c3-4238-93d4-06bad3d79398\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/diksha/web",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"diksha",
+								"web"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PWA Send First Message - Samagra",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"body\": \"Hi UCI\",\n    \"userId\": \"67630c26-e29e-46ae-acb6-756704362d84\",\n    \"appId\": \"chatbot\",\n    \"channel\": null,\n    \"from\": \"IJ7TgB2d1P-4yTFOAAAB\",\n    \"context\": null,\n    \"to\": \"1c120d80-869d-490a-a358-1a405cd0ae4b\",\n    \"messageId\": \"f3af59b6-57c3-4238-93d4-06bad3d79398\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/pwa/web",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pwa",
+								"web"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "service/health",
+			"item": [
+				{
+					"name": "kafka Status Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/service/health/kafka",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"service",
+								"health",
+								"kafka"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/service/health/kafka",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"service",
+										"health",
+										"kafka"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"number\": true,\n \"bigInteger\": false,\n \"valueNode\": false,\n \"containerNode\": true,\n \"missingNode\": false,\n \"object\": true,\n \"pojo\": true,\n \"integralNumber\": false,\n \"floatingPointNumber\": true,\n \"short\": false,\n \"int\": false,\n \"long\": false,\n \"double\": true,\n \"bigDecimal\": true,\n \"textual\": false,\n \"boolean\": false,\n \"binary\": true,\n \"float\": false,\n \"nodeType\": \"NULL\",\n \"array\": false,\n \"empty\": true,\n \"null\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "cassandra Status Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/service/health/cassandra",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"service",
+								"health",
+								"cassandra"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/service/health/cassandra",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"service",
+										"health",
+										"cassandra"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"number\": true,\n \"bigInteger\": false,\n \"valueNode\": false,\n \"containerNode\": true,\n \"missingNode\": false,\n \"object\": true,\n \"pojo\": true,\n \"integralNumber\": false,\n \"floatingPointNumber\": true,\n \"short\": false,\n \"int\": false,\n \"long\": false,\n \"double\": true,\n \"bigDecimal\": true,\n \"textual\": false,\n \"boolean\": false,\n \"binary\": true,\n \"float\": false,\n \"nodeType\": \"NULL\",\n \"array\": false,\n \"empty\": true,\n \"null\": true\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Campaign",
+			"item": [
+				{
+					"name": "start Campaign",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/campaign/start?campaignId=1ea5346d-8d98-4cf4-a470-9c234476f3d1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"campaign",
+								"start"
+							],
+							"query": [
+								{
+									"key": "campaignId",
+									"value": "1ea5346d-8d98-4cf4-a470-9c234476f3d1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/health",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -81,7 +81,7 @@ This Document help you to Setup UCI (Unified Communications Interface) Project a
 
 6. Add [Enviorment Variable](../../docs/environment-variables.md) in IDE.
 
-7. If you want to run these services on docker [link](./build-and-execute-uci.md)
+7. We can run the services via IDE. if you want to run these via terminal or docker use this [link](./build-and-execute-uci.md)
 
 #### 4.2 Routine
 
@@ -90,17 +90,17 @@ This Document help you to Setup UCI (Unified Communications Interface) Project a
    * Orchestrator
    * Transformer
    * Outbound
+2. To debug these service, we should follow the same routine. [Click here](./debug-services.md) to check the detailed overview of debugging services.
 
 ### 5. Testing API
 
 #### 5.1 For first time
 
-1. import following files to postman :
+1. Import following files to postman :
 
-```
-    Samagra Inbound - Apis.postman_collection
-    Samagra Transformer - Apis.postman_collection
-```
+    * Samagra Inbound - [Apis.postman_collection](../../../media/Inbound-Sharing.postman_collection.json)
+    * Samagra Transformer - [Apis.postman_collection](../../../media/Transformer-Sharing.postman_collection.json)
+
 
 2.  create new enviorment **inbound** with properties :
 
