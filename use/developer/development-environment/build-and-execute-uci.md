@@ -56,13 +56,13 @@ We can use any IDE tool to run it on a local machine or use docker to create its
     docker build -t samagragovernance/inbound:${CURRENT_VERSION} .
 ```
 
-1. Push docker image to docker hub
+2. Push docker image to docker hub
 
 ```
     docker push samagragovernance/inbound:${CURRENT_VERSION}
 ```
 
-1. Run docker image
+3. Run docker image
 
 ```
     docker-compose -f docker-compose.yml up -d inbound
@@ -84,13 +84,13 @@ We can use any IDE tool to run it on a local machine or use docker to create its
     docker build -t samagragovernance/orchestrator:${CURRENT_VERSION} .
 ```
 
-1. Push docker image to docker hub
+2. Push docker image to docker hub
 
 ```
     docker push samagragovernance/orchestrator:${CURRENT_VERSION}
 ```
 
-1. Run docker image
+3. Run docker image
 
 ```
     docker-compose -f docker-compose.yml up -d orchestrator
@@ -112,13 +112,13 @@ We can use any IDE tool to run it on a local machine or use docker to create its
     docker build -t samagragovernance/transformer:${CURRENT_VERSION} .
 ```
 
-1. Push docker image to docker hub
+2. Push docker image to docker hub
 
 ```
     docker push samagragovernance/transformer:${CURRENT_VERSION}
 ```
 
-1. Run docker image
+3. Run docker image
 
 ```
     docker-compose -f docker-compose.yml up -d transformer
@@ -140,13 +140,13 @@ We can use any IDE tool to run it on a local machine or use docker to create its
     docker build -t samagragovernance/outbound:${CURRENT_VERSION} .
 ```
 
-1. Push docker image to docker hub
+2. Push docker image to docker hub
 
 ```
     docker push samagragovernance/outbound:${CURRENT_VERSION}
 ```
 
-1. Run docker image
+3. Run docker image
 
 ```
     docker-compose -f docker-compose.yml up -d outbound

@@ -6,7 +6,7 @@
 
 Kafka is used to build real-time streaming data pipelines and real-time streaming applications. A data pipeline reliably processes and moves data from one system to another, and a streaming application is an application that consumes streams of data.
 
-we use XMessage to converse between our services, It is sent to Kafka topics. Then different services consume these XMessages from Kafka and process further.
+We use XMessage to converse between our services, It is sent to Kafka topics. Then different services consume these XMessages from Kafka and process further.
 
 * Setup Kafka with [quickstart](https://kafka.apache.org/quickstart) guide.
 * Generate the following Kafka topics and add following values :
@@ -102,7 +102,7 @@ It is being used to store the question and assessment data and respective to ODK
 
 #### 1.8 Netcore :
 
-Netcore is a service provider which is being used to sent/receive messages from the user for various channels (Whats App, Telegram, etc.)
+Netcore is a service provider which is being used to sent/receive messages from the user for various channels (WhatsApp, Telegram, etc.)
 
 Please contact the Netcore administrator to get these details
 

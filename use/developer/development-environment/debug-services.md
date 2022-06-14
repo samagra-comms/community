@@ -50,7 +50,7 @@ It will return a list of running containers. Each container has a container id a
 
 To check the logs for kafka/redis etc services, you should follow the above steps.
 
-**5. Common mistakes or errors**
+### **5. Common mistakes or errors**
 
 1. Missing environment variables
 2. Connection issues with kafka/cassandra/postgresql etc.
