@@ -6,9 +6,9 @@ In this doc we'll configure an IDE (Eclipse/IntelliJ) for setting up development
 
 ### 2. Setting up IntelliJ
 
-#### 2.1 Importing Projects :
+#### 2.1 Importing Projects
 
-*   **Import new project :**
+*   **Import new project**
 
     ```
         File -> New -> Project from existing source  
@@ -25,7 +25,7 @@ In this doc we'll configure an IDE (Eclipse/IntelliJ) for setting up development
 
 #### 2.2 Setting configurations
 
-For setting configuration for any project follow below steps :
+For setting configuration for any project follow below steps
 
 * Goto edit configuration.
 
@@ -43,17 +43,17 @@ For setting configuration for any project follow below steps :
 
 ![enviorment variables](../../../media/env\_variable.png)
 
-* Make these configuration for following projects :\
+* Make these configuration for following projects\
   inbound\
   orchestrator\
   transformer\
   outbound
 
-#### 2.3 Build and Run :
+#### 2.3 Build and Run
 
-Now we can build and Run the projects using below steps :
+Now we can build and Run the projects using below steps
 
-* Required Plugins to build the project :\
+* Required Plugins to build the project\
   maven\
   docker\
   lombok
@@ -61,9 +61,9 @@ Now we can build and Run the projects using below steps :
 
 ### 3. Setting up Eclipse
 
-#### 3.1 Importing Projects :
+#### 3.1 Importing Projects
 
-* **Import Projects into Eclipse :**
+* **Import Projects into Eclipse**
 
 ```
     File 
@@ -87,9 +87,9 @@ Import all the project like this.
 
 ![update all](../../../media/sts\_update\_all.png)
 
-#### 3.2 setting configurations
+#### 3.2 Setting Configurations
 
-For setting configuration for any project follow below steps :
+For setting configuration for any project follow below steps
 
 * Make new Configuration for spring-boot-app
 
