@@ -36,7 +36,7 @@ This document helps you to setup UCI-PWA which helps you to experience the conve
    $ sudo apt-get install curl
    ```
 
-4. Install Node.js, npm, yarn and NVM
+4. Install Node.js, npm, yarn
 
    ```
    $ sudo apt install nodejs
@@ -51,7 +51,35 @@ This document helps you to setup UCI-PWA which helps you to experience the conve
      $ node -v
      ```
 
-   - To install NVM and more information of node installation, [check here](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04).
+5. Install NVM
+
+   ```
+   $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.1/install.sh | bash
+   ```
+
+   - Make nvm command available to terminal
+
+   ```
+   $ source ~/.nvm/nvm.sh
+   ```
+
+   - For more information of node and NVM installation, [check here](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04).
+
+6. Switching node version
+
+   - Run the following command to check node version
+
+   ```
+   node -v
+   ```
+
+   - If your node version is not v16.15.0 or latest, even after installation, you can switch to the required version by the following command:
+
+   ```
+   $ nvm install 16.14.0
+   $ nvm alias default 16.14.0
+   $ nvm use default
+   ```
 
 ## Setup
 
@@ -102,16 +130,18 @@ This document helps you to setup UCI-PWA which helps you to experience the conve
 
 7. Setup all the environment variables:-
 
+   - Make a file named '.env' in the base location of the project directory(where .env-sample is located) and add the following in it.
+
    - Contact the [administrator](#contact-the-administrator) to get this url or setup this on local using [link](/use/developer/development-environment/transport-socket_pwa.md)
 
      ```
-     REACT_APP_TRANSPORT_SOCKET_URL=
+     REACT_APP_TRANSPORT_SOCKET_URL=ws://url
      ```
 
    - Contact the [administrator](#contact-the-administrator) to get this or setup this on local using this [link](/use/developer/development-environment/backend-setup.md)
 
      ```
-     REACT_APP_INBOUND_BASE_URL=
+     REACT_APP_INBOUND_BASE_URL=http://url
      ```
 
 8. Once all the required packages are successfully installed and .env files are setup, start the project.

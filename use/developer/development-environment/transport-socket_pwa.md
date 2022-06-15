@@ -36,7 +36,7 @@ This document helps you to setup transport socket which helps communicate betwee
    $ sudo apt-get install curl
    ```
 
-4. Install Node.js, npm, yarn and NVM
+4. Install Node.js, npm, yarn
 
    ```
    $ sudo apt install nodejs
@@ -51,9 +51,37 @@ This document helps you to setup transport socket which helps communicate betwee
      $ node -v
      ```
 
-   - To install NVM and more information of node installation, [check here](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04).
+5. Install NVM
 
-5. Set up on Docker
+   ```
+   $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.1/install.sh | bash
+   ```
+
+   - Make nvm command available to terminal
+
+   ```
+   $ source ~/.nvm/nvm.sh
+   ```
+
+   - For more information of node and NVM installation, [check here](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04).
+
+6. Switching node version
+
+   - Run the following command to check node version
+
+   ```
+   node -v
+   ```
+
+   - If your node version is not v16.15.0 or latest, even after installation, you can switch to the required version by the following command:
+
+   ```
+   $ nvm install 16.14.0
+   $ nvm alias default 16.14.0
+   $ nvm use default
+   ```
+
+7. Set up on Docker
 
    - Install [Docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04)
 
@@ -117,6 +145,8 @@ This document helps you to setup transport socket which helps communicate betwee
     ```
 
 8.  Setup all the environment variables:-
+
+    - Make a file named '.env' in the base location of the project directory(where .env-sample is located) and add the following in it.
 
     ```
     REDIS_HOST=localhost
