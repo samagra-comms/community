@@ -70,7 +70,8 @@ This Document help you to Setup UCI (Unified Communications Interface) Project a
     git clone repository-link
 ```
 
-3. Import all cloned repositories into IDE
+3. Import all cloned repositories into IDE and checkout to the latest branch Eg. release-4.9.0
+
 4. If project is not build by default then build using
 
 ```
@@ -90,9 +91,10 @@ This Document help you to Setup UCI (Unified Communications Interface) Project a
    * Orchestrator
    * Transformer
    * Outbound
+
 2. To debug these service, we should follow the same routine. [Click here](./debug-services.md) to check the detailed overview of debugging services.
 
-### 5. Testing API
+### 5. APIs
 
 #### 5.1 For first time
 
