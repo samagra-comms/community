@@ -42,6 +42,7 @@
   * [Contribution Guide](use/developer/contribution-guide/README.md)
     * [Create an Adapter](use/developer/contribution-guide/create-an-adapter.md)
     * [Create a Transformer](use/developer/contribution-guide/create-a-transformer.md)
+    * [Interactive-Message-rules](use/developer/contribution-guide/interactive-message-rules.md)
     * [Integrate User Data](use/developer/contribution-guide/integrate-user-data.md)
 * [Auditor](use/auditor/README.md)
   * [Sandbox - Steps for creating a new test bot](use/auditor/sandbox-steps-for-creating-a-new-test-bot.md)
