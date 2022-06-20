@@ -1,8 +1,8 @@
-# Frontend Setup (PWA)
+# Transport Socket
 
-## Getting started
+### Getting started
 
-### Introduction
+#### Introduction
 
 The Unified Communications Interface (UCI) aims to democratize the use of different communication channels such as WhatsApp, Telegram, SMS, email and more for governance use cases through a standard configurable manner that is reusable and scalable across all governance use cases.
 
@@ -10,11 +10,11 @@ Transport socket takes request from chatbot client and send it to UCI adapter to
 
 \[UCI] <---> \[Socket Transport Layer] <---> \[Frontend]
 
-### Overview
+#### Overview
 
-This document helps you to setup UCI-PWA which helps you to experience the conversation with chatbot on UCI web channel.
+This document helps you to setup transport socket which helps communicate between UCI backend and frontend. To experience the conversation with chatbot on UCI web channel, UCI-PWA needs to be setup from here.
 
-### Pre-requisites
+#### Pre-requisites
 
 1.  Update to latest version
 
@@ -75,14 +75,21 @@ This document helps you to setup UCI-PWA which helps you to experience the conve
     $ nvm alias default 16.14.0
     $ nvm use default
     ```
+7. Set up on Docker
+   * Install [Docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04)
+   *   Setup and run redis on docker
 
-## Setup
+       ```
+       $ sudo docker run --name my-first-redis -p 6379:6379 -d redis
+       ```
 
-### For the first time:
+### Setup
+
+#### For the first time:
 
 1. **Fork** the repository:
    * To get a copy of the repository, you need to fork the following:-
-     * [UCI-PWA](https://github.com/samagra-comms/uci-web-channel)
+     * [Transport Socket](https://github.com/samagra-comms/transport-socket)
 2. **Clone** the forked repository:
    *   To download the forked repository, you need to clone it.
 
@@ -92,9 +99,9 @@ This document helps you to setup UCI-PWA which helps you to experience the conve
 3.  Move to the directory with the cloned repository:
 
     ```
-    $ cd uci-pwa
+    $ cd transport-socket
         or
-    $ cd <path of uci-pwa folder>
+    $ cd <path of transport-socket folder>
     ```
 4.  Run the following command to see if your local copy has a reference to your forked remote repository in GitHub:
 
@@ -107,44 +114,43 @@ This document helps you to setup UCI-PWA which helps you to experience the conve
     origin  https://github.com/Your_Username/repo_name.git (push)
     ```
 5. Import the cloned repository to the chosen IDE.
-6.  Install the required packages
+6.  Move to required branch:
+
+    ```
+    $ git checkout uci-pwa
+    ```
+7.  Install the required packages
 
     * In terminal (location should be same as the current location of the repository), run this command to install all the packages required to run the code:-
 
     ```
     $ yarn install
     ```
-7. Setup all the environment variables:-
-   * Make a file named '.env' in the base location of the project directory(where .env-sample is located) and add the following in it.
-   *   Contact the [administrator](frontend-setup-pwa.md#contact-the-administrator) to get the production transport socket url or setup transport socket on local using [link](transport-socket\_pwa.md)
+8.  Setup all the environment variables:-
 
-       ```
-       REACT_APP_TRANSPORT_SOCKET_URL=ws://url
-       ```
-   *   Contact the [administrator](frontend-setup-pwa.md#contact-the-administrator) to get the production inbound url or setup inbound on local using this [link](backend-setup.md)
+    * Make a file named '.env' in the base location of the project directory(where .env-sample is located) and add the following in it.
 
-       ```
-       REACT_APP_INBOUND_BASE_URL=http://url
-       ```
-8. Once all the required packages are successfully installed and .env files are setup, start the project.
+    ```
+    REDIS_HOST=localhost
+    REDIS_PORT=6379
+    SERVER_PORT=3005
+    ```
 
-## Run the project:
+    *   Contact the administrator to use the production inbound url or setup inbound repository on local using this [link](backend-setup.md)
+
+        ```
+        ADAPTER_URL=http://localhost:8080/pwa/web
+        ```
+9. Once all the required packages are successfully installed and .env files are setup, start the project.
+
+### Run the project:
 
 1.  To start the project, run the following command:-
 
     ```
     $ yarn start
     ```
-2. After running the project, browser displays the following screen:
 
-* This is the first look of UCI-PWA:
-
-![UCI-PWA front-end first look](../../../media/uci-pwa\_view.png)
-
-* The textbar given below can be used to send messages. Once you send the required starting message, conversation with the bot gets started.
-
-![UCI-PWA front-end first look](../../../media/uci-pwa\_working.png)
-
-## Contact the administrator
+### Contact the administrator
 
 Please write to the Maintainer - Chakshu (chakshu@samagragovernance.in), and cc - Saket (saket@samagragovernance.in), Sukhpreet (sukhpreet@samagragovernance.in)

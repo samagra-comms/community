@@ -49,10 +49,12 @@ We can store these registered tokens in UCI & use UCI fetch api to get these tok
                 {
                     "id": "774cd134-6657-4688-85f6-6338e2323dde",
                     "meta": {
-                        "body": "Hello ${name}, Test Notification",
+                        "body": "Hello ${name}-${phoneNo}, Test Notification",
                         "type": "JS_TEMPLATE_LITERALS",
-                        "user": "25bbdbf7-5286-4b85-a03c-c53d1d990a23",
-                        "templateId": "1007180838266527905"
+                        "params": [
+                            "name",
+                            "phoneNo"
+                        ]
                     },
                     "type": "broadcast"
                 }
@@ -121,13 +123,15 @@ We can also use third party apis that have registered FCM tokens in a specific f
         "data": {
             "name": "Firebase Broadcast Logic",
             "transformers": [
-                {
+                 {
                     "id": "774cd134-6657-4688-85f6-6338e2323dde",
                     "meta": {
-                        "body": "Hello ${name}, Test Notification",
+                        "body": "Hello ${name}-${phoneNo}, Test Notification",
                         "type": "JS_TEMPLATE_LITERALS",
-                        "user": "25bbdbf7-5286-4b85-a03c-c53d1d990a23",
-                        "templateId": "1007180838266527905"
+                        "params": [
+                            "name",
+                            "phoneNo"
+                        ]
                     },
                     "type": "broadcast"
                 }

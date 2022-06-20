@@ -34,6 +34,7 @@
     * [Testing the API](use/developer/development-environment/testing-the-api.md)
     * [Frontend Setup (Admin Console)](use/developer/development-environment/frontend-setup-admin-console.md)
     * [Frontend Setup (PWA)](use/developer/development-environment/frontend-setup-pwa.md)
+    * [Transport Socket](use/developer/development-environment/transport-socket.md)
   * [UCI Basics](use/developer/uci-basics.md)
   * [Firebase Notification Adapter](use/developer/firebase-notification-adapter.md)
   * [Your first PR](use/developer/your-first-pr.md)
