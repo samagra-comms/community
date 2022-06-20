@@ -35,6 +35,7 @@
     * [Frontend Setup (Admin Console)](use/developer/development-environment/frontend-setup-admin-console.md)
     * [Frontend Setup (PWA)](use/developer/development-environment/frontend-setup-pwa.md)
   * [UCI Basics](use/developer/uci-basics.md)
+  * [Firebase Notification Adapter](use/developer/firebase-notification-adapter.md)
   * [Your first PR](use/developer/your-first-pr.md)
   * [Next Steps](use/developer/next-steps.md)
   * [API Documentation](use/developer/api-documentation.md)
