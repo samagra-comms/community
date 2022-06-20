@@ -9,11 +9,7 @@ Adapters convert information provided by channels (SMS, Whatsapp) for each speci
 
 A simplified diagram of what adapters do is shown below.
 
-&#x20;
-
-![](https://samagra-development.github.io/docs/img/adapter.jpg)
-
-![](https://samagra-development.github.io/docs/img/adapter.jpg)
+![](../../../.gitbook/assets/adapter.jpg)
 
 ## 2. How to setup adapter
 
@@ -30,17 +26,13 @@ Setup the adapter repository to start working on it. Follow the steps given to a
 
 ## 3. Creating your own Adapters
 
-The adapter and the inbound service are linked together as shown in the figure below.&#x20;
+The adapter and the inbound service are linked together as shown in the figure below.
 
-![](https://samagra-development.github.io/docs/img/adapter-internal.jpg)
+![](../../../.gitbook/assets/adapter-internal.jpg)
 
-![](https://samagra-development.github.io/docs/img/adapter-internal.jpg)
+Similarly the adapter and the outbound service are linked in the following fashion.
 
-Similarly the adapter and the outbound service are linked in the following fashion.&#x20;
-
-![](https://samagra-development.github.io/docs/img/outbound.jpeg)
-
-![](https://samagra-development.github.io/docs/img/outbound.jpeg)
+![](../../../.gitbook/assets/outbound.jpeg)
 
 All adapters are named as `<ProviderName><ChannelName>Adapter`; for example GupshupWhatsappAdapter. Adapters should extend `AbstractProvider` and implement `IProvider`. Thus, it needs to implement the following methods:
 
@@ -59,7 +51,9 @@ To enable these, we have to add them in `convertMessageToXMsg` and convert these
 
 ### 3.2. Outgoing Content
 
-We can also send text/media/location/quickReplyButton/list messages to user. As we are using the ODK forms, we use bind::stylingTags, bind::caption to show the media file or to show the select choices as list/quick reply buttons. There are a few constraints which will be applied with the quickReplyButton/list content.
+We can send a text message to user. This is the basic usage of an adapter. When creating a new adapter we should start with this scenario. A sample code for the same is also added [here](create-an-adapter.md#4.-sample-code).
+
+We can also send media/location/quickReplyButton/list messages to user. As we are using the ODK forms, we use bind::stylingTags, bind::caption to show the media file or to show the select choices as list/quick reply buttons. There are a few constraints which will be applied with the quickReplyButton/list content.&#x20;
 
 Below are the few styling tags we have allowed for now.
 
@@ -73,11 +67,14 @@ Below are the few styling tags we have allowed for now.
 To send this type of content to user, adapter should implement it according to the network provider(Netcore/Gupshup) [documentation](https://wadocs.pepipost.com/webhooks/overview/incoming-message).
 
 ## 4. Sample Code
+
 Sample code to receive a text message from channel & reply to channel.
 
-1. Create a new provider class which implements IProvider. 
-    * Implement **convertMessageToXMsg** method for converting incoming message from channel to XMessage format. 
+1.  Create a new provider class which implements IProvider.
+
+    * Implement **convertMessageToXMsg** method for converting incoming message from channel to XMessage format.
     * Implement **processOutBoundMessageF** method to reply to channel by converting XMessage format to channel message format.
+
     ```java
     public class ChannelProviderAdapter extends AbstractProvider implements IProvider {
         @Override
@@ -142,7 +139,8 @@ Sample code to receive a text message from channel & reply to channel.
         }
     }
     ```
-2. Create a web service class that handles api which is used to reply to channel. 
+2.  Create a web service class that handles api which is used to reply to channel.
+
     ```java
     @Service
     public class WebService {
@@ -189,9 +187,7 @@ Sample code to receive a text message from channel & reply to channel.
         }
     }
     ```
-
-
-3. Create a class for format which is accepted by reply to channel api Eg. **http://example.com/replyMessageToChannel**.
+3.  Create a class for format which is accepted by reply to channel api Eg. **http://example.com/replyMessageToChannel**.
 
     ```java
     @Getter
@@ -203,8 +199,8 @@ Sample code to receive a text message from channel & reply to channel.
         private String messageId;
     }
     ```
+4.  Create a message format class for OutboundMessage class property.
 
-4. Create a message format class for OutboundMessage class property.
     ```java
     @Getter
     @Setter
@@ -215,8 +211,7 @@ Sample code to receive a text message from channel & reply to channel.
         private String msg_type;
     }
     ```
-
-5. Create a class that accepts response from channel reply api.
+5.  Create a class that accepts response from channel reply api.
 
     ```java
     @Getter
@@ -227,8 +222,7 @@ Sample code to receive a text message from channel & reply to channel.
         private String message;
     }
     ```
-
-6. Create a class that accepts format for message received from channel.
+6.  Create a class that accepts format for message received from channel.
 
     ```java
     @Getter
