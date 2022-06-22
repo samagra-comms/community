@@ -8,6 +8,7 @@
 Version:
     node 12
     npm 6 
+    ng cli 9.1.9
 ```
 
 ### Check the node and npm version by running the following commands.
@@ -15,9 +16,31 @@ Version:
 ``` 
     node -v
     npm -v
+    ng --version
 ```
 
-### Installation Steps:
+### Node Installation via nvm
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+source ~/.bashrc
+
+nvm ls-remote
+
+after that choose the node version v12.22.12
+
+nvm install v12.22.12
+
+nvm use v12.22.12
+
+nvm alias default v12.22.12
+
+nvm use default
+```
+
+### Installation Steps for project:
 
 #### 1. Fork it
    You can get your own fork/copy of Frontend  by using the Fork button.
@@ -62,7 +85,7 @@ npm install
 #### 5. Build 
 
 ```
-ng build –prod
+ng build -–prod
 ```
 Build @dist
 
