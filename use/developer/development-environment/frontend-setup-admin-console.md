@@ -85,7 +85,7 @@ npm install
 #### 5. Build 
 
 ```
-ng build -–prod
+ng build --prod
 ```
 Build @dist
 
