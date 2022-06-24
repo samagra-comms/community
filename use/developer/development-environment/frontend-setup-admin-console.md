@@ -19,27 +19,6 @@ Version:
     ng --version
 ```
 
-### Node Installation via nvm
-```
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh
-
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-
-source ~/.bashrc
-
-nvm ls-remote
-
-after that choose the node version v12.22.12
-
-nvm install v12.22.12
-
-nvm use v12.22.12
-
-nvm alias default v12.22.12
-
-nvm use default
-```
-
 ### Installation Steps for project:
 
 #### 1. Fork it
@@ -72,9 +51,19 @@ origin    https://github.com/samagra-comms/uci-admin.git (fetch)
 origin    https://github.com/samagra-comms/uci-admin.git (push)
 ```
 
+#### 4 Environment setup
+
+The Environment is being used from the below file in the project root folder.
+```
+   .env
+```
+this file contains following variables:
+- NG_APP_url: API base url
+- NG_APP_blobUrl:  Sample file base URL
+- NG_APP_botPhoneNumber: Bot phone whatsapp phone number 
 
 
-#### 4. Run it
+#### 5. Run it
 
 #### Install dependencies
 
@@ -82,7 +71,7 @@ origin    https://github.com/samagra-comms/uci-admin.git (push)
 npm install
 ```
 
-#### 5. Build 
+#### 6. Build 
 
 ```
 ng build --prod
