@@ -1,4 +1,4 @@
-# Enviroment variable setup
+# Environment variable setup
 
 ### 1. Add enviorment variable in IDE
 
@@ -25,6 +25,9 @@ We use XMessage to converse between our services, It is sent to Kafka topics. Th
     KAFKA_ODK_TRANSFORMER_TOPIC_PATTERN=com.odk.*
     KAFKA_OUTBOUND_TOPIC=outbound
     KAFKA_TELEMETRY_TOPIC=telemetry
+    KAFKA_MESSAGE_REPORT_TOPIC=message-report
+    KAFKA_PROCESS_OUTBOUND=process-outbound
+    KAFKA_BROADCAST_TRANSFORMER_TOPIC=broadcast-transformer
 ```
 
 #### 1.2 Redis :
@@ -146,16 +149,66 @@ Outbound base URL for Diksha service provider. We can generate Transport Socket 
     TRANSPORT_SOCKET_BASE_URL = # Transport Socket Base URL
 ```
 
-#### 1.13 Telemetry
+#### 1.13 Exhaust Telemetry
 
-we are sending events to telemetry for exhaust generation, the telemetry specs being used is [here](https://github.com/sunbird-specs/Telemetry/blob/master/learn/specification.md).\
+We are sending events to telemetry for exhaust generation, the telemetry specs being used is [here](https://github.com/sunbird-specs/Telemetry/blob/master/learn/specification.md).\
 the PData is a unique id assigned to this component
 
 ```
     TELEMETRY_EVENT_PDATA_ID = # Telemetry Exhaust PDATA
+    EXHAUST_TELEMETRY_ENABLED=TRUE
 ```
 
-#### 1.14 Other enviorment variables :
+#### 1.14 Posthog
+
+We can send telemetry to posthog account instead of exhaust telemetry. To enable this add below environment variables.
+
+```
+    POSTHOG_TELEMETRY_APIKEY= // Api key
+    POSTHOG_TELEMETRY_URL=https://app.posthog.com
+    POSTHOG_EVENT_ENABLED=TRUE
+```
+
+**1.15 Azure**&#x20;
+
+Azure storage is a service added for media upload & display functionality. We can choose to use Azure or minio for this. To use this add below env variables.&#x20;
+
+```
+    AZURE_BLOB_STORE_ACCOUNT_KEY=accountName
+    AZURE_BLOB_STORE_ACCOUNT_NAME=accountKey
+    AZURE_BLOB_STORE_CONTAINER=container
+    SELECTED_FILE_CDN=azure
+```
+
+&#x20;&#x20;
+
+**1.16 Minio**
+
+Minio storage is another service for media upload & display functionality. We can choose to use Azure or minio for this. To use this add below env variables.
+
+```
+    CDN_MINIO_LOGIN_ID=loginID
+    CDN_MINIO_URL=url
+    CDN_MINIO_PASS=pass
+    CDN_MINIO_FA_URL=fa_url
+    CDN_MINIO_FA_KEY=fa_key
+    CDN_MINIO_BUCKET_ID=bucketID
+    CDN_MINIO_APP_ID=appID
+    SELECTED_FILE_CDN=minio
+```
+
+**1.17 Vault**
+
+Vault is a service which is being used to store credentials related to various adapters. For example firebase service key, gupshup api credentials etc. We need a token to access this service, Please contact the administrator for this token.
+
+```
+VAULT_FUSION_AUTH_URL=fa_url
+VAULT_FUSION_AUTH_TOKEN=fa_key
+VAULT_SERVICE_URL=http://143.110.183.73:3001
+VAULT_SERVICE_TOKEN=//token - contact the administrator
+```
+
+**1.18 Other environment variables**
 
 ```
     # In which enviorment we are working

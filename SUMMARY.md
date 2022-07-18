@@ -22,6 +22,7 @@
   * [WhatsApp flow](use/adopter/whatsapp-flow.md)
   * [API Documentation](use/adopter/api-documentation.md)
   * [Data Exhaust and Analytics](use/adopter/data-exhaust-and-analytics.md)
+  * [Posthog Event](use/adopter/posthog-event.md)
   * [Next Steps](use/adopter/next-steps.md)
 * [Developer](use/developer/README.md)
   * [Contribution guidelines](use/developer/contribution-guidelines.md)
