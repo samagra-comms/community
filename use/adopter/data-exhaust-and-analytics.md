@@ -14,15 +14,15 @@ We can generate a job for two types of exhaust requests.
 
 **1. UCI Response Exhaust**
 
-This will provide a list of conversations done by any user between the time period mentioned in the exhaust request. Each event consists of the user device id, question asked, question options if any, question reply from the user, timestamp, etc. A conversation event is basically a telemetry event that we send for each conversation message. A sample for the [UCI response exhaust](../../media/UCI-Response-Exhaust.csv)
+This will provide a list of conversations done by any user between the time period mentioned in the exhaust request. Each event consists of the user device id, question asked, question options if any, question reply from the user, timestamp, etc. A conversation event is basically a telemetry event that we send for each conversation message. A sample for the [UCI response exhaust](../../media/uci-response-exhaust.csv)
 
 **2. UCI Private Exhaust**
 
-This will provide a list of users that have conversed with the bot. It consists of user phone number(If consented by user), device id, username etc. The device id is the one that connects the response & private exhaust. To identify the phone number for the conversation done by the user, check the device id from the response exhaust, it should exists in the private exhaust. A sample for the [UCI private exhaust](../media/UCI-Private-Exhaust.csv)
+This will provide a list of users that have conversed with the bot. It consists of user phone number(If consented by user), device id, username etc. The device id is the one that connects the response & private exhaust. To identify the phone number for the conversation done by the user, check the device id from the response exhaust, it should exists in the private exhaust. A sample for the [UCI private exhaust](../../media/uci-private-exhaust.csv)
 
 ### Data Exhaust Apis
 
-**1. API to submit a job request for response/private exhaust**
+#### **1. API to submit a job request for response/private exhaust**
 
 This API will submit a job request to fetch the response/private exhaust for a specific conversation(bot) id based on the dataset config. The API will give a requestID in the response. The requestID & tag are used to fetch the job info.
 
@@ -98,7 +98,7 @@ This API will submit a job request to fetch the response/private exhaust for a s
 }
 ```
 
-**2. API to get job info of a job**
+#### **2. API to get job info of a job**
 
 This API is used to get the job info which includes the job status (Eg. Submitted, Success, Failed), download URLs, (if the job is successful), job request param etc. Tag & Request Id for the request will be used from the submitted job request.
 
@@ -163,7 +163,7 @@ requestId=1E2A13DA30671FDBA10C418C9EF14A70
 }
 ```
 
-**3. API to get jobsist**
+#### **3. API to get joblist**
 
 This API is used to fetch the jobs list for a specific tag/bot.
 
@@ -225,11 +225,11 @@ Eg. {{host}}/dataset/v1/request/list/7ed871f7-0d5b-4bb0-86a0-a00151352703?limit=
 }
 ```
 
-Postman collection: [Link](../media/DataExhaust-APIs-postman\_collection.json)
+Postman collection: [Link](../../media/DataExhaust-APIs-postman\_collection.json)
 
-Environment: \[Link]\(../media/Data Exhuast-postman\_environment.json)
+Environment: [Link](../../media/Data%20Exhuast-postman\_environment.json)
 
-### 4. Execute Data Exhaust Job
+### Execute Data Exhaust Job
 
 The jobs will be executed via a cron job that runs daily at 02.00 AM. We should check the job info, the next day to check the job's current status.
 
@@ -237,10 +237,10 @@ If we need an immediate result we can also run a job from the Jenkins AnalyticsR
 
 * Login to Jenkins & Go to the AnalyticsReplayJobs service from the Deploy->Dev->DataPipeline services list or directly hit the [url](https://10.20.0.14/jenkins/job/Deploy/job/dev/job/DataPipeline/job/AnalyticsReplayJobs/).
 * Go to Build with Parameter.
-* Select `replay-job` from the `job_type` dropdown.
-* Select `uci-response-exhaust`/`uci-private-exhaust` from the `job_id` dropdown. [![Screenshot](https://github.com/samagra-comms/community/raw/main/use/media/exhaust-jenkins-job.png)](../media/exhaust-jenkins-job.png)
+* Select `replay-job` from the `job_type` drop down.
+* Select `uci-response-exhaust`/`uci-private-exhaust` from the `job_id` drop down. [![Screenshot](https://github.com/samagra-comms/community/raw/main/use/media/exhaust-jenkins-job.png)](../media/exhaust-jenkins-job.png)
 * Leave the rest as it is & click build. It will run all the submitted jobs.
-* When it's done, run the [job info api](../docs/Data-Exhaust.md#2-api-to-get-job-info-of-a-job) to fetch the job response. The job will have either a success/failed status. If the job is successful it will have a download url in the response.
+* When it's done, run the [job info api](data-exhaust-and-analytics.md#2.-api-to-get-job-info-of-a-job) to fetch the job response. The job will have either a success/failed status. If the job is successful it will have a download url in the response.
 
 ```
 Eg. https://sunbirddevprivate.blob.core.windows.net/reports/uci-response-exhaust/84B26F9012D6E2E53BFC422B245C6350/d655cf03-1f6f-4510-acf6-d3f51b488a5e_response_20220405.csv?sv=2017-04-17&se=2022-04-06T10%3A08%3A26Z&sr=b&sp=r&sig=6N9Kz4P/t9wZ1sCn3mYdVWZ22IfyyqrUNp3dNyelpJ0%3D
