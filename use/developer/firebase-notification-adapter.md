@@ -261,6 +261,108 @@ We can also use third party apis that have registered FCM tokens in a specific f
         curl --location --request GET 'http://143.110.255.220:9999/campaign/start?campaignId=1ea5346d-8d98-4cf4-a470-9c234476f3d1'
     ```
 
-### 3. Contact the administrator
+### 3. Message Receipts Api
+
+We have two apis that provides the option to add delivery & read receipts for the received message.
+
+When a firebase notification is sent, some extra data required for the receipt apis are also sent in it. **externalId** (Message ID), **destAdd** (User ID) & **fcmDestAdd** (User FCM Token) will be sent in the notification data to be later used in the receipt apis.
+
+**3.1. Delivery Receipt**
+
+This api stores the delivery receipt against a message. To sent a delivery report use the below curl request with required details.
+
+````
+```
+    curl --location --request POST 'http://143.110.255.220:8080/firebase/web' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+        "text": "",
+        "from": "",
+        "messageId": "",
+        "eventType": "DELIVERED",
+        "report": {
+            "externalId": "70eb40a7eb4b4f10890b3f2f865e307e",
+            "destAdd": "75********",
+            "fcmDestAdd": "cytMfcuBgpembxn7GfNvDh:APA91bHsaJioCNAoWAZql1lxe4szwd74CJsPEVp1ngSCrzMcft6kB9ZrZnUZ9PUVU47kGiVSUAk70ayF55nzi8vU6jlWI4AGLkTo9ZBZnwMll0ZqVKioAQARvgE4GTUwIoTWAqASDFGH"
+        }
+    }'
+```
+````
+
+**3.2. Read Receipt**
+
+This api stores the read receipt against a message. To sent a read report use the below curl request with required details.
+
+````
+```
+    curl --location --request POST 'http://143.110.255.220:8080/firebase/web' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+        "text": "",
+        "from": "",
+        "messageId": "",
+        "eventType": "READ",
+        "report": {
+            "externalId": "70eb40a7eb4b4f10890b3f2f865e307e",
+            "destAdd": "75********",
+            "fcmDestAdd": "cytMfcuBgpembxn7GfNvDh:APA91bHsaJioCNAoWAZql1lxe4szwd74CJsPEVp1ngSCrzMcft6kB9ZrZnUZ9PUVU47kGiVSUAk70ayF55nzi8vU6jlWI4AGLkTo9ZBZnwMll0ZqVKioAQARvgE4GTUwIoTWAqASDFGH"
+        }
+    }'
+```
+````
+
+### 4. History Api
+
+UCI provides an api to fetch the conversation history against a bot or a user.
+
+**4.1. Bot History**
+
+Use below api to fetch the history against a bot.
+
+````
+```
+curl --location --request GET 'http://143.110.255.220:8080/xmsg/getBotHistory?botId=1ea5346d-8d98-4cf4-a470-9c234476f3d1&provider=firebase&startDate=28-06-2022&endDate=30-06-2022'
+```
+````
+
+**4.2. User History**
+
+Use below api to fetch the history against a user.
+
+````
+```
+curl --location --request GET 'http://143.110.255.220:8080/xmsg/getBotHistory?userId=75********&provider=firebase&startDate=28-06-2022&endDate=30-06-2022'
+```
+````
+
+These apis will give the response in below format.
+
+```
+{
+    "statusCode": 200,
+    "errorMsg": null,
+    "records": [
+        {
+            "id": "0f202b20-f902-11ec-8aa7-ed0aa4d8c0a8",
+            "userId": "7597185708",
+            "fromId": "admin",
+            "channel": "web",
+            "provider": "firebase",
+            "timestamp": "2022-07-01T05:52:57.437",
+            "messageState": "SENT",
+            "app": "Firebase Broadcast Notification",
+            "auxData": null,
+            "messageId": "92a58b074e6e49ecab6c15782ebc8cf6",
+            "replyId": null,
+            "causeId": null,
+            "xmessage": "<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<xMessage>\n   .......................... </xMessage>\n"
+        }
+    ],
+    "prevCursorMark": null,
+    "nextCursorMark": null
+}
+```
+
+### 5. Contact the administrator
 
 Please write to the Maintainer - Chakshu (chakshu@samagragovernance.in), and cc - Saket (saket@samagragovernance.in), Sukhpreet (sukhpreet@samagragovernance.in)
