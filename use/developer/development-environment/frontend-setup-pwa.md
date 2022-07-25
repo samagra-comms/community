@@ -144,7 +144,3 @@ This document helps you to setup UCI-PWA which helps you to experience the conve
 * The textbar given below can be used to send messages. Once you send the required starting message, conversation with the bot gets started.
 
 ![UCI-PWA front-end first look](../../../media/uci-pwa\_working.png)
-
-## Contact the administrator
-
-Please write to the Maintainer - Chakshu (chakshu@samagragovernance.in), and cc - Saket (saket@samagragovernance.in), Sukhpreet (sukhpreet@samagragovernance.in)

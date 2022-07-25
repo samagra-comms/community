@@ -1,6 +1,6 @@
 # Direct Message APIs
 
-## Overview
+## 1. Overview
 
 Send direct messages from outbound service. This api used below parameters to send message to devices.
 

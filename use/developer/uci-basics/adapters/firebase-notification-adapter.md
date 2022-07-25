@@ -128,7 +128,7 @@ We can also use third party apis that have registered FCM tokens in a specific f
        ```
 
        \
-       Please [contact the administrator](firebase-notification-adapter.md#3.-contact-the-administrator) to get the **loginId** and **password** for this API.\
+       Please [contact the administrator](../../../contact-the-administrator.md) to get the **loginId** and **password** for this API.\
        \
        This API will give below response. Use the token from the response in "Add secret API".\
 
@@ -375,7 +375,3 @@ These APIs will give the response in below format.
     }
 }
 ```
-
-### 5. Contact the administrator
-
-Please write to the Maintainer - Chakshu (chakshu@samagragovernance.in), and cc - Saket (saket@samagragovernance.in), Sukhpreet (sukhpreet@samagragovernance.in)

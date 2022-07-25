@@ -6,7 +6,32 @@ UCI provides a list of apis that will help you to configure bots for conversatio
 
 ## 2. APIs
 
-### 2.1 Upload ODK Form
+### 2.1 Create adapter&#x20;
+
+Create a new adapter with credentials variable(Eg. uci-firebase-notification) added in step 2.&#x20;
+
+```
+curl --location --request POST 'http://143.110.255.220:9999/admin/v1/adapter/create' \
+    --header 'admin-token: EXnYOvDx4KFqcQkdXqI38MHgFvnJcxMS' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+        "data": {
+            "name": "UCI Gupshup Whatsapp",
+            "channel": "whatsapp",
+            "provider": "gupshup",
+            "config": {
+                "credentials": {
+                    "vault": "samagra",
+                    "variable": "uci-gupshup-whatsapp"
+                }
+            }
+        }
+    }'  
+```
+
+This API will create a new adapter and will return the adapter id (Eg. 2a704e82-132e-41f2-9746-83e74550d2ea). We can use this adapter id later in [create conversation logic](bot-setup-apis.md#2.3-create-a-conversation-logic) api.
+
+### 2.2 Upload ODK Form
 
 For using ODK transformer, we will first have to upload a ODK form. Follow below steps to upload a ODK form.
 
@@ -42,7 +67,7 @@ For using ODK transformer, we will first have to upload a ODK form. Follow below
     }    
     ```
 
-### 2.2 Create a Conversation Logic
+### 2.3 Create a Conversation Logic
 
 For any bot we will have to specify a certain configuration which is a part of conversation logic. Use below curl to create a conversation logic.
 
@@ -91,7 +116,7 @@ curl --location --request POST 'http://143.110.255.220:9999/admin/v1/conversatio
 }
 ```
 
-### 2.3 Create a bot
+### 2.4 Create a bot
 
 After the conversation logic is defined, we can use this to create a new bot. This bot must include a starting message as we will use this to start a conversation for this bot.
 

@@ -51,7 +51,11 @@ Below are the few styling tags we have allowed for now.
 
 To send this type of content to user, adapter should implement it according to the network provider(Netcore/Gupshup) [documentation](https://wadocs.pepipost.com/webhooks/overview/incoming-message).
 
-## 4. Sample Code
+## 4. Adapter Credentials
+
+To make a bot use this adapter we will have to later add this adapter configuration in databse using the [create adapter](../api-documentation/bot-setup-apis.md#2.1-create-adapter) API. This adapter may require you to have some credentials, which can be stored in a vault service. [Click here](../api-documentation/vault-apis.md) to see how to add a secret in vault.&#x20;
+
+## 5. Sample Code
 
 Sample code to receive a text message from channel & reply to channel.
 
@@ -61,7 +65,7 @@ Sample code to receive a text message from channel & reply to channel.
     * Implement **processOutBoundMessageF** method to reply to channel by converting XMessage format to channel message format.
 
     ```java
-    public class ChannelProviderAdapter extends AbstractProvider implements IProvider {
+    public class ProviderChannelAdapter extends AbstractProvider implements IProvider {
         @Override
         public Mono<XMessage> convertMessageToXMsg(Object message) throws JAXBException, JsonProcessingException {
             WebMessage webMessage = (WebMessage) message;
@@ -217,20 +221,16 @@ Sample code to receive a text message from channel & reply to channel.
 
         String text;
 
-        @Nullable
-        String userId;
-
-        String appId;
-
-        String channel;
-
         String from;
-
-        String to;
     }
     ```
+7. If we want to fetch the credentials of the adapter from vault service, see the code of [FirebaseNotificationAdapter](https://github.com/samagra-comms/adapter/blob/release-4.9.0/src/main/java/com/uci/adapter/firebase/web/FirebaseNotificationAdapter.java) to check how to do this. &#x20;
 
-## 5. List of Existing Adapter Implementations
+## 6. Adapter implementation
+
+After the adapter is created we should be able to implement it in inbound & outbound service for receiving and sending messages to user. [Click here](adapter-implementation.md) to see the process & sample code on how to to do this.
+
+## 7. List of Existing Adapter Implementations
 
 * [Gupshup-Whatsapp](https://github.com/samagra-comms/adapter/blob/release-4.9.0/src/main/java/com/uci/adapter/gs/whatsapp/GupShupWhatsappAdapter.java)
 * [Netcore-Whatsapp](https://github.com/samagra-comms/adapter/blob/release-4.9.0/src/main/java/com/uci/adapter/netcore/whatsapp/NetcoreWhatsappAdapter.java)

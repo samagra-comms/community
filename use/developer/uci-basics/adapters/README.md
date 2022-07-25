@@ -27,3 +27,7 @@ Similarly the adapter and the outbound service are linked in the following fashi
 * Netcore-Whatsapp
 * UCI Web Channel
 * [Firebase Adapter](firebase-notification-adapter.md)
+
+## 4. How to create an adapter
+
+[Click here](../../contribution-guide/create-an-adapter.md) to see how to create your own adapter.

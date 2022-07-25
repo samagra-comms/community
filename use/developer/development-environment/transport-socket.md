@@ -136,7 +136,7 @@ This document helps you to setup transport socket which helps communicate betwee
     SERVER_PORT=3005
     ```
 
-    *   Contact the administrator to use the production inbound url or setup inbound repository on local using this [link](backend-setup.md)
+    *   [Contact the administrator](../../contact-the-administrator.md) to use the production inbound url or setup inbound repository on local using this [link](backend-setup.md)
 
         ```
         ADAPTER_URL=http://localhost:8080/pwa/web
@@ -150,7 +150,3 @@ This document helps you to setup transport socket which helps communicate betwee
     ```
     $ yarn start
     ```
-
-### Contact the administrator
-
-Please write to the Maintainer - Chakshu (chakshu@samagragovernance.in), and cc - Saket (saket@samagragovernance.in), Sukhpreet (sukhpreet@samagragovernance.in)

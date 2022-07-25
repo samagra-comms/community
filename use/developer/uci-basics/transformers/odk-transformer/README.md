@@ -2,7 +2,7 @@
 
 ### 1. Overview
 
-A transformer is a stateless processing object that takes inputs and converts the input into a processed response. Transformers may in turn call external services if needed. This transformer uses odk forms to get the input from user and output the next reply to be sent. ODK forms contains the questions and flow of the questions.
+This transformer uses odk forms to get the input from user and output the next reply to be sent. ODK forms contains the questions and flow of the questions.
 
 ### 2. Setup ODK Aggregate
 

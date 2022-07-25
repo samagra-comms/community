@@ -201,13 +201,13 @@ Minio storage is another service for media upload & display functionality. We ca
 
 **1.17 Vault**
 
-Vault is a service which is being used to store credentials related to various adapters. For example firebase service key, gupshup api credentials etc. We need a token to access this service, Please contact the administrator for this token.
+Vault is a service which is being used to store credentials related to various adapters. For example firebase service key, gupshup api credentials etc. We need a token to access this service, Please [contact the administrator](../../contact-the-administrator.md) for this token.
 
 ```
 VAULT_FUSION_AUTH_URL=fa_url
 VAULT_FUSION_AUTH_TOKEN=fa_key
 VAULT_SERVICE_URL=http://143.110.183.73:3001
-VAULT_SERVICE_TOKEN=//token - contact the administrator
+VAULT_SERVICE_TOKEN=token
 ```
 
 **1.18 Other environment variables**
