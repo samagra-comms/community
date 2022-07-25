@@ -28,6 +28,7 @@ We use XMessage to converse between our services, It is sent to Kafka topics. Th
     KAFKA_MESSAGE_REPORT_TOPIC=message-report
     KAFKA_PROCESS_OUTBOUND=process-outbound
     KAFKA_BROADCAST_TRANSFORMER_TOPIC=broadcast-transformer
+    KAFKA_GENERIC_TRANSFORMER_TOPIC=generic-transformer
 ```
 
 #### 1.2 Redis :
@@ -127,6 +128,7 @@ deploy Apache [Cassandra](https://hub.docker.com/r/bitnami/cassandra/) and add b
     CASSANDRA_KEYSPACE = # Keyspace name
     CASSANDRA_PORT = # Cassandra Port
     CASSANDRA_URL = # Cassandra URL
+    CASSANDRA_MIGRATION_COUNT = 1 #Count of cassandra queries already exceuted
 ```
 
 #### 1.10 Campaign URL and token :

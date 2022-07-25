@@ -1,4 +1,4 @@
-# Interactive-Message-rules
+# Interactive-Messages
 
 ## Interactive Messaging
 
@@ -40,15 +40,15 @@ For sending a List Message, add following properties in ODK form :
 
 * Survey Tab&#x20;
 
-![](../../../.gitbook/assets/ListMessage\_SurveyTab.png)
+![](../../../../../.gitbook/assets/ListMessage\_SurveyTab.png)
 
 * Choices Tab&#x20;
 
-![](../../../.gitbook/assets/ListMessage\_CoicesTab.png)
+![](../../../../../.gitbook/assets/ListMessage\_CoicesTab.png)
 
 #### 1.4 Example of List Message Preview
 
-![](../../../.gitbook/assets/ListMessage\_example.jpeg)
+![](../../../../../.gitbook/assets/ListMessage\_example.jpeg)
 
 ### 2. Quick Reply Button
 
@@ -85,12 +85,12 @@ To send Quick Reply Button follow the below steps while creating ODK form :
 
 * Survey Tab&#x20;
 
-![](../../../.gitbook/assets/QuickReplyButton\_SurveyTab.png)
+![](../../../../../.gitbook/assets/QuickReplyButton\_SurveyTab.png)
 
 * Choices Tab&#x20;
 
-![](../../../.gitbook/assets/QuickReplyButton\_ChoicesTab.png)
+![](../../../../../.gitbook/assets/QuickReplyButton\_ChoicesTab.png)
 
 #### 2.4 Example of Quick Reply Button Preview
 
-![](../../../.gitbook/assets/QuickReplyButton\_Example.jpeg)
+![](../../../../../.gitbook/assets/QuickReplyButton\_Example.jpeg)

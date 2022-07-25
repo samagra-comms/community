@@ -47,6 +47,7 @@ Inbound receives the messages from a channel, and uses the channel adapter to co
 ```
     mvn clean install -DskipTests
 ```
+
 We can use any IDE tool to run it on a local machine or we can also run this service on terminal using below command.
 
 ```
@@ -61,13 +62,13 @@ We can also create its docker image & run the service on any server/local machin
     docker build -t samagragovernance/inbound:${CURRENT_VERSION} .
 ```
 
-2. Push docker image to docker hub
+1. Push docker image to docker hub
 
 ```
     docker push samagragovernance/inbound:${CURRENT_VERSION}
 ```
 
-3. Run docker image
+1. Run docker image
 
 ```
     docker-compose -f docker-compose.yml up -d inbound
@@ -75,7 +76,7 @@ We can also create its docker image & run the service on any server/local machin
 
 **6. Orchestrator**
 
-Orchestrator authenticates & processes the user data from whom the message is received. The XMessage will then be pushed to the kafka topic, the transformer will listen to this topic to further process it. To clone this git repository use [link](https://github.com/samagra-comms/orchestrator). Once the repository is cloned, build it using the command below.
+Orchestrator authenticates & processes the user data from whom the message is received. The XMessage will then be pushed to the transformers topic based on the conversation configuration, the corresponding transformer(transformer/broadcast-transformer) will listen to this topic to further process it. To clone this git repository use [link](https://github.com/samagra-comms/orchestrator). Once the repository is cloned, build it using the command below.
 
 ```
     mvn clean install -DskipTests
@@ -95,13 +96,13 @@ We can also create its docker image & run the service on any server/local machin
     docker build -t samagragovernance/orchestrator:${CURRENT_VERSION} .
 ```
 
-2. Push docker image to docker hub
+1. Push docker image to docker hub
 
 ```
     docker push samagragovernance/orchestrator:${CURRENT_VERSION}
 ```
 
-3. Run docker image
+1. Run docker image
 
 ```
     docker-compose -f docker-compose.yml up -d orchestrator
@@ -109,7 +110,7 @@ We can also create its docker image & run the service on any server/local machin
 
 **7. Transformer**
 
-Transformers transforms the previous xMessage from the user to one that needs to be sent next. It is a microservice that returns a new xMessage based on the previous user action, which will then be shown to the user. The XMessage will be pushed to the kafka topic, the outbound will listen to this topic to further process it. To clone this git repository use [link](https://github.com/samagra-comms/transformer). Once the repository is cloned, build it using the command below.
+This is a ODK transformer, which transforms the previous xMessage from the user to one that needs to be sent next. It is a microservice that returns a new xMessage based on the previous user action, which will then be shown to the user. The XMessage will be pushed to the process-outbound topic, orchestrator listens to this topic and will further process it to & send it to outbound topic. To clone this git repository use [link](https://github.com/samagra-comms/transformer). Once the repository is cloned, build it using the command below.
 
 ```
     mvn clean install -DskipTests
@@ -129,19 +130,53 @@ We can also create its docker image & run the service on any server/local machin
     docker build -t samagragovernance/transformer:${CURRENT_VERSION} .
 ```
 
-2. Push docker image to docker hub
+1. Push docker image to docker hub
 
 ```
     docker push samagragovernance/transformer:${CURRENT_VERSION}
 ```
 
-3. Run docker image
+1. Run docker image
 
 ```
     docker-compose -f docker-compose.yml up -d transformer
 ```
 
-**8. Outbound**
+**8. Broadcast Transformer**
+
+Broadcast transformer transforms the single message to multiple messages for each user segment associated with a conversation. It is a micro service that generated multiple XMessage and push it to process-outbound topic, orchestrator listens to this topic and will further process it to & send it to outbound topic. To clone this git repository use [link](https://github.com/samagra-comms/broadcast-transformer). Once the repository is cloned, build it using the command below.
+
+```
+    mvn clean install -DskipTests
+```
+
+We can use any IDE tool to run it on a local machine or we can also run this service on terminal using below command.
+
+```
+    mvn spring-boot:run
+```
+
+We can also create its docker image & run the service on any server/local machine.
+
+1. Create docker image
+
+```
+    docker build -t samagragovernance/broadcast-transformer:${CURRENT_VERSION} .
+```
+
+1. Push docker image to docker hub
+
+```
+    docker push samagragovernance/broadcast-transformer:${CURRENT_VERSION}
+```
+
+1. Run docker image
+
+```
+    docker-compose -f docker-compose.yml up -d broadcast-transformer
+```
+
+**9. Outbound**
 
 Outbound converts the xMessage to the one that will be sent to the channel(sms/whatsapp). It will then be sent to the network provider(Netcore/Gupshup) who will send it to the channel. To clone this git repository use [link](https://github.com/samagra-comms/outbound). Once the repository is cloned, build it using the command below.
 
@@ -163,13 +198,13 @@ We can also create its docker image & run the service on any server/local machin
     docker build -t samagragovernance/outbound:${CURRENT_VERSION} .
 ```
 
-2. Push docker image to docker hub
+1. Push docker image to docker hub
 
 ```
     docker push samagragovernance/outbound:${CURRENT_VERSION}
 ```
 
-3. Run docker image
+1. Run docker image
 
 ```
     docker-compose -f docker-compose.yml up -d outbound

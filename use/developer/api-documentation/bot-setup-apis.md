@@ -1,21 +1,14 @@
-# Setting up your very first conversation
+# Bot Setup APIs
 
-## 1. **Setting up your first bot**
+## 1. Overview
 
-### 1.1. UCI Admin
+UCI provides a list of apis that will help you to configure bots for conversation or broadcasting etc.&#x20;
 
-* Go to [Link](http://localhost:9097/uci-admin)
-* Click on the "Add new button".
-* Fill the form with a unique starting message, start date equals to current & end date more than the current date.
-* Click on the Next button.
-* Click on Add logic button.
-* Fill the form & upload a xml form. Eg. [Sample ODK Excel Form](https://github.com/samagra-comms/docker-deploy/blob/main/media/List-QRB-Test-Bot.xlsx)
-* Add this & submit this form.
-* The bot will be added and we can start using this on the [UCI front](http://localhost:9098/).
+## 2. APIs
 
-### 1.2. APIs
+### 2.1 Upload ODK Form
 
-#### 1.2.1 Upload ODK Form
+For using ODK transformer, we will first have to upload a ODK form. Follow below steps to upload a ODK form.
 
 *   Convert a ODK Excel form to XML form using [Link](https://getodk.org/xlsform/).
 
@@ -23,7 +16,7 @@
 *   Upload this XML from using this api.
 
     ```
-    curl --location --request POST 'http://localhost:9999/admin/v1/forms/upload' \
+    curl --location --request POST 'http://143.110.255.220:9999/admin/v1/forms/upload' \
     --header 'admin-token: EXnYOvDx4KFqcQkdXqI38MHgFvnJcxMS' \
     --form 'form=@"{PATH_OF_ODK_FORM}"'
     ```
@@ -49,10 +42,12 @@
     }    
     ```
 
-#### 1.2.2 Create a Conversation Logic
+### 2.2 Create a Conversation Logic
+
+For any bot we will have to specify a certain configuration which is a part of conversation logic. Use below curl to create a conversation logic.
 
 ```
-curl --location --request POST 'http://localhost:9999/admin/v1/conversationLogic/create' \
+curl --location --request POST 'http://143.110.255.220:9999/admin/v1/conversationLogic/create' \
 --header 'admin-token: EXnYOvDx4KFqcQkdXqI38MHgFvnJcxMS' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -96,10 +91,12 @@ curl --location --request POST 'http://localhost:9999/admin/v1/conversationLogic
 }
 ```
 
-#### 1.2.3 Create a bot
+### 2.3 Create a bot
+
+After the conversation logic is defined, we can use this to create a new bot. This bot must include a starting message as we will use this to start a conversation for this bot.
 
 ```
-curl --location --request POST 'http://localhost:9999/admin/v1/bot/create' \
+curl --location --request POST 'http://143.110.255.220:9999/admin/v1/bot/create' \
 --header 'admin-token: EXnYOvDx4KFqcQkdXqI38MHgFvnJcxMS' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -144,13 +141,4 @@ curl --location --request POST 'http://localhost:9999/admin/v1/bot/create' \
             "id": "9f0b1401-44d2-46be-83bd-7cbd5014f899"
         }
     }
-}
 ```
-
-**Note**: If you want to use the gupshup adapter, please contact the [administrator](https://github.com/samagra-comms/docker-deploy#contact-administrator) for credentials.
-
-## **2. Start Using Bots**
-
-Once the bot is created, we can start using it. If you have set up Gupshup/Netcore provider for WhatsApp, send the starting message added in the **Create a Bot** API to the WhatsApp number.
-
-![](../../.gitbook/assets/Test-Bot-Flow-Whatsapp.jpeg)

@@ -1,15 +1,8 @@
 # Create an Adapter
 
-## 1. Conversation Channel Adapters
+## 1. Overview
 
-Adapters convert information provided by channels (SMS, Whatsapp) for each specific provider to xMessages and vise versa. Adapters are gateway to the external services and resposible to recieving user response and sending response to users. Thus the two major functions of Adapters are
-
-* Convert API/webhook data from channel (and provider) to xMessages
-* Convert xMessages back to API/webhook data format for the specific channel(and provider)
-
-A simplified diagram of what adapters do is shown below.
-
-![](../../../.gitbook/assets/adapter.jpg)
+Adapters convert information provided by channels (SMS, Whatsapp) for each specific provider to xMessages and vise versa.
 
 ## 2. How to setup adapter
 
@@ -26,14 +19,6 @@ Setup the adapter repository to start working on it. Follow the steps given to a
 
 ## 3. Creating your own Adapters
 
-The adapter and the inbound service are linked together as shown in the figure below.
-
-![](../../../.gitbook/assets/adapter-internal.jpg)
-
-Similarly the adapter and the outbound service are linked in the following fashion.
-
-![](../../../.gitbook/assets/outbound.jpeg)
-
 All adapters are named as `<ProviderName><ChannelName>Adapter`; for example GupshupWhatsappAdapter. Adapters should extend `AbstractProvider` and implement `IProvider`. Thus, it needs to implement the following methods:
 
 * `public Mono<XMessage> convertMessageToXMsg(Object msg) // Converts API response object to XMessage`
@@ -47,7 +32,7 @@ All adapters with the above implementation will be valid. An example adapter can
 
 Currently we accepts text/media/location/quickReplyButton/list messages. It should be implemeted according to the network provider(Netcore/Gupshup) [documentation](https://wadocs.pepipost.com/webhooks/overview/incoming-message).
 
-To enable these, we have to add them in `convertMessageToXMsg` and convert these according to the [xMessage spec](../uci-basics.md)
+To enable these, we have to add them in `convertMessageToXMsg` and convert these according to the [xMessage spec](../uci-basics/)
 
 ### 3.2. Outgoing Content
 
@@ -250,3 +235,4 @@ Sample code to receive a text message from channel & reply to channel.
 * [Gupshup-Whatsapp](https://github.com/samagra-comms/adapter/blob/release-4.9.0/src/main/java/com/uci/adapter/gs/whatsapp/GupShupWhatsappAdapter.java)
 * [Netcore-Whatsapp](https://github.com/samagra-comms/adapter/blob/release-4.9.0/src/main/java/com/uci/adapter/netcore/whatsapp/NetcoreWhatsappAdapter.java)
 * [UCI Web Channel](https://github.com/samagra-comms/adapter/blob/release-4.9.0/src/main/java/com/uci/adapter/pwa/PwaWebPortalAdapter.java)
+* [Firebase Adapter](https://github.com/samagra-comms/adapter/blob/release-4.9.0/src/main/java/com/uci/adapter/firebase/web/FirebaseNotificationAdapter.java)

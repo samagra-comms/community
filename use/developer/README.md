@@ -10,13 +10,13 @@ description: I am an open-source enthusiast and I want to contribute to the Sunb
 
 ****[**Development environment**](development-environment/)****
 
-****[**UCI Basics**](uci-basics.md)****
+****[**UCI Basics**](uci-basics/)****
 
 **Firebase Notification Adapter**
 
-****[**API Documentation**](api-documentation.md) ****&#x20;
+****[**API Documentation**](api-documentation/) ****&#x20;
 
-****[**Your first PR**](your-first-pr.md)****
+****[**Your first PR**](contribution-guide/your-first-pr.md)****
 
 &#x20;**** [**Next Steps**](next-steps.md)****
 

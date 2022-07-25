@@ -315,51 +315,64 @@ This api stores the read receipt against a message. To sent a read report use th
 
 UCI provides an api to fetch the conversation history against a bot or a user.
 
-**4.1. Bot History**
+**4.1. User History**
 
-Use below api to fetch the history against a bot.
+Use below API to fetch the history against a bot. **** This API uses below required parameters to fetch the user history.
 
-````
+* **userId**: Phone number of user
+* **provider**: Conversation provider. Eg. firebase (for in-app notification)
+* **start & end date**: Conversations between start & end date.
+
 ```
-curl --location --request GET 'http://143.110.255.220:8080/xmsg/getBotHistory?botId=1ea5346d-8d98-4cf4-a470-9c234476f3d1&provider=firebase&startDate=28-06-2022&endDate=30-06-2022'
+curl --location --request GET 'http://143.110.255.220:8080/xmsg/history?userId=7597185708&provider=firebase&endDate=03-07-2022&startDate=01-07-2022'
 ```
-````
 
-**4.2. User History**
+**Limitation:** This API can provide maximum 1000 conversations.
 
-Use below api to fetch the history against a user.
+**4.2. Bot History**
 
-````
+Use below API to fetch the history against a user. This API uses below required parameters to fetch the user history.
+
+* **botId**: Conversation id
+* **provider**: Conversation provider. Eg. firebase (for in-app notification)
+* **start & end date**: Conversations between start & end date.
+
 ```
-curl --location --request GET 'http://143.110.255.220:8080/xmsg/getBotHistory?userId=75********&provider=firebase&startDate=28-06-2022&endDate=30-06-2022'
+curl --location --request GET 'http://143.110.255.220:8080/xmsg/history/dump?provider=firebase&botId=1ea5346d-8d98-4cf4-a470-9c234476f3d1&endDate=19-07-2022&startDate=05-07-2022'
 ```
-````
 
-These apis will give the response in below format.
+**Limitation:** This API can provide conversations for 15 days only.
+
+These APIs will give the response in below format.
 
 ```
 {
-    "statusCode": 200,
-    "errorMsg": null,
-    "records": [
-        {
-            "id": "0f202b20-f902-11ec-8aa7-ed0aa4d8c0a8",
-            "userId": "7597185708",
-            "fromId": "admin",
-            "channel": "web",
-            "provider": "firebase",
-            "timestamp": "2022-07-01T05:52:57.437",
-            "messageState": "SENT",
-            "app": "Firebase Broadcast Notification",
-            "auxData": null,
-            "messageId": "92a58b074e6e49ecab6c15782ebc8cf6",
-            "replyId": null,
-            "causeId": null,
-            "xmessage": "<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<xMessage>\n   .......................... </xMessage>\n"
-        }
-    ],
-    "prevCursorMark": null,
-    "nextCursorMark": null
+    "timestamp": "2022-07-20T09:24:06Z",
+    "status": 200,
+    "error": null,
+    "message": null,
+    "path": "/xmsg/history",
+    "result": {
+        "total": 1,
+        "records": [
+            {
+                "messageState": "DELIVERED",
+                "provider": "firebase",
+                "botUuid": null,
+                "payload": {
+                    "text": "Hello surabhi-7597185708, Test Notification"
+                },
+                "channel": "web",
+                "ownerOrgId": null,
+                "id": "2004a970-f902-11ec-bf0b-19880ce512a2",
+                "sessionId": null,
+                "ownerId": null,
+                "fromId": "7597185708",
+                "userId": "admin",
+                "timestamp": "2022-07-01T05:53:26.389"
+            }
+        ]
+    }
 }
 ```
 
