@@ -53,7 +53,7 @@
     * [Vault Apis](use/developer/api-documentation/vault-apis.md)
   * [Contribution guidelines](use/developer/contribution-guidelines.md)
   * [Contribution Guide](use/developer/contribution-guide/README.md)
-    * [Create an Adapter](use/developer/contribution-guide/create-an-adapter.md)
+    * [Contribute an Adapter](use/developer/contribution-guide/create-an-adapter.md)
     * [Adapter Implementation](use/developer/contribution-guide/adapter-implementation.md)
     * [Create a Transformer](use/developer/contribution-guide/create-a-transformer.md)
     * [Your first PR](use/developer/contribution-guide/your-first-pr.md)

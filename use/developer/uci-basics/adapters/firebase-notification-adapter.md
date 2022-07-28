@@ -101,16 +101,20 @@ We can also use third party apis that have registered FCM tokens in a specific f
                 {
                     "fcmToken": "cytMfcuBgpembxn7GfNvDh:APA91bHsaJioCNAoWAZql1lxe4szwd74CJsPEVp1ngSCrzMcft6kB9ZrZnUZ9PUVU47kGiVSUAk70ayF55nzi8vU6jlWI4AGLkTo9ZBZnwMll0ZqVKioAQARvgE4GTUwIoTWAqVUYGMN",
                     "phoneNo": "7597185712",
-                    "name": "sim"
+                    "name": "sim",
+                    "fcmClickActionUrl": "http://www.example.com/sim"
                 },
                 {
                     "fcmToken": "cytMfcuBgpembxn7GfNvDh:APA91bHsaJioCNAoWAZql1lxe4szwd74CJsPEVp1ngSCrzMcft6kB9ZrZnUZ9PUVU47kGiVSUAk70ayF55nzi8vU6jlWI4AGLkTo9ZBZnwMll0ZqVKioAQARvgE4GTUwIoTWAqVUASDF",
                     "phoneNo": "7597185713",
-                    "name": "john"
+                    "name": "john",
+                    "fcmClickActionUrl": "http://www.example.com/john"
                 }
             ]
         }
     ```
+
+    **Note:** Param **fcmClickActionUrl** is being used to mention the url to open on click ot fcm notification. This url should have the same domain as the one on which the fcm tokens are registered, else the url will not work.
 2. Add Firebase service key in vault using below APIs.
    1.  Login API\
 

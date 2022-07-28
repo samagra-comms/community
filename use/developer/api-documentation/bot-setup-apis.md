@@ -6,9 +6,29 @@ UCI provides a list of apis that will help you to configure bots for conversatio
 
 ## 2. APIs
 
-### 2.1 Create adapter&#x20;
+### 2.1 Add adapter&#x20;
 
-Create a new adapter with credentials variable(Eg. uci-firebase-notification) added in step 2.&#x20;
+Add a new adapter for the available channel & providers. Below is a list of available parameters.
+
+* **name:** Name of the adapter
+* **channel**: Messaging channel.
+* **provider**: Message provider
+* **config**:
+  * **credentials**:
+    * **vault**: Vault service name, Default value: samagra&#x20;
+    * **variable**: Variable name added in the vault.
+
+List of available channel and provider combinations:
+
+* provider: netcore, channel: whatsapp
+* provider: gupshup, channel: whatsapp
+* provider: gupshup, channel: sms
+* provider: cdac, channel: sms
+* provider: firebase, channel: web
+
+Note: If you need some other channel or provider, contribute a new adapter for the same. [Click here](../contribution-guide/create-an-adapter.md) to see how to do this.
+
+Below is a curl request for adding a new adapter in db. This adapter will be associated with a bot to determine the channel and provider for the bot when conversing.
 
 ```
 curl --location --request POST 'http://143.110.255.220:9999/admin/v1/adapter/create' \

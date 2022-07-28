@@ -111,7 +111,8 @@ curl --location --request POST 'http://143.110.255.220:9090/message/send' \
         "userID": "7597185708",
         "deviceType": "PHONE",
         "meta": {
-            "fcmToken": "cytMfcuBgpembxn7GfNvDh:APA91bHsaJioCNAoWAZql1lxe4szwd74CJsPEVp1ngSCrzMcft6kB9ZrZnUZ9PUVU47kGiVSUAk70ayF55nzi8vU6jlWI4AGLkTo9ZBZnwMll0ZqVKioAQARvgE4GTUwIoTWAqVUYGMN"
+            "fcmToken": "cytMfcuBgpembxn7GfNvDh:APA91bHsaJioCNAoWAZql1lxe4szwd74CJsPEVp1ngSCrzMcft6kB9ZrZnUZ9PUVU47kGiVSUAk70ayF55nzi8vU6jlWI4AGLkTo9ZBZnwMll0ZqVKioAQARvgE4GTUwIoTWAqVUYGMN",
+            "fcmClickActionUrl": "http://www.example.com"
         }
     },
     "payload": {
@@ -119,6 +120,8 @@ curl --location --request POST 'http://143.110.255.220:9090/message/send' \
     }
 }'
 ```
+
+**Note:** Param **fcmClickActionUrl** is being used to mention the url to open on click ot fcm notification. This url should have the same domain as the one on which the fcm tokens are registered, else the url will not work.
 
 ### **2.4 Gupshup SMS**
 
