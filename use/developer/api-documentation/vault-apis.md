@@ -1,4 +1,4 @@
-# Vault Apis
+# Vault APIs
 
 ## 1. Overview
 
@@ -10,7 +10,15 @@ To add a credentials in vault, use below apis.
 
 ### 2.1 Login API
 
-This apis provides a login token to use in the add credentials api.&#x20;
+This apis provides a login token to use in the add credentials api. Below are the available parameters of api.
+
+* **loginId:** login id of fusion auth(which is connected to vault)
+* **password:** password of fusion auth(which is connected to vault)
+* **applicationId:** application registered on fusion auth(which is connected to vault)
+
+**Note**: Please [contact the administrator](../../contact-the-administrator.md) to get the **loginId** and **password** for this API.
+
+Use below curl to get login token.
 
 ```
     curl --location --request POST 'http://auth.samagra.io:9011/api/login' \
@@ -23,8 +31,6 @@ This apis provides a login token to use in the add credentials api.&#x20;
         "applicationId": "a1313380-069d-4f4f-8dcb-0d0e717f6a6b"
     }'
 ```
-
-Please [contact the administrator](../../contact-the-administrator.md) to get the **loginId** and **password** for this API.
 
 This API will give below response. Use the token from the response in [Add secret/credentials API](vault-apis.md#2.2-add-a-secret-api).
 
@@ -55,7 +61,32 @@ This API will give below response. Use the token from the response in [Add secre
 
 ### 2.2 Add secret/credentials API
 
-This API will add secret/credentials in the vault. We can later use this **variableName** in [create adapter](bot-setup-apis.md#2.1-create-adapter) configuration. This variableName will be later used to fetch the credentials for the adapter from vault service.&#x20;
+This API will add secret/credentials in the vault. Below are the available parameters of api.
+
+* **type:** type of secret/credential **(Eg.** WhatsappGupshup/Headers)
+* **secretBody:** key value pair of credentials
+  *   credentials for **** type **WhatsappGupshup** should be as follows:
+
+      ```
+      "secretBody": {
+              "usernameHSM": "usernameHSMValue",
+              "passwordHSM": "passwordHSMValue",
+              "username2Way": "username2WayValue",
+              "password2Way": "password2WayValue"
+      }
+      ```
+  *   credentials for type **Headers** should be as follows:\
+
+
+      ```
+      "secretBody": {
+              "key1": "value1",
+              "key2": "value2"
+      }
+      ```
+* **variableName:** name of variable against which this data is being saved, it will be used in [add adapter api](bot-setup-apis.md#2.1-add-adapter) configuration. it is used to fetch secretBody data from vault when added in adapter.
+
+Use below curl to save credentials in vault.
 
 ```
     curl --location -g --request POST 'http://143.110.183.73:3001/admin/secret' \

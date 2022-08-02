@@ -160,3 +160,9 @@ We have added this feature to enable a bot to receive media files upload by a us
 
 [Click here](media-messages.md#2.-receive-media-from-user) to see how to add these in ODK form.
 
+#### 6.4 Receive Location from User
+
+We have added this feature to enable a bot to receive location of a user. For this we use a question type as geopoint.
+
+[Click here](location.md) to see how to add this in ODK form.
+

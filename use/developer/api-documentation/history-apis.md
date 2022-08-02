@@ -2,7 +2,7 @@
 
 ## 1. Overview
 
-UCI provides an API to fetch the conversation history against a bot or a user.
+UCI provides APIs to fetch the conversation history against a bot or a user.
 
 ## **2. APIs**
 
@@ -47,17 +47,18 @@ These APIs will give the response in below format.
         "total": 1,
         "records": [
             {
+                "messageId": "4e2aab66-012f-4e5b-92ff-9b6ad6c2859b",
                 "messageState": "DELIVERED",
                 "provider": "firebase",
-                "botUuid": null,
+                "botUuid": "694c3306-d27f-431c-87f4-ae37a41204a4",
                 "payload": {
                     "text": "Hello surabhi-7597185708, Test Notification"
                 },
                 "channel": "web",
-                "ownerOrgId": null,
+                "ownerOrgId": "ORG_001",
                 "id": "2004a970-f902-11ec-bf0b-19880ce512a2",
-                "sessionId": null,
-                "ownerId": null,
+                "sessionId": "1bc51202-2311-4831-aaee-cd481d9d916e",
+                "ownerId": "abc51102-9814-4211-b71e-vd20vb9d8g57"
                 "fromId": "7597185708",
                 "userId": "admin",
                 "timestamp": "2022-07-01T05:53:26.389"

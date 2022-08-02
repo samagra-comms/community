@@ -58,7 +58,7 @@ For using ODK transformer, we will first have to upload a ODK form. Follow below
 *   Convert a ODK Excel form to XML form using [Link](https://getodk.org/xlsform/).
 
     [Sample ODK Excel Form](https://github.com/samagra-comms/docker-deploy/blob/main/media/List-QRB-Test-Bot.xlsx)
-*   Upload this XML from using this api.
+*   Upload this XML from using curl.
 
     ```
     curl --location --request POST 'http://143.110.255.220:9999/admin/v1/forms/upload' \
@@ -87,9 +87,22 @@ For using ODK transformer, we will first have to upload a ODK form. Follow below
     }    
     ```
 
-### 2.3 Create a Conversation Logic
+### 2.3 Add a Conversation Logic
 
-For any bot we will have to specify a certain configuration which is a part of conversation logic. Use below curl to create a conversation logic.
+For any bot we will have to specify a certain configuration which is a part of conversation logic. Below is a list of available parameters.
+
+* **name:** Conversation logic unique name
+  * **transformers:** Array of transformers
+    * **id:** id of transformer
+    * **meta:**
+      * **formID:** uploaded odk form id from [upload form api](bot-setup-apis.md#2.2-upload-odk-form) (For ODK transformer)
+      * **params:** Array of parameters to be used in template **** message (For Broadcast transformer)
+      * **body:** (For Broadcast transformer)
+      * **type:** type of template (For Broadcast transformer), Default. **JS\_TEMPLATE\_LITERALS** &#x20;
+    * **type:** type of transformers (Eg. broadcast/generic) ****&#x20;
+  * **adapter:** id **** of adapter from [add adapter api](bot-setup-apis.md#2.1-add-adapter). &#x20;
+
+Use below curl to create a conversation logic.
 
 ```
 curl --location --request POST 'http://143.110.255.220:9999/admin/v1/conversationLogic/create' \
@@ -136,9 +149,19 @@ curl --location --request POST 'http://143.110.255.220:9999/admin/v1/conversatio
 }
 ```
 
-### 2.4 Create a bot
+### 2.4 Add a bot
 
-After the conversation logic is defined, we can use this to create a new bot. This bot must include a starting message as we will use this to start a conversation for this bot.
+After the conversation logic is defined, we can use this to create a new bot. This bot must include a starting message as we will use this to start a conversation for this bot. Below is a list of available parameters.
+
+* **startingMessage:** unique message to start conversation
+* **name:** unique name of bot ****&#x20;
+* **users:** array of user segment ids, currently the first one will be used
+* **logic:** array of conversation logic ids from [add logic api](bot-setup-apis.md#2.3-create-a-conversation-logic), currently the first one will be used&#x20;
+* **status:** status of bot, Eg. draft/enabled
+* **startDate:** date from which bot will be active
+* **endDate:** date till which bot will be active
+
+Use below curl to create a conversation logic.
 
 ```
 curl --location --request POST 'http://143.110.255.220:9999/admin/v1/bot/create' \
