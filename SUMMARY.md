@@ -4,8 +4,8 @@
 
 ## 📙 Learn
 
-* [UCI use cases across sectors](learn/uci-use-cases.md)
-* [UCI in Action - Quiz on Whatsapp Bot](learn/uci-in-action.md)
+* [UCI use cases](learn/uci-use-cases.md)
+* [UCI for Education(Case study)](learn/uci-in-action.md)
 * [Tech Overview](learn/tech-overview/README.md)
   * [Glossary](learn/tech-overview/glossary.md)
   * [High-level Architecture Design](learn/tech-overview/high-level-tech-architecture.md)

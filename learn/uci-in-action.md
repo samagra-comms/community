@@ -1,6 +1,4 @@
-# Example Usage Scenario
-
-This section provides an example of usage of this unified interface. Purpose is to illustrate a set of real life use cases and not enumerate all possible usages. It is expected that the user ecosystem will innovate and find more interesting usage scenarios for this simple and unified communication interface.
+# UCI for Education(Case study)
 
 **Usage Scenario**
 
@@ -43,3 +41,7 @@ Class teacher of Geeta, a class 5 student from Govt. School, Gurgaon, Haryana ha
 20. Additional content links to be shared with the student is requested&#x20;
 21. Content links are updated for the message&#x20;
 22. Student receives the report card with learning content links
+
+
+
+_**Note:**_ _This section provides an example case study. The purpose is to illustrate a set of real-life case studies and not enumerate all possible usage scenarios. It is expected that the user ecosystem will innovate and find more interesting usage scenarios for this simple and unified communication interface._
