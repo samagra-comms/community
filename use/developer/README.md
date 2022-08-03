@@ -2,7 +2,7 @@
 description: I am an open-source enthusiast and I want to contribute to the Sunbird UCI
 ---
 
-# Developer
+# Developer - Contribute to UCI&#x20;
 
 **Contribution Guide - Overview**&#x20;
 
@@ -21,8 +21,3 @@ description: I am an open-source enthusiast and I want to contribute to the Sunb
 &#x20;**** [**Next Steps**](next-steps.md)****
 
 ****
-
-**ToDo:**
-
-* Update Overview section - saket
-* Write a brief description about each of the steps - Saket
