@@ -15,7 +15,7 @@
 ## 🚀 Use
 
 * [Choose your Persona](use/choose-your-persona.md)
-* [Adopter](use/adopter/README.md)
+* [Adopter - Install ans use UCI](use/adopter/README.md)
   * [Pre-requisites, Installation Setup, Post Setup](use/adopter/pre-requisites-installation-setup-post-setup.md)
   * [Setting up your very first conversation](use/adopter/setting-up-your-very-first-conversation.md)
   * [WhatsApp flow](use/adopter/whatsapp-flow.md)
@@ -23,7 +23,7 @@
   * [Data Exhaust and Analytics](use/adopter/data-exhaust-and-analytics.md)
   * [Posthog Event](use/adopter/posthog-event.md)
   * [Next Steps](use/adopter/next-steps.md)
-* [Developer](use/developer/README.md)
+* [Developer - Contribute to UCI ](use/developer/README.md)
   * [UCI Basics](use/developer/uci-basics/README.md)
     * [XMessage Specification](use/developer/uci-basics/xmessage-specification.md)
     * [Transformers](use/developer/uci-basics/transformers/README.md)
@@ -59,9 +59,6 @@
     * [Your first PR](use/developer/contribution-guide/your-first-pr.md)
     * [Integrate User Data](use/developer/contribution-guide/integrate-user-data.md)
   * [Next Steps](use/developer/next-steps.md)
-* [Auditor](use/auditor/README.md)
-  * [Sandbox - Steps for creating a new test bot](use/auditor/sandbox-steps-for-creating-a-new-test-bot.md)
-  * [Sandbox - Testing your new bot](use/auditor/sandbox-testing-your-new-bot.md)
 * [Installation Guide (ToBeUpdated)](use/docs/README.md)
   * [Conversation Channel Adapters](use/docs/adapter.md)
   * [UCI Build & Execution Flow](use/docs/build-execution-flow.md)
