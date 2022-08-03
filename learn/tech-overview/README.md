@@ -10,7 +10,7 @@ The section is structured in 4 parts:
 
 ****[**Design principles**](design-principles.md) - This section explains the 5 design principles that are kept at the center of the Sunbird UCI design
 
-****[**Tech Stack**](tech-stack.md) **** - This section gives an introduction to the tech stack used of UCI
+****[**Tech Stack**](broken-reference) **** - This section gives an introduction to the tech stack used of UCI
 
 
 
