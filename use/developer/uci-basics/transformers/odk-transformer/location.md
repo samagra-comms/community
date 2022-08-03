@@ -19,7 +19,7 @@ For receiving media from user, add following properties in ODK form :
 
 **ODK location type example**
 
-![](<../../../../../.gitbook/assets/receive-location-odk (1).png>)
+![](../../../../../.gitbook/assets/receive-location-odk.png)
 
 **Whatsapp Preview**
 
