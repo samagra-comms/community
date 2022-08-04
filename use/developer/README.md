@@ -4,19 +4,15 @@ description: I am an open-source enthusiast and I want to contribute to the Sunb
 
 # Developer - Contribute to UCI&#x20;
 
-**Contribution Guide - Overview**&#x20;
-
-****[**Contribution guidelines**](contribution-guidelines.md) ****&#x20;
-
-****[**Development environment**](development-environment/)****
-
 ****[**UCI Basics**](uci-basics/)****
 
-**Firebase Notification Adapter**
+****[**Development Environment**](development-environment/) ****&#x20;
 
-****[**API Documentation**](api-documentation/) ****&#x20;
+****[**API Documentation**](api-documentation/)****
 
-****[**Your first PR**](contribution-guide/your-first-pr.md)****
+****[**Contribution guidelines**](contribution-guidelines.md)****
+
+****[**Contribution Guide**](contribution-guide/)****
 
 &#x20;**** [**Next Steps**](next-steps.md)****
 
