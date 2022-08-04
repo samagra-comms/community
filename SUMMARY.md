@@ -15,14 +15,12 @@
 ## 🚀 Use
 
 * [Choose your Persona](use/choose-your-persona.md)
-* [Adopter - Install ans use UCI](use/adopter/README.md)
+* [Adopter - Install and use UCI](use/adopter/README.md)
   * [Pre-requisites, Installation Setup, Post Setup](use/adopter/pre-requisites-installation-setup-post-setup.md)
   * [Setting up your very first conversation](use/adopter/setting-up-your-very-first-conversation.md)
-  * [WhatsApp flow](use/adopter/whatsapp-flow.md)
   * [API Documentation](use/adopter/api-documentation.md)
   * [Data Exhaust and Analytics](use/adopter/data-exhaust-and-analytics.md)
   * [Posthog Event](use/adopter/posthog-event.md)
-  * [Next Steps](use/adopter/next-steps.md)
 * [Developer - Contribute to UCI ](use/developer/README.md)
   * [UCI Basics](use/developer/uci-basics/README.md)
     * [XMessage Specification](use/developer/uci-basics/xmessage-specification.md)
