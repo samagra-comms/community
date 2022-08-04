@@ -4,7 +4,7 @@ description: >-
   instance of Sunbird UCI
 ---
 
-# Adopter
+# Adopter - Install ans use UCI
 
 **Adoption guide - overview**
 
@@ -21,8 +21,3 @@ description: >-
 ****[**Next Steps (Engage, Contribute, Ask)**](next-steps.md)****
 
 ****
-
-**ToDo:**
-
-* Update Overview section - saket
-* Write a brief description about each of the steps - Saket
