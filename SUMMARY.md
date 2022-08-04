@@ -67,7 +67,5 @@
 
 ## 🤝 Engage
 
-* [Community Guidelines](engage/contribution-guidelines.md)
-* [Code of Conduct](engage/code-of-conduct.md)
-* [Quick Links](engage/quick-links.md)
+* [Source Code](https://github.com/samagra-comms)
 * [Discussion Forum](https://github.com/samagra-comms/community/discussions)
