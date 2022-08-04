@@ -14,6 +14,21 @@ Send direct messages from outbound service. This api used below parameters to se
   _Available categories:_ IMAGE_URL, AUDIO\_URL, VIDEO\_URL, DOCUMENT\_URL_
 * **payload.media.caption:** Caption to be sent with media file
 
+This API will give you response in below format. If the api returns a succes response, it will include a message id in result.
+
+```
+{    
+    "timestamp": "2022-08-04T11:51:51Z",    
+    "status": 200,    
+    "error": null,    
+    "message": "Message sent.",    
+    "path": "/message/send",    
+    "result": {        
+        "messageId": "2a03363a-7752-4a19-b7f7-e3a1e1423ae8"    
+    }
+}
+```
+
 Below are some curl requests for sending messages.
 
 ## **2. APIs**
@@ -28,7 +43,7 @@ curl --location --request POST 'http://143.110.255.220:9090/message/send' \
 --data-raw '{
     "adapterId": "44a9df72-3d7a-4ece-94c5-98cf26307323",
     "to": {
-        "userID": "7597185708",
+        "userID": "75********",
         "deviceType": "PHONE"
     },
     "payload": {
@@ -45,7 +60,7 @@ curl --location --request POST 'http://143.110.255.220:9090/message/send' \
 --data-raw '{
     "adapterId": "44a9df72-3d7a-4ece-94c5-98cf26307323",
     "to": {
-        "userID": "7597185708",
+        "userID": "75********",
         "deviceType": "PHONE"
     },
     "payload": {
@@ -68,7 +83,7 @@ curl --location --request POST 'http://143.110.255.220:9090/message/send' \
 --data-raw '{
     "adapterId": "44a9df72-3d7a-4ece-94c5-98cf26307324",
     "to": {
-        "userID": "7597185708",
+        "userID": "75********",
         "deviceType": "PHONE"
     },
     "payload": {
@@ -85,7 +100,7 @@ curl --location --request POST 'http://143.110.255.220:9090/message/send' \
 --data-raw '{
     "adapterId": "44a9df72-3d7a-4ece-94c5-98cf26307324",
     "to": {
-        "userID": "7597185708",
+        "userID": "75********",
         "deviceType": "PHONE"
     },
     "payload": {
@@ -108,7 +123,7 @@ curl --location --request POST 'http://143.110.255.220:9090/message/send' \
 --data-raw '{
     "adapterId": "2a704e82-132e-41f2-9746-83e74550d2ea",
     "to": {
-        "userID": "7597185708",
+        "userID": "75********",
         "deviceType": "PHONE",
         "meta": {
             "fcmToken": "cytMfcuBgpembxn7GfNvDh:APA91bHsaJioCNAoWAZql1lxe4szwd74CJsPEVp1ngSCrzMcft6kB9ZrZnUZ9PUVU47kGiVSUAk70ayF55nzi8vU6jlWI4AGLkTo9ZBZnwMll0ZqVKioAQARvgE4GTUwIoTWAqVUYGMN",
@@ -133,7 +148,7 @@ curl --location --request POST 'http://143.110.255.220:9090/message/send' \
 --data-raw '{
     "adapterId": "64036edb-e763-44b1-99b8-37b6c7b292c5",
     "to": {
-        "userID": "7597185708",
+        "userID": "75********",
         "deviceType": "PHONE"
     },
     "payload": {
