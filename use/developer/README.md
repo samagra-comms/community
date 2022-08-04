@@ -6,14 +6,20 @@ description: I am an open-source enthusiast and I want to contribute to the Sunb
 
 ****[**UCI Basics**](uci-basics/)****
 
+As a new developer, before you contribute to UCI, you should get familiar with a few internal basics about UCI This section dives deep into the basics of UCI, setting you up for a good, contribution journey.
+
 ****[**Development Environment**](development-environment/) ****&#x20;
+
+This section helps any developer to get ready with the local setup of the codebase to start their contribution journey.
 
 ****[**API Documentation**](api-documentation/)****
 
-****[**Contribution guidelines**](contribution-guidelines.md)****
+This section covers relevant APIs required for different use cases for any adopter in their journey of using UCI.
 
 ****[**Contribution Guide**](contribution-guide/)****
 
-&#x20;**** [**Next Steps**](next-steps.md)****
+This section covers a long range of items, from the basics of how you contribute your first PR to how you contribute a new adapter and a new transformer.
+
+****
 
 ****
