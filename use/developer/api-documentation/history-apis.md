@@ -15,7 +15,7 @@ Use below API to fetch the history against a bot. **** This API uses below requi
 * **start & end date**: Conversations between start & end date.
 
 ```
-curl --location --request GET 'http://143.110.255.220:8080/xmsg/history?userId=7597185708&provider=gupshup&endDate=03-07-2022&startDate=01-07-2022'
+curl --location --request GET 'http://143.110.255.220:8080/xmsg/history?userId=75********&provider=gupshup&endDate=03-07-2022&startDate=01-07-2022'
 ```
 
 **Limitation:** This API can provide maximum 1000 conversations.
@@ -52,14 +52,14 @@ These APIs will give the response in below format.
                 "provider": "firebase",
                 "botUuid": "694c3306-d27f-431c-87f4-ae37a41204a4",
                 "payload": {
-                    "text": "Hello surabhi-7597185708, Test Notification"
+                    "text": "Hello surabhi-75********, Test Notification"
                 },
                 "channel": "web",
                 "ownerOrgId": "ORG_001",
                 "id": "2004a970-f902-11ec-bf0b-19880ce512a2",
                 "sessionId": "1bc51202-2311-4831-aaee-cd481d9d916e",
                 "ownerId": "abc51102-9814-4211-b71e-vd20vb9d8g57"
-                "fromId": "7597185708",
+                "fromId": "75********",
                 "userId": "admin",
                 "timestamp": "2022-07-01T05:53:26.389"
             }

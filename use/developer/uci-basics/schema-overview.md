@@ -1,3 +1,0 @@
-# Schema Overview
-
-Coming Soon

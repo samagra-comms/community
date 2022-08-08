@@ -58,5 +58,5 @@ To have a more deeper understanding of UCI, we have mentioned a few features inc
 * [Transformers](transformers/)
 * [Adapters](adapters/)
 * [User Segment](user-segment.md)
-* [Schema Overview](schema-overview.md)
+* [Schema Overview](schema-overview/)
 

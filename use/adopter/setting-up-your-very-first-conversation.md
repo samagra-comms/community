@@ -151,6 +151,16 @@ curl --location --request POST 'http://localhost:9999/admin/v1/bot/create' \
 
 ## **2. Start Using Bots**
 
-Once the bot is created, we can start using it. If you have set up Gupshup/Netcore provider for WhatsApp, send the starting message added in the **Create a Bot** API to the WhatsApp number.
+### Using Web Channel
+
+Once the bot is created, we can start using it. Send the starting message added in the [**Create a bot**](setting-up-your-very-first-conversation.md#1.2.3-create-a-bot) api.
+
+**Example :** Hi Test Bot
+
+![](../../.gitbook/assets/Test-Bot-Flow-pwa.png)
+
+### Using Whatsapp
+
+Once the bot is created, we can start using it. If you have set up gupshup/netcore provider for whatsapp, Send the starting message added in the [**Create a bot**](setting-up-your-very-first-conversation.md#1.2.3-create-a-bot) api to the whatsapp number.
 
 ![](../../.gitbook/assets/Test-Bot-Flow-Whatsapp.jpeg)

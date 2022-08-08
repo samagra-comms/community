@@ -1,15 +1,17 @@
 # Pre-requisites, Installation Setup, Post Setup
 
-[Pre-requisites](#pre-requisites)
+## Pre-requisites, Installation Setup, Post Setup
 
-[Installation](#installation-setup)
+[Pre-requisites](pre-requisites-installation-setup-post-setup.md#pre-requisites)
 
-[Post Setup](#post-setup)
+[Installation](pre-requisites-installation-setup-post-setup.md#installation-setup)
 
-# Pre-requisites
+[Post Setup](pre-requisites-installation-setup-post-setup.md#post-setup)
+
+## Pre-requisites
 
 1. Install Docker if not already installed. [Click Here](https://docs.docker.com/engine/install/ubuntu/)
-2. Infra :&#x20;
+2. Infra :
    * 8 CPU Cores
    * 16 GB RAM
    * 20 GB Storage
@@ -22,82 +24,88 @@
    * Rest apis
 4. Please make sure all of the ports mentioned used in the [file](https://github.com/samagra-comms/docker-deploy/blob/main/docs/ports.md) are open & are not being used by any other service on the server.
 
-# Installation Setup
+## Installation Setup
 
-1.  Take a clone of this repository.
+1.  Take clone of this repository.
 
-    git clone https://github.com/samagra-comms/docker-deploy.git
-2.  Go to the folder
+    `git clone https://github.com/samagra-comms/docker-deploy.git`
+2.  Go to folder
 
     `cd docker-deploy`
-3. Contact the [administrator](https://github.com/samagra-comms/docker-deploy#contact-administrator) for `ENCRYPTION_KEY` and update its value in [.env](https://github.com/samagra-comms/docker-deploy/blob/main/.env) file.
-4. To get the messages from any service provider say netcore/gupshup, contact their support team, and ask them to add your ip with netcore/gupshup adapter url For Netcore: ip:inbound\_extrenal\_port/netcore/whatsApp (Eg. - 143.112.x.x:9080/netcore/whatsApp) For Gupshup: ip:inbound\_external\_port/gupshup/whatsApp (Eg. - 143.112.x.x:9080/gupshup/whatsApp)
-5.  If you want to use the Netcore service, update below details in the [.env](https://github.com/samagra-comms/docker-deploy/blob/main/.env) file.
+3.  Run below command to download & start the services using docker.
 
-    ```
-    NETCORE_WHATSAPP_AUTH_TOKEN = # Authentication Token 
-    NETCORE_WHATSAPP_SOURCE = # Source ID for sending messages to Netcore
-    NETCORE_WHATSAPP_URI = # Netcore API Base URL
-    ```
-6.  Run the below command to download and start the services using docker.
+    `bash installv2.sh`
 
-    `bash install.sh`
-7. If asked, **Would you like to share anonymous usage data about this project with the Angular Team at Google under Google’s Privacy Policy at** [**https://policies.google.com/privacy**](https://policies.google.com/privacy)**? For more details and how to change this setting, see** [**http://angular.io/analytics**](http://angular.io/analytics)**.**, Press **y**.
-8. This script will download all the service images & start the services.
-9. If you change anything in [.env](https://github.com/samagra-comms/docker-deploy/blob/main/.env) file, you will have to stop the services, then restart them.
-   *   Stop all services:
+    * If script is fail on runtime then you should run below commands for continue run this script
+      *   Stop the all services
 
-       `docker-compose -f docker-compose.yml down`
-   *   Start all services:
+          `docker-compose down`
+      *   Start the all services
 
-       `docker-compose -f docker-compose.yml up -d`
+          `docker-compose up -d`
+4. While the script is running, You will be asked to enter encryption key, contact the administrator and get this.
+5. If you are asked to enter Netcore Whatsapp Auth Token, Source, URI, enter the details if you have any else press enter. Click here to check the whatsapp configuration for netcore.
 
-**After a successful setup completion**
+**Note**: Please note this installation is just the first step. If your needs are not fulfilled with the current installation, please start scaling the individual services by using them in docker stack.
 
-1. Script maximum execution time - **Around 2 hours**
-2. On a successful run of the script, you will get the below services:
-   * Inbound Service: [http://localhost:9080](http://localhost:9080/)
-   * Orchestrator Service: [http://localhost:8686](http://localhost:8686/)
-   * Transformer Service: [http://localhost:9091](http://localhost:9091/)
-   * Outbound Service: [http://localhost:9090](http://localhost:9090/)
-   * Broadcast Transformer Service: [http://localhost:9093](http://localhost:9093/)
-   * Campaign Service: [http://localhost:9999](http://localhost:9999/)
-   * Kafka UI: [http://localhost:18080/ui/docker-kafka-server/topic](http://localhost:18080/ui/docker-kafka-server/topic)
-   * Bot DB Hasura UI: [http://localhost:15003/console/login](http://localhost:15003/console/login)
-   * Fusion Auth: [http://localhost:9011](http://localhost:9011/)
-   * ODK: [http://localhost:8080/Aggregate.html#management/forms](http://localhost:8080/Aggregate.html#management/forms)
-   * Chat Frontend: [http://localhost:9098](http://localhost:9098/)
-   * Admin Console: [http://localhost:9097](http://localhost:9097/)
-3.  If you want to check all the services logs, use the below command.
+#### **After a Successful Docker Setup Completion**
 
-    `docker-compose -f docker-compose.yml --follow --tail 10`
-4. If you want to check logs for a specific service, follow the below flow.
-   *   Check service container id:
+1. Script execution time - **Around 1 hours** (its depends on your server)
+2.  On a successful run of the script you will get below services:
+
+    * Inbound Service: http://localhost:9080/health
+    * Orchestrator Service: http://localhost:8686/health
+    * Transformer Service: http://localhost:9091/health
+    * Outbound Service: http://localhost:9090/health
+    * Broadcast Transformer Service: http://localhost:9093/health
+    * Campaign Service: http://localhost:9999
+    * Kafka UI: http://localhost:18080/ui/docker-kafka-server/topic
+    * Bot DB Hasura UI: http://localhost:15003/console/login
+    * Fusion Auth: http://localhost:9011
+    * ODK: http://localhost:8080/Aggregate.html#management/forms
+    * Chat Frontend: http://localhost:9098
+    * Admin Console: http://localhost:9097
+
+    **Note**: If above mentioned url's are not working then restart the all docker services or check the docker container logs.
+3. If you want to check logs for a specific service, follow below flow.
+   *   Show all docker containers
 
        `docker ps -a`
-   *   Copy the container id from the list for the service you want to see the logs for, and use it in the below command.
+   *   Copy the container id from the list for the service you want to see the logs for, and use it in below command.
 
        `docker --follow --tail 10 container_id`
 
-**Note**: If the services are updated on any server, use the server's IP instead of localhost. E.g. [http://143.112.x.x:9080](http://143.112.x.x:9080/)
+**Note**: If the services are updated on any server, use server's ip instead of localhost. Eg. http://143.112.x.x:9080
 
-# Post Setup
+## **Post Setup**
 
-1. [Tracking Tables](https://hasura.io/docs/latest/graphql/core/databases/postgres/schema/using-existing-database.html#step-1-track-tables-views). Go to the url [http://localhost:15003/console/data/default/schema/public](http://localhost:15003/console/data/default/schema/public) and track all tables and relations. The admin secret can be controlled using this [line](https://github.com/samagra-comms/docker-deploy/blob/10bdbc4b837a61f74a1270ce53467b15f63d182d/.env#L67)
-2. Adding default data for transformers
-   * Go to [http://localhost:15003/console/data/default/schema/public](http://localhost:15003/console/data/default/schema/public) and track all of the items one by one.
+1. **Tracking Tables/Views :** When the script is executed, tables will be created for bot schema via migrations. These tables can be assessed in Hasura. We need to track these tables to expose these tables to Hasura GraphQL. [Click to view](https://hasura.io/docs/latest/graphql/core/databases/postgres/schema/using-existing-database/) tracking overview.
+   * Go to the url http://localhost:15003/console/data/default/schema/public
+   * The admin secret can be controlled using this [link](https://github.com/samagra-comms/docker-deploy/blob/10bdbc4b837a61f74a1270ce53467b15f63d182d/.env#L67)
+   * Go to http://localhost:15003/console/data/default/schema/public and track all of the items one by one.
+2. After the tables are created, some default data for adapter, transformers etc should be added. These will be used later while creating a bot. Please follow below step:
    *   In the sidebar click on the SQL button and add the following commands and run.
 
-       ```
+       ```sql
        INSERT INTO service ("id", "type", "config")
        VALUES ('94b7c56a-6537-49e3-88e5-4ea548b2f075', 'odk', '{"cadence": { "retries": 0, "timeout": 60, "concurrent": true, "retries-interval": 10 }, "credentials": { "vault": "samagra", "variable": "samagraMainODK" } }');
        INSERT INTO adapter ("id", "provider", "channel", "config", "name") 
-       VALUES ('44a9df72-3d7a-4ece-94c5-98cf26307324', 'WhatsApp', 'gupshup', '{ "2WAY": "2000193033", "phone": "9876543210", "HSM_ID": "2000193031", "credentials": { "vault": "samagra", "variable": "gupshupSamagraProd" } }', 'SamagraProd');
+       VALUES ('44a9df72-3d7a-4ece-94c5-98cf26307324', 'gupshup', 'WhatsApp', '{ "2WAY": "2000193033", "phone": "9876543210", "HSM_ID": "2000193031", "credentials": { "vault": "samagra", "variable": "gupshupSamagraProd" } }', 'SamagraProd');
        INSERT INTO adapter ("id", "provider", "channel", "config", "name") 
-       VALUES ('44a9df72-3d7a-4ece-94c5-98cf26307323', 'WhatsApp', 'Netcore', '{ "phone": "912249757677", "credentials": { "vault": "samagra", "variable": "netcoreUAT" } }', 'SamagraNetcoreUAT');
+       VALUES ('44a9df72-3d7a-4ece-94c5-98cf26307323', 'Netcore', 'WhatsApp', '{ "phone": "912249757677", "credentials": { "vault": "samagra", "variable": "netcoreUAT" } }', 'SamagraNetcoreUAT');
+       INSERT INTO adapter ("id", "provider", "channel", "config", "name") 
+       VALUES ('64036edb-e763-44b1-99b8-37b6c7b292c5', 'gupshup', 'sms', '{"2WAY":"2000193033","phone":"9876543210","HSM_ID":"2000193031","credentials":{"vault":"samagra","variable":"gupshupSamagraProd"}}', 'SamagraGupshupSms');
+       INSERT INTO adapter ("id", "provider", "channel", "config", "name") 
+       VALUES ('4e0c568c-7c42-4f88-b1d6-392ad16b8546', 'cdac', 'sms', '{"2WAY":"2000193033","phone":"9876543210","HSM_ID":"2000193031","credentials":{"vault":"samagra","variable":"gupshupSamagraProd"}}', 'SamagraCdacSms');
+       INSERT INTO adapter ("id", "provider", "channel", "config", "name") 
+       VALUES ('2a704e82-132e-41f2-9746-83e74550d2ea', 'firebase', 'web', '{ "credentials": { "vault": "samagra", "variable": "uci-firebase-notification" } }', 'SamagraFirebaseWeb');
        INSERT INTO transformer ("name", "tags", "config", "id", "service_id") 
-       VALUES ('SamagraODKAgg', array['ODK'], '{}', 'bbf56981-b8c9-40e9-8067-468c2c753659', '94b7c56a-6537-49e3-88e5-4ea548b2f075'); 
+       VALUES ('SamagraODKAgg', array['ODK'], '{}', 'bbf56981-b8c9-40e9-8067-468c2c753659', '94b7c56a-6537-49e3-88e5-4ea548b2f075');
+       INSERT INTO transformer ("name", "tags", "config", "id", "service_id") 
+       VALUES ('SamagraBroadcast', array['broadcast'], '{}', '774cd134-6657-4688-85f6-6338e2323dde', '94b7c56a-6537-49e3-88e5-4ea548b2f075');
+        INSERT INTO transformer ("name", "tags", "config", "id", "service_id") 
+       VALUES ('SamagraGeneric', array['generic'], '{}', '0832ca13-c698-4234-8070-b5f708bc0b1a', '94b7c56a-6537-49e3-88e5-4ea548b2f075');
        ```
-3. Now we can start Sent/Receive messages from channel.
-4. You can start using the FusionAuth Console by using the [link](http://localhost:9011/) and create an Account, for managing users and what resources they are authorized to access.
-5. For managing all the assessment data, go to URL: [http://localhost:15002/](http://localhost:15002/) and track all the tables and relations using [token](https://github.com/samagra-comms/docker-deploy/blob/main/docker-compose.yml#L363).
+3. Now we can start Sent/Receive messages using uci web channel http://localhost:9098/ but first you should create a bot for conversation after that you will send starting message.
+4. You can start using FusionAuth Console using http://localhost:9011/ and create an Account, for managing users and what resources they are authorized to access.
+5. For managing all the assesment data go on URL : http://localhost:15002/ and track all the tables and relation using [token](https://github.com/samagra-comms/docker-deploy/blob/main/docker-compose.yml#L363).
