@@ -10,7 +10,6 @@
   * [Glossary](learn/tech-overview/glossary.md)
   * [High-level Architecture Design](learn/tech-overview/high-level-tech-architecture.md)
   * [Design Principles](learn/tech-overview/design-principles.md)
-* [Source Code](https://github.com/samagra-comms)
 
 ## 🚀 Use
 

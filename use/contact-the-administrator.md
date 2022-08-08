@@ -1,7 +1,3 @@
 # Contact the administrator
 
-Please write to the Maintainer -&#x20;
-
-* Chakshu (chakshu@samagragovernance.in) - Engineer
-* Saket (saket@samagragovernance.in) - PM
-* Sukhpreet (sukhpreet@samagragovernance.in) - PM
+Please write to the Maintainer - Chakshu (chakshu@samagragovernance.in), and cc - Saket (saket@samagragovernance.in), Sukhpreet (sukhpreet@samagragovernance.in)
