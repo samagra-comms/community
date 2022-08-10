@@ -7,6 +7,6 @@ A transformer is a stateless processing object that takes inputs and converts th
 * [ODK Transformer](odk-transformer/)
 * [Broadcast Transformer](broadcast-transformer.md)
 
-## 2. How to create a transformer
+## 2. How to contribute a transformer
 
 [Click here](../../contribution-guide/create-a-transformer.md) to see the detailed documentation on how to create your own transformer.

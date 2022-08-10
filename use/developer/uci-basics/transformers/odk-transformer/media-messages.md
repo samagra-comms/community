@@ -47,7 +47,7 @@ In ODK forms we can specify which type of content we want from the user. For med
 3. video
 4. file
 
-**Steps for expecting media message**
+**2.1 Steps for expecting media message**
 
 For receiving media from user, add following properties in ODK form :
 
@@ -58,8 +58,15 @@ For receiving media from user, add following properties in ODK form :
 * **label** : `<text>`\
   In label, we can write text content that we want to send to user.&#x20;
 
-**ODK media type example**
+**2.2 Allowed files types**
 
-![](../../../../../.gitbook/assets/upload-media-odk.png)
+| Field Type | Allowed Media Type                                                                                           |
+| ---------- | ------------------------------------------------------------------------------------------------------------ |
+| Image      | image/jpg, image/jpeg, image/gif, image/png                                                                  |
+| Audio      | audio/mp3, audio/aac, audio/wav, audio/flac, audio/ogg, audio/ogg; audio/wma, audio/x-ms-wma, audio/mpeg     |
+| Video      | video/mp4, video/flc, video/mov, video/wmv, video/mkv, video/quicktime, video/x-matroska, video/x-flv        |
+| File       | application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document |
 
-&#x20;
+**2.3 ODK media type example**
+
+![ ](../../../../../.gitbook/assets/upload-media-odk.png)
