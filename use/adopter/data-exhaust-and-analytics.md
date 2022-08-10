@@ -237,7 +237,7 @@ If we need an immediate result we can also run a job from the Jenkins AnalyticsR
 
 * Login to Jenkins & Go to the AnalyticsReplayJobs service from the Deploy->Dev->DataPipeline services list or directly hit the [url](https://10.20.0.14/jenkins/job/Deploy/job/dev/job/DataPipeline/job/AnalyticsReplayJobs/).
 * Go to Build with Parameter.
-* Select `replay-job` from the `job_type` drop down.
+* Select `run-job` from the `job_type` drop down.
 * Select `uci-response-exhaust`/`uci-private-exhaust` from the `job_id` drop down. [![Screenshot](https://github.com/samagra-comms/community/raw/main/use/media/exhaust-jenkins-job.png)](../media/exhaust-jenkins-job.png)
 * Leave the rest as it is & click build. It will run all the submitted jobs.
 * When it's done, run the [job info api](data-exhaust-and-analytics.md#2.-api-to-get-job-info-of-a-job) to fetch the job response. The job will have either a success/failed status. If the job is successful it will have a download url in the response.
