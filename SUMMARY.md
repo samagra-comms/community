@@ -70,5 +70,6 @@
 
 ## 🤝 Engage
 
+* [Software License](engage/software-license.md)
 * [Source Code](https://github.com/samagra-comms)
 * [Discussion Forum](https://github.com/samagra-comms/community/discussions)
