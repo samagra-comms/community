@@ -156,3 +156,27 @@ curl --location --request POST 'http://143.110.255.220:9090/message/send' \
     }
 }'
 ```
+
+### **2.4 CDAC SMS**
+
+* **Send message to phone**
+
+For sending message to phone number via CDAC, a templateId which is approved by CDAC is required and the payload text should have content of this template body.
+
+```
+curl --location --request POST 'http://143.110.255.220:9090/message/send' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "adapterId": "4e0c568c-7c42-4f88-b1d6-392ad16b8546",
+    "to": {
+        "userID": "75********",
+        "deviceType": "PHONE",
+        "meta": {
+            "templateId": "1007180838266527905"
+        }
+    },
+    "payload": {
+        "text": "प्रिय Sikha,मैं आपको होमवर्क के रूप में कुछ पाठ्य-सामग्री साझा कर रहा/रही हूं। कृपया उसे देखें और पूरा करें और उसके साथ अपनी शंकाओं पर चर्चा करें। इस लिंक पर क्लिक करें - http://www.google.com धन्यवाद! HPGOVT"
+    }
+}'
+```
