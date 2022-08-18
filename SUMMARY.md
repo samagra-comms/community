@@ -71,5 +71,6 @@
 ## 🤝 Engage
 
 * [Software License](engage/software-license.md)
+* [Acceptable Use Policy](engage/acceptable-use-policy.md)
 * [Source Code](https://github.com/samagra-comms)
 * [Discussion Forum](https://github.com/samagra-comms/community/discussions)
