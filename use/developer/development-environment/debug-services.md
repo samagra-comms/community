@@ -13,7 +13,7 @@ To debug any issue or error, follow below order. We should check the service in 
 3. Transformer
 4. Outbound
 
-A message will be first received in the inbound service to convert the message to XMessage format then it will be sent to the kafka topic which is being listened by the orchestrator service. To check the build/execution flow of the services [click chere](../../docs/build-execution-flow.md).
+A message will be first received in the inbound service to convert the message to XMessage format then it will be sent to the kafka topic which is being listened by the orchestrator service. To check the build/execution flow of the services [click chere](broken-reference).
 
 ### 3. Debug on IDE Tool
 

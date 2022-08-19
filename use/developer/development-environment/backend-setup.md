@@ -82,7 +82,7 @@ This Document help you to Setup UCI (Unified Communications Interface) Project a
 ```
 
 1. Add projects in IDE [link](setting-up-ide.md)
-2. Add [Enviorment Variable](../../docs/environment-variables.md) in IDE.
+2. Add [Enviorment Variable](broken-reference) in IDE.
 3. We can run the services via IDE. if you want to run these via terminal or docker use this [link](build-and-execute-uci.md)
 
 #### 4.2 Routine

@@ -56,16 +56,6 @@
     * [Contribute an Adapter](use/developer/contribution-guide/create-an-adapter.md)
     * [Adapter Implementation](use/developer/contribution-guide/adapter-implementation.md)
     * [Create a Transformer](use/developer/contribution-guide/create-a-transformer.md)
-* [Installation Guide (ToBeUpdated)](use/docs/README.md)
-  * [Conversation Channel Adapters](use/docs/adapter.md)
-  * [UCI Build & Execution Flow](use/docs/build-execution-flow.md)
-  * [Debug Services](use/docs/debug-services.md)
-  * [1. Add enviorment variable in IDE](use/docs/environment-variables.md)
-  * [Gupshup Reverse Proxy](use/docs/gupshup-reverse-proxy.md)
-  * [Getting Started](use/docs/manual-installation.md)
-  * [ODK Transformer](use/docs/odk-transformer.md)
-  * [Conversation Transformer](use/docs/transformer.md)
-  * [XMessage Specification](use/docs/xmessage-spec.md)
 * [Contact the administrator](use/contact-the-administrator.md)
 
 ## 🤝 Engage
