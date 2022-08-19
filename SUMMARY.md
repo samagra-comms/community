@@ -10,6 +10,7 @@
   * [Glossary](learn/tech-overview/glossary.md)
   * [High-level Architecture Design](learn/tech-overview/high-level-tech-architecture.md)
   * [Design Principles](learn/tech-overview/design-principles.md)
+  * [Standards](learn/tech-overview/standards.md)
 
 ## 🚀 Use
 
