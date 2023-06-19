@@ -17,7 +17,7 @@ We can store these registered tokens in UCI & use UCI fetch api to get these tok
 1.  Register FCM tokens on any mobile or web application using the [firebase details of UCI](firebase-notification-adapter.md#3.-contact-the-administrator). Add this FCM token on UCI using below API:
 
     ```
-    curl --location --request POST 'http://143.110.255.220:8085/fusionAuth/registerUserFcmToken' \
+    curl --location --request POST 'http://[HOST]:[PORT]/fusionAuth/registerUserFcmToken' \
     --header 'Content-Type: application/json' \
     --data-raw '{
         "device": {
@@ -33,13 +33,13 @@ We can store these registered tokens in UCI & use UCI fetch api to get these tok
         ]
     }'
     ```
-2. The tokens registered can be fetched via the [API](http://143.110.255.220:8080/fusionAuth/fetchFcmTokens).
-3. Create a new service [here](http://143.110.255.220:15003/console/data/default/schema/public/tables/service/browse) with the fetch token API in config.
-4. Create a new user segment [here](http://143.110.255.220:15003/console/data/default/schema/public/tables/userSegment/browse) with the service created in step 3. Or you can use an already created user segment for this case. `cf085492-266f-46d1-841c-1b38e93bce3f`.
+2. The tokens registered can be fetched via the [API](http://[HOST]:[PORT]/fusionAuth/fetchFcmTokens).
+3. Create a new service [here](http://[HOST]:[PORT]/console/data/default/schema/public/tables/service/browse) with the fetch token API in config.
+4. Create a new user segment [here](http://[HOST]:[PORT]/console/data/default/schema/public/tables/userSegment/browse) with the service created in step 3. Or you can use an already created user segment for this case. `cf085492-266f-46d1-841c-1b38e93bce3f`.
 5.  Create a new conversation logic with below logic
 
     ```
-    curl --location --request POST 'http://143.110.255.220:9999/admin/v1/conversationLogic/create' \
+    curl --location --request POST 'http://[HOST]:[PORT]/admin/v1/conversationLogic/create' \
     --header 'admin-token: EXnYOvDx4KFqcQkdXqI38MHgFvnJcxMS' \
     --header 'Content-Type: application/json' \
     --data-raw '{
@@ -66,7 +66,7 @@ We can store these registered tokens in UCI & use UCI fetch api to get these tok
 6.  Create a new bot with the conversation logic from step 5, user segment from step 4.
 
     ```
-    curl --location --request POST 'http://143.110.255.220:9999/admin/v1/bot/create' \
+    curl --location --request POST 'http://[HOST]:[PORT]/admin/v1/bot/create' \
     --header 'admin-token: EXnYOvDx4KFqcQkdXqI38MHgFvnJcxMS' \
     --header 'Content-Type: application/json' \
     --data-raw '{
@@ -83,10 +83,36 @@ We can store these registered tokens in UCI & use UCI fetch api to get these tok
         }
     }'
     ```
+
+The table below explains all the request keys while creating a conversation logic along with their description.
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| data | object | Yes | The root object of the data. |
+| data.name | string | Yes | The name of the [adapter](./README.md). |
+| data.description | string | Yes | The description of adapter. |
+| data.transformers | array | Yes | An array of transformers. |
+| data.transformers.id | string | Yes | The ID of the [transformer](../transformers/README.md) returned by UCI when this particular transformer was created. |
+| data.transformers.meta | object | Yes | An object containing metadata for the transformer. |
+| data.transformers.meta.form | string | Yes | The URL of the form used by the transformer where the form is hosted. |
+| data.transformers.meta.formID | string | Yes | The ID of the ODK form used by the transformer. |
+| data.transformers.meta.title | string | Yes | The title of the transformer. |
+| data.transformers.meta.body | string | Yes | The body of the transformer. |
+| data.transformers.meta.serviceClass | string | Yes | The service class of the transformer. Used for prefilling in ODK responses. Currently only `SurveyService` is supported as a valid value. |
+| data.transformers.meta.hiddenFields | array | No | An array of hidden fields in the transformer. Hidden fields are used to prefill data in form, for example, mobile name. |
+| data.transformers.meta.hiddenFields.name | string | Yes | Name of the field that is used as a placeholder in the form XML. |
+| data.transformers.meta.hiddenFields.path | string | Yes | Path of the object from which the data needs to be filled in. For example if path is `mobilePhone`, it would be filled with the data stored in `mobilePhone` field in the object provided by config field. |
+| data.transformers.meta.hiddenFields.type | string | Yes | Currently the only type supported is `param`. |
+| data.transformers.meta.hiddenFields.config | object | Yes | An object containing the data that has to be passed for injecting in the prefilled fields. An example value would be `user` which would make the `user` object data, present in UCI session, available for use. In our example `mobileNumber` is extracted from this data. |
+| data.transformers.meta.hiddenFields.config.dataObjName | string | Yes | The name of the data object that needs to be used in config. |
+| data.transformers.meta.templateType |	string | Yes | The template type of the transformer. This governs how literals are treated in the template. Possible values include `JS_TEMPLATE_LITERALS` and `PYTHON_TEMPLATE_LITERALS`. |
+| data.adapter | string	| Yes | The ID of the adapter that is returned by UCI when a particular adapter was [created](./README.md#4-how-to-create-an-adapter). |
+
+
 7.  Hit the below api using the created bot id to send firebase notification to all registered FCM tokens.
 
     ```
-    curl --location --request GET 'http://143.110.255.220:9999/campaign/start?campaignId=1ea5346d-8d98-4cf4-a470-9c234476f3d1'
+    curl --location --request GET 'http://[HOST]:[PORT]/campaign/start?campaignId=1ea5346d-8d98-4cf4-a470-9c234476f3d1'
     ```
 
 #### 2. Use your own FCM token api
@@ -168,7 +194,7 @@ We can also use third party apis that have registered FCM tokens in a specific f
 
 
        ````
-           curl --location -g --request POST 'http://143.110.183.73:3001/admin/secret' \
+           curl --location -g --request POST 'http://[HOST]:[PORT]/admin/secret' \
            --header 'ownerId: 8f7ee860-0163-4229-9d2a-01cef53145ba' \
            --header 'ownerOrgId: org1' \
            --header 'Authorization: Bearer loginToken' \
@@ -190,7 +216,7 @@ We can also use third party apis that have registered FCM tokens in a specific f
 
 
     ```
-        curl --location --request POST 'http://143.110.255.220:9999/admin/v1/adapter/create' \
+        curl --location --request POST 'http://[HOST]:[PORT]/admin/v1/adapter/create' \
         --header 'admin-token: EXnYOvDx4KFqcQkdXqI38MHgFvnJcxMS' \
         --header 'Content-Type: application/json' \
         --data-raw '{
@@ -210,12 +236,12 @@ We can also use third party apis that have registered FCM tokens in a specific f
 
     \
     This API will create a new adapter and will return the adapter id (Eg. 2a704e82-132e-41f2-9746-83e74550d2ea). We will use this adapter id later in conversation logic.
-4. Create a new service [here](http://143.110.255.220:15003/console/data/default/schema/public/tables/service/browse) with the your token API.
-5. Create a new user segment [here](http://143.110.255.220:15003/console/data/default/schema/public/tables/userSegment/browse) with the service created in step 4.
+4. Create a new service [here](http://[HOST]:[PORT]/console/data/default/schema/public/tables/service/browse) with the your token API.
+5. Create a new user segment [here](http://[HOST]:[PORT]/console/data/default/schema/public/tables/userSegment/browse) with the service created in step 4.
 6.  Create a new conversation logic with adapter from step 3 and below logic.
 
     ```
-    curl --location --request POST 'http://143.110.255.220:9999/admin/v1/conversationLogic/create' \
+    curl --location --request POST 'http://[HOST]:[PORT]/admin/v1/conversationLogic/create' \
     --header 'admin-token: EXnYOvDx4KFqcQkdXqI38MHgFvnJcxMS' \
     --header 'Content-Type: application/json' \
     --data-raw '{
@@ -242,7 +268,7 @@ We can also use third party apis that have registered FCM tokens in a specific f
 7.  Create a new bot with the conversation logic from step 6, user segment from step 5.
 
     ```
-    curl --location --request POST 'http://143.110.255.220:9999/admin/v1/bot/create' \
+    curl --location --request POST 'http://[HOST]:[PORT]/admin/v1/bot/create' \
     --header 'admin-token: EXnYOvDx4KFqcQkdXqI38MHgFvnJcxMS' \
     --header 'Content-Type: application/json' \
     --data-raw '{
@@ -262,7 +288,7 @@ We can also use third party apis that have registered FCM tokens in a specific f
 8.  Hit the below api using the created bot id to send firebase notification to all registered FCM tokens.
 
     ```
-        curl --location --request GET 'http://143.110.255.220:9999/campaign/start?campaignId=1ea5346d-8d98-4cf4-a470-9c234476f3d1'
+        curl --location --request GET 'http://[HOST]:[PORT]/campaign/start?campaignId=1ea5346d-8d98-4cf4-a470-9c234476f3d1'
     ```
 
 ### 3. Message Receipts Api
@@ -277,7 +303,7 @@ This api stores the delivery receipt against a message. To sent a delivery repor
 
 ````
 ```
-    curl --location --request POST 'http://143.110.255.220:8080/firebase/web' \
+    curl --location --request POST 'http://[HOST]:[PORT]/firebase/web' \
     --header 'Content-Type: application/json' \
     --data-raw '{
         "text": "",
@@ -299,7 +325,7 @@ This api stores the read receipt against a message. To sent a read report use th
 
 ````
 ```
-    curl --location --request POST 'http://143.110.255.220:8080/firebase/web' \
+    curl --location --request POST 'http://[HOST]:[PORT]/firebase/web' \
     --header 'Content-Type: application/json' \
     --data-raw '{
         "text": "",
@@ -328,7 +354,7 @@ Use below API to fetch the history against a bot. **** This API uses below requi
 * **start & end date**: Conversations between start & end date.
 
 ```
-curl --location --request GET 'http://143.110.255.220:8080/xmsg/history?userId=75********&provider=firebase&endDate=03-07-2022&startDate=01-07-2022'
+curl --location --request GET 'http://[HOST]:[PORT]/xmsg/history?userId=75********&provider=firebase&endDate=03-07-2022&startDate=01-07-2022'
 ```
 
 **Limitation:** This API can provide maximum 1000 conversations.
@@ -342,7 +368,7 @@ Use below API to fetch the history against a user. This API uses below required 
 * **start & end date**: Conversations between start & end date.
 
 ```
-curl --location --request GET 'http://143.110.255.220:8080/xmsg/history/dump?provider=firebase&botId=1ea5346d-8d98-4cf4-a470-9c234476f3d1&endDate=19-07-2022&startDate=05-07-2022'
+curl --location --request GET 'http://[HOST]:[PORT]/xmsg/history/dump?provider=firebase&botId=1ea5346d-8d98-4cf4-a470-9c234476f3d1&endDate=19-07-2022&startDate=05-07-2022'
 ```
 
 **Limitation:** This API can provide conversations for 15 days only.
