@@ -24,7 +24,7 @@ For sending a media to user, add following properties in ODK form :
 * **name** : `<field_name>`\
   Column _name_ refers to unique _field\_name_ of any message. &#x20;
 * **label** : `<text>`\
-  In label, we can write text content that we want to send to user. For media files mention the file name that is already uploaded to your CDN(Azure/Minio), or just specifiy the public url of the media file.&#x20;
+  In label, we can write text content that we want to send to user. For media files mention the file name that you are uploading inside {} placeholders. For example, if your file name is 'test.png', set the label as {test.png}.&#x20;
 * **bind::stylingTags** : `image/audio/video/file`\
   This column indicates, which type of media file should be displayed to user.
 * **bind::caption** : \<caption>\
