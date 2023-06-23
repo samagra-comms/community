@@ -1,7 +1,10 @@
-## About UCI Admin Console
+## Overview
+
+
+[UCI Admin](https://github.com/samagra-comms/uci-admin) is a web client powered by [NextJs](https://nextjs.org/docs) ,[ChatUI](https://www.npmjs.com/package/samagra-chatui) and [Turborepo](https://turbo.build/repo) and using [UCI](https://github.com/samagra-comms) as backend.
+It demonstrates how we can manage the conversation bot.
 
 In order to start any conversation, we must first create a bot. These bots are powered by ODK. 
-Repo: https://github.com/samagra-comms/uci-admin
 The following steps are required to create a bot:-
 
 #### Login To Admin Panel 

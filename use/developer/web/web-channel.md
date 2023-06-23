@@ -1,17 +1,4 @@
-## About UCI :open_book:
-
-The Unified Communications Interface (UCI) aims to democratize the use of different communication channels such as WhatsApp, Telegram, SMS, email and more for governance use cases through a standard configurable manner that is reusable and scalable across all governance use cases.
-
-## Features :dart:
-
-- Ability to connect to any communication channel through any service provider without doing custom changes in the core logic UCI.
-- The UCI ecosystem is independent of external variables like communication channel and service provider powered by XMessage standard.
-- Ability to have a configurable conversation logic for the bot
-- Ability to connect to any database (local or federated) via services
-- Ability to include value added services in the bot interaction flow through Microservices (Internal or External)
-- Ability to create tools on top of UCI APIs to manage Bot configuration, conversations and visualization
-
-### About UCI Web Channel
+### Overview
 It's a web client powered by [NextJs](https://nextjs.org/docs) ,[ChatUI](https://www.npmjs.com/package/samagra-chatui) and [Turborepo](https://turbo.build/repo) and using [UCI](https://github.com/samagra-comms) as backend.
 It demonstrates how we can leverage UCI backend for communication.
 
