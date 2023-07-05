@@ -11,11 +11,11 @@ Setup the adapter repository to start working on it. Follow the steps given to a
 1.  Fork the below repository & clone it.
 
     `https://github.com/samagra-comms/adapter/`
-2. Checkout to the recent branch. Eg. release-4.9.0
+2. Checkout to the latest stable master branch.
 3. Open the project in any IDE spring/intellij.
 4. Follow [point 3](create-an-adapter.md#3-creating-your-own-adapters) to create a new adapter.
 5. Write test cases for inbound method `convertMessageToXMsg` & outbound method `processOutBoundMessageF`.
-6. A simple example to test the send text message is given in the [file](https://github.com/samagra-comms/adapter/blob/release-4.8.0/src/test/java/com/uci/adapter/netcore/whatsapp/NetcoreServiceTest.java).
+6. A simple example to test the send text message is given in the [file](https://github.com/samagra-comms/adapter/blob/master/src/test/java/com/uci/adapter/netcore/whatsapp/NetcoreWhatsappAdapterTest.java).
 
 ## 3. Creating your own Adapters
 
@@ -26,17 +26,17 @@ All adapters are named as `<ProviderName><ChannelName>Adapter`; for example Gups
 
 These methods are called by `inbound` and `outbound` services internally to process the incoming and outgoing messages.
 
-All adapters with the above implementation will be valid. An example adapter can be found [here](https://github.com/samagra-comms/adapter/blob/release-4.8.0/src/main/java/com/uci/adapter/netcore/whatsapp/NetcoreWhatsappAdapter.java).
+All adapters with the above implementation will be valid. An example adapter can be found [here](https://github.com/samagra-comms/adapter/blob/master/src/main/java/com/uci/adapter/netcore/whatsapp/NetcoreWhatsappAdapter.java).
 
 ### 3.1. Incoming content
 
 Currently we accepts text/media/location/quickReplyButton/list messages. It should be implemeted according to the network provider(Netcore/Gupshup) [documentation](https://wadocs.pepipost.com/webhooks/overview/incoming-message).
 
-To enable these, we have to add them in `convertMessageToXMsg` and convert these according to the [xMessage spec](../uci-basics/)
+To enable these, we have to add them in `convertMessageToXMsg` and convert these according to the [xMessage spec](../uci-basics/xmessage-specification.md)
 
 ### 3.2. Outgoing Content
 
-We can send a text message to user. This is the basic usage of an adapter. When creating a new adapter we should start with this scenario. A sample code for the same is also added [here](create-an-adapter.md#4.-sample-code).
+We can send a text message to user. This is the basic usage of an adapter. When creating a new adapter we should start with this scenario. A sample code for the same is also added [here](./create-an-adapter.md#5.-sample-code).
 
 We can also send media/location/quickReplyButton/list messages to user. As we are using the ODK forms, we use bind::stylingTags, bind::caption to show the media file or to show the select choices as list/quick reply buttons. There are a few constraints which will be applied with the quickReplyButton/list content.&#x20;
 
@@ -224,7 +224,7 @@ Sample code to receive a text message from channel & reply to channel.
         String from;
     }
     ```
-7. If we want to fetch the credentials of the adapter from vault service, see the code of [FirebaseNotificationAdapter](https://github.com/samagra-comms/adapter/blob/release-4.9.0/src/main/java/com/uci/adapter/firebase/web/FirebaseNotificationAdapter.java) to check how to do this. &#x20;
+7. If we want to fetch the credentials of the adapter from vault service, see the code of [FirebaseNotificationAdapter](https://github.com/samagra-comms/adapter/blob/master/src/main/java/com/uci/adapter/firebase/web/FirebaseNotificationAdapter.java) to check how to do this. &#x20;
 
 ## 6. Adapter implementation
 
@@ -232,7 +232,7 @@ After the adapter is created we should be able to implement it in inbound & outb
 
 ## 7. List of Existing Adapter Implementations
 
-* [Gupshup-Whatsapp](https://github.com/samagra-comms/adapter/blob/release-4.9.0/src/main/java/com/uci/adapter/gs/whatsapp/GupShupWhatsappAdapter.java)
-* [Netcore-Whatsapp](https://github.com/samagra-comms/adapter/blob/release-4.9.0/src/main/java/com/uci/adapter/netcore/whatsapp/NetcoreWhatsappAdapter.java)
-* [UCI Web Channel](https://github.com/samagra-comms/adapter/blob/release-4.9.0/src/main/java/com/uci/adapter/pwa/PwaWebPortalAdapter.java)
-* [Firebase Adapter](https://github.com/samagra-comms/adapter/blob/release-4.9.0/src/main/java/com/uci/adapter/firebase/web/FirebaseNotificationAdapter.java)
+* [Gupshup-Whatsapp](https://github.com/samagra-comms/adapter/blob/master/src/main/java/com/uci/adapter/gs/whatsapp/GupShupWhatsappAdapter.java)
+* [Netcore-Whatsapp](https://github.com/samagra-comms/adapter/blob/master/src/main/java/com/uci/adapter/netcore/whatsapp/NetcoreWhatsappAdapter.java)
+* [UCI Web Channel](https://github.com/samagra-comms/adapter/blob/master/src/main/java/com/uci/adapter/pwa/PwaWebPortalAdapter.java)
+* [Firebase Adapter](https://github.com/samagra-comms/adapter/blob/master/src/main/java/com/uci/adapter/firebase/web/FirebaseNotificationAdapter.java)
