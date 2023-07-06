@@ -15,7 +15,7 @@ Use below API to fetch the history against a bot. **** This API uses below requi
 * **start & end date**: Conversations between start & end date.
 
 ```
-curl --location --request GET 'http://143.110.255.220:8080/xmsg/history?userId=75********&provider=gupshup&endDate=03-07-2022&startDate=01-07-2022'
+curl --location --request GET 'http://INBOUND:PORT/xmsg/history?userId=75********&provider=gupshup&endDate=03-07-2022&startDate=01-07-2022'
 ```
 
 **Limitation:** This API can provide maximum 1000 conversations.
@@ -29,10 +29,25 @@ Use below API to fetch the history against a user. This API uses below required 
 * **start & end date**: Conversations between start & end date.
 
 ```
-curl --location --request GET 'http://143.110.255.220:8080/xmsg/history/dump?provider=gupshup&botId=d655cf03-1f6f-4510-acf6-d3f51b488a5e&endDate=19-07-2022&startDate=05-07-2022'
+curl --location --request GET 'http://INBOUND:PORT/xmsg/history/dump?provider=gupshup&botId=d655cf03-1f6f-4510-acf6-d3f51b488a5e&endDate=19-07-2022&startDate=05-07-2022'
 ```
 
 **Limitation:** This API can provide conversations for 15 days only.
+
+### **2.3. Bot + User History**
+
+Use below API to fetch the history against a user for a specific bot. This API uses below required parameters to fetch the history.
+
+* **botId**: Conversation id
+* **userId**: Phone number of user
+* **provider**: Conversation provider. **Eg**. pwa
+* **start & end date**: Conversations between start & end date.
+
+```
+curl --location 'http://INBOUND:PORT/xmsg/conversation-history?provider=pwa&endDate=22-06-2023&startDate=15-06-2023&userId=PhoneNo&botId=BOTID'
+```
+
+**Limitation:** This API can provide maximum 1000 conversations.
 
 These APIs will give the response in below format.
 
@@ -69,3 +84,9 @@ These APIs will give the response in below format.
     }
 }
 ```
+
+### **2.4. Flow Diagram**
+
+Below is the flow diagram of how the history API works.
+
+![Flow Diagram](../../../media/conversation_history.png)
