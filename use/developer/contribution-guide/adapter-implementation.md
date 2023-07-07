@@ -21,9 +21,9 @@ Follow the steps below to setup the inbound repository to start working on it.&#
 1.  Fork the below repository & clone it.
 
     `https://github.com/samagra-comms/inbound/`
-2. Checkout to the recent branch. Eg. release-4.9.0
+2. Checkout to the recent stable `master` branch.
 3. Open the project in any IDE spring/intellij.
-4. Follow the [next point](adapter-implementation.md#sample-code) to implement the adapter.
+4. Follow the next steps.
 
 ### 2.2 Sample Code
 
