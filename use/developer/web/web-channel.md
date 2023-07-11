@@ -12,6 +12,10 @@ It calls the UCI’s contextual api to get the bot list.
 
 ![media](../../../media/02.png)
 
+Here is how the `allContextual` api works internally.
+
+![media](../../../media/allContextual_flow_diagram.png)
+
 ## Socket Setup to start conversation
 
 A socket connection is required to interact with the bot.
@@ -26,6 +30,10 @@ Here **Authorization** and Channel header is a must, **deviceId** can be any uni
 **“botRequest”** event is emitted for sending the message to the backend.
 
 ![media](../../../media/05.png)
+
+Here is how the a single message flows through the entire UCI system.
+
+![media](../../../media/bot_conversation_flow_diagram.png)
 
 ## Start Interacting with bot
 To start the conversation with a bot you need to activate the bot first. For activating the bot we need to do the botRequest with the bot’s **“Starting Message”**.
