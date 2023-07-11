@@ -4,14 +4,14 @@
 
 ### 1.1. UCI Admin
 
-* Go to [Link](http://localhost:9097/uci-admin)
+* Go to admin console. You can find the repo [here](https://github.com/samagra-comms/uci-admin).
 * Click on the "Add new button".
 * Fill the form with a unique starting message, start date equals to current & end date more than the current date.
 * Click on the Next button.
 * Click on Add logic button.
-* Fill the form & upload a xml form. Eg. [Sample ODK Excel Form](https://github.com/samagra-comms/docker-deploy/blob/main/media/List-QRB-Test-Bot.xlsx)
+* Fill the form & upload a xml form.
 * Add this & submit this form.
-* The bot will be added and we can start using this on the [UCI front](http://localhost:9098/).
+* The bot will be added and we can start using this on the UCI front.
 
 ### 1.2. APIs
 
@@ -23,41 +23,47 @@
 *   Upload this XML from using this api.
 
     ```
-    curl --location --request POST 'http://localhost:9999/admin/v1/forms/upload' \
-    --header 'admin-token: EXnYOvDx4KFqcQkdXqI38MHgFvnJcxMS' \
-    --form 'form=@"{PATH_OF_ODK_FORM}"'
+    curl --location 'http://localhost:9999/admin/form/upload' \
+    --header 'admin-token: {ADMIN_TOKEN}' \
+    --form 'form=@"{PATH_TO_YOUR_XML}"' \
+    --form 'mediaFiles=@"{PATH_TO_YOUR_MEDIA_1}"' \
+    --form 'mediaFiles=@"{PATH_TO_YOUR_MEDIA_2}"' \
+    --form 'mediaFiles=@"{PATH_TO_YOUR_MEDIA_N}"'
     ```
 
     [Sample ODK XML Form](https://github.com/samagra-comms/docker-deploy/blob/main/List-QRB-Test-Bot.xml)
 
-    **Response**: The API will return a form id. Use this form id to create conversation logic API. Form id E.g. **List-Button-test-v1**
+    **Response**: The API will return a form id. Use this form id to create conversation logic API. Form id E.g. **testing_form**
 
     ```
     {
-        "ts": "2022-05-24T13:46:06.640Z",
-        "params": {
-            "resmsgid": "dc586de0-db67-11ec-ae84-fbd67a9c1174",
-            "msgid": null,
-            "status": "successful",
-            "err": null,
-            "errmsg": null
-        },
-        "responseCode": "OK",
+        "apiId": "api.form.upload",
+        "path": "/admin/form/upload",
+        "msgid": "fec3421b-cc04-42e2-9ce9-e004b3ded827",
         "result": {
-            "data": "List-Button-test-v1"
-        }
-    }    
+            "status": "UPLOADED",
+            "data": {
+                "formID": "testing_form"
+            }
+        },
+        "startTime": "2023-07-04T12:01:00.268Z",
+        "method": "POST",
+        "endTime": "2023-07-04T12:01:21.785Z"
+    }
     ```
 
 #### 1.2.2 Create a Conversation Logic
 
 ```
-curl --location --request POST 'http://localhost:9999/admin/v1/conversationLogic/create' \
---header 'admin-token: EXnYOvDx4KFqcQkdXqI38MHgFvnJcxMS' \
+curl --location 'http://localhost:9999/admin/conversationLogic' \
+--header 'admin-token: {ADMIN_TOKEN}' \
 --header 'Content-Type: application/json' \
---data-raw '{
+--header 'Cookie: fusionauth.locale=en_US; fusionauth.sso=AgOat0GjncGOHhPpH_HuL9QQqnfMitd15O-ofS-uTcdA' \
+--data '{
     "data": {
-        "name": "UCI demo bot logic",
+        "id": null,
+        "name": "UCI List & Button Logic",
+        "description": "UCI List & Button Logic Desc",
         "transformers": [
             {
                 "id": "bbf56981-b8c9-40e9-8067-468c2c753659",
@@ -72,7 +78,7 @@ curl --location --request POST 'http://localhost:9999/admin/v1/conversationLogic
 }'
 ```
 
-**Response**: It will return a conversation logic id, use it in create bot api. Eg. **92f7b965-4118-4ddc-9c7d-0bc0f77092db**
+**Response**: It will return a conversation logic id, use it in create bot. Eg. **92f7b965-4118-4ddc-9c7d-0bc0f77092db**
 
 ```
 {
@@ -87,7 +93,7 @@ curl --location --request POST 'http://localhost:9999/admin/v1/conversationLogic
     "responseCode": "OK",
     "result": {
         "data": {
-            "transformers": "[{"id":"bbf56981-b8c9-40e9-8067-468c2c753659","meta":{"form":"https://hosted.my.form.here.com/%22,/%22formID/%22:/%22List-Button-test-v1/%22%7D%7D]",
+            "transformers": "[{"id":"bbf56981-b8c9-40e9-8067-468c2c753659","meta":{"form":"https://hosted.my.form.here.com/%22,/%22formID/%22:/%22List-Button-test-v1/%22%7D%7D}}]",
             "adapter": "44a9df72-3d7a-4ece-94c5-98cf26307323",
             "name": "UCI demo bot logic",
             "id": "92f7b965-4118-4ddc-9c7d-0bc0f77092db"
@@ -99,51 +105,59 @@ curl --location --request POST 'http://localhost:9999/admin/v1/conversationLogic
 #### 1.2.3 Create a bot
 
 ```
-curl --location --request POST 'http://localhost:9999/admin/v1/bot/create' \
---header 'admin-token: EXnYOvDx4KFqcQkdXqI38MHgFvnJcxMS' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "data": {
-        "startingMessage": "Hi Test Bot",
-        "name": "Test Bot",
-        "users": [],
-        "logic": [
-            "c556dfc8-5dd3-477c-83bb-65d234c4d223" // Get this id from Create a conversation logic api.
-        ],
-        "status": "enabled",
-        "startDate": "2022-05-24",
-        "endDate": "2023-05-24"
-    }
-}'
+curl --location 'http://http//localhost:3002/admin/bot' \
+--header 'asset: bot' \
+--header 'admin-token: dR67yAkMAqW5P9xk6DDJnfn6KbD4EJFVpmPEjuZMq44jJGcj65' \
+--header 'Accept: application/json, text/plain, */*' \
+--header 'ownerOrgID: org01' \
+--header 'ownerID: 8f7ee860-0163-4229-9d2a-01cef53145ba' \
+--form 'botImage=@"{PATH_TO_IMAGE}"' \
+--form 'data="{
+    \"data\": {
+    \"name\": \"TEST ODK BOT\",
+    \"description\": \"TEST\",
+    \"purpose\": \"TEST\",
+    \"startingMessage\": \"Hi Test ODK\",
+    \"startDate\": \"2023-06-16\",
+    \"endDate\": \"2023-06-30\",
+    \"isBroadcastBotEnabled\": true,
+    \"segmentId\": \"1\",
+    \"status\": \"enabled\",
+    \"users\": [],
+    \"logic\": [
+      \"92f7b965-4118-4ddc-9c7d-0bc0f77092db\" // Get this id from conversation logic api response
+    ]
+  }
+}"'
 ```
 
-**Response**: This api will return a bot id & other bot information. Use the starting message (Eg. **Hi Test Bot**) from here to start conversation with a bot.
+**Response**: This api will return a bot id & other bot information. Use the starting message (Eg. **Hi Test ODK**) from here to start conversation with a bot.
 
 ```
 {
-    "ts": "2022-05-24T13:49:15.292Z",
-    "params": {
-        "resmsgid": "4cc874d0-db68-11ec-ae84-fbd67a9c1174",
-        "msgid": null,
-        "status": "successful",
-        "err": null,
-        "errmsg": null
-    },
-    "responseCode": "OK",
+    "apiId": "api.admin.bot",
+    "path": "/admin/bot",
+    "apiVersion": "v1",
+    "msgid": "ba858dbb-8710-40e3-9fca-e8f928ff2cfc",
     "result": {
-        "data": {
-            "startingMessage": "Hi Test Bot",
-            "name": "Test Bot",
-            "users": [],
-            "status": "enabled",
-            "startDate": "2022-05-24",
-            "endDate": "2023-05-24",
-            "logicIDs": [
-                "92f7b965-4118-4ddc-9c7d-0bc0f77092db"
-            ],
-            "id": "9f0b1401-44d2-46be-83bd-7cbd5014f899"
-        }
-    }
+        "id": "5066c217-6ae0-4e3c-9802-8c0cce660c2b",
+        "createdAt": "2023-07-04T12:59:48.804Z",
+        "updatedAt": "2023-07-04T12:59:48.804Z",
+        "name": "TEST ODK BOT",
+        "startingMessage": "Hi Test ODK",
+        "ownerID": null,
+        "ownerOrgID": null,
+        "purpose": null,
+        "description": null,
+        "startDate": "2023-06-15T00:00:00.000Z",
+        "endDate": "2025-12-01T00:00:00.000Z",
+        "status": "ENABLED",
+        "tags": [],
+        "botImage": "1c8516c6-c4c3-4a37-a8dd-89109e8e0e60.png"
+    },
+    "startTime": "2023-07-04T12:59:48.265Z",
+    "method": "POST",
+    "endTime": "2023-07-04T12:59:49.097Z"
 }
 ```
 
