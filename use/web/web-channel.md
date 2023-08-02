@@ -63,10 +63,3 @@ Select the bot to see the starred messages of that bot
 ![media](../../../media/11.png)
 
 ![media](../../../media/12.png)
-
-
-
-
-
-
-
