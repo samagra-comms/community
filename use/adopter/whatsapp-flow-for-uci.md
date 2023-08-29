@@ -4,7 +4,7 @@
 
 1. **Broadcast Bot:** This type of bot is used to send a single message to a large group of people. It doesn't expect a reply to the message.
 
-2. **Conversation Bot:** This type of bot is designed for a proper conversation flow with a user. It facilitates a two-way conversation that is regulated by the ODK form.
+2. **Conversation Bot:** This type of bot is designed for a two way conversation with a user. The conversation is regulated by an ODK form.
 
 ## Broadcast Flow
 
@@ -42,7 +42,23 @@ curl --location 'http://localhost:3002/admin/conversationLogic' \
 }'
 ```
 
-This will create a conversation logic for the broadcast flow. We don't need an ODK form here as this is not a multi-message flow. The conversation logic for this type of bot only has a single broadcast message which is defined in the meta of the request.
+| Parameter      | Description                                                                                                 |
+|----------------|-------------------------------------------------------------------------------------------------------------|
+| id             | The ID of the conversation logic.             |
+| name           | The name of the conversation logic.                                                                          |
+| description    | The description of the conversation logic.                                                                   |
+| transformers   | An array of transformer objects that define the message content and behavior.                             |
+|                |   - id: The ID of the transformer.                                                                           |
+|                |   - meta: An object containing metadata about the transformer.                                             |
+|                |     - body: The message content.                                                                             |
+|                |     - type: The type of message, e.g., "broadcast".                                                         |
+|                |     - title: The title of the message.                                                                      |
+|                |     - params: An array of parameter names used in the message template.                                   |
+|                |     - templateType: The template type, e.g., "JS_TEMPLATE_LITERALS".                                       |
+| adapter        | The ID of the adapter associated with the conversation logic.                                             |
+
+
+This will create a conversation logic for the broadcast flow. We don't need an ODK form here as this is not a two-way conversation flow that is driven by ODK logic. The conversation logic for this type of bot only has a single broadcast message which is defined in the meta of the request.
 
 2. Create user segment:
 
@@ -116,6 +132,45 @@ curl --location 'http://localhost:3002/admin/user-segment' \
 ```
 This creates a new user segment with the user list provided on `http://localhost:9080/service/testUserSegment2`.
 
+| Parameter | Description                                                                                             |
+|-----------|---------------------------------------------------------------------------------------------------------|
+| name      | The name of the user segment.                                                                           |
+| all       | Configuration for retrieving all users in the segment.                                                |
+|           |   - type: Type of HTTP request (e.g., "get") for retrieving users.                                  |
+|           |   - config: An object containing configuration settings for the HTTP request.                       |
+|           |     - url: The URL to which the HTTP request will be sent to retrieve user data.                     |
+|           |     - type: The type of HTTP request (e.g., "GET").                                                  |
+|           |     - cadence: An object containing settings related to timing and concurrency of the requests.     |
+|           |     - pageParam: The parameter name used for pagination in the URL's query parameters.              |
+|           |     - credentials: An object containing credentials (if required) for making the request.           |
+|           |     - totalRecords: A field indicating the total number of records in the user segment.             |
+| byID      | Configuration for retrieving users by their IDs.                                                     |
+| byPhone   | Configuration for retrieving users by their phone numbers.                                           |
+| count     | A field indicating the count of users in the user segment.                                           |
+
+The user list on the provided URL should be in the following format:
+
+```json
+{
+  "data": [
+    {
+      "phoneNo": "<PHONE_NUMBER>",
+      "name": "<USER_NAME>",
+    }
+  ]
+}
+```
+
+| Parameter            | Description                                         |
+|----------------------|-----------------------------------------------------|
+| data.phoneNo         | The phone number of the user.                      |
+| data.name            | The name of the user.                              |
+
+These params are necessary for the flow to work. Apart from these params, any additional params which are defined while creating conversation logic should also be provided in this object.
+
+### Note:
+This user list definition is only valid for Whatsapp flow. Definitions will differ for different use cases.
+
 3. Create a broadcast bot:
 
 ```bash
@@ -141,7 +196,24 @@ curl --location 'http://localhost:3002/admin/bot' \
 }"'
 ```
 
-At the time of bot creation, it must be attached to a user segment. This is done by passing the segment id in the users section of the request body. Add the conversation logic id to the body in logic section. 
+| Parameter             | Description                                                   |
+|-----------------------|---------------------------------------------------------------|
+| botImage              | The image file of the bot to be uploaded.                     |
+| data                  | A JSON object containing various configuration settings for the bot. |
+| data.startingMessage  | The initial message of the bot to trigger the conversation flow. |
+| data.name             | The name of the bot.                                          |
+| data.users            | An array of user segments attached to the bot                 |
+| data.logic            | Conversation logic associated with the bot.        |
+| data.status           | The status of the bot ("enabled" or "disabled").              |
+| data.startDate        | The start date of the bot's activity.                         |
+| data.endDate          | The end date of the bot's activity.                           |
+| data.ownerid          | The ID of the bot's owner. (Vault)                                    |
+| data.ownerorgid       | The organization ID of the bot's owner. (Vault)                       |
+| data.purpose          | A description of the purpose of the bot.                      |
+| data.desc             | A description of the bot.                                     |
+
+
+At the time of bot creation, it must be attached to a user segment. This is done by passing the segment id, which is a unique identifier for the user segement created in the previous step, in the users section of the request body. The segment id can be obtained from the response of the previous step. Add the conversation logic id to the body in logic section. 
 
 4. Triggering the bot:
 
@@ -165,7 +237,16 @@ curl --location 'http://localhost:3002/admin/form/upload' \
 --form 'form=@"/home/ryanwalker277/Music/WhatsappDemo/SampleOdkForm.xml"'
 ```
 
-In the conversation flow, ODK form becomes necessary as the whole conversation flow is determined by this.
+| Parameter      | Description                                         |
+|----------------|-----------------------------------------------------|
+| ownerID        | The ID of the owner of the form. (Vault)                   |
+| ownerOrgId     | The organization ID of the owner of the form. (Vault)      |
+| admin-token    | The admin token for authentication.                |
+| form           | The XML file of the form to be uploaded.           |
+
+Refrence to create an [ODK Form](https://docs.getodk.org/xlsform/)
+
+In the conversation logic, ODK form becomes necessary as the whole conversation flow is determined by this.
 
 2. Create conversation logic:
 
@@ -193,6 +274,19 @@ curl --location 'http://localhost:3002/admin/conversationLogic' \
 }'
 ```
 
+| Parameter      | Description                                         |
+|----------------|-----------------------------------------------------|
+| data           | An object containing the conversation logic data.  |
+| data.id        | The ID of the conversation logic (null for new).   |
+| data.name      | The name of the conversation logic.                |
+| data.description | The description of the conversation logic.         |
+| data.transformers.id | The ID of the transformer.                     |
+| data.transformers.meta | An object containing metadata about the transformer. |
+| data.transformers.meta.form | The URL of the form associated with the transformer. |
+| data.transformers.meta.formID | The ID of the form associated with the transformer. |
+| data.adapter   | The ID of the adapter associated with the logic.   |
+
+
 Replace the formId with the id of the form uploaded. This returns a unique conversation logic id.
 
 3. Create conversation bot:
@@ -215,4 +309,17 @@ curl --location 'http://localhost:3002/admin/bot' \
 }"'
 ```
 
-If you notice, we are not passing the segment id here. That means this bot is not attached to any user segment. So, any user can interact with this bot by sending the starting message. 
+| Parameter            | Description                                           |
+|----------------------|-------------------------------------------------------|
+| botImage             | The image file of the bot to be uploaded.            |
+| data                 | An object containing the bot data.                   |
+| data.startingMessage | The initial message of the bot.                      |
+| data.name            | The name of the bot.                                 |
+| data.users           | An array of user IDs associated with the bot.        |
+| data.logic           | Conversation logic associated with the bot.  |
+| data.status          | The status of the bot ("enabled" or "disabled").     |
+| data.startDate       | The start date of the bot's activity.                |
+| data.endDate         | The end date of the bot's activity.                  |
+| botImage             | The image file to be uploaded as the bot's image.    |
+
+Notice that we are not passing the segment id here. That means this bot is not attached to any user segment. So, any user can interact with this bot by sending the starting message. 
