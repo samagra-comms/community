@@ -87,24 +87,31 @@
    *   In the sidebar click on the SQL button and add the following commands and run.
 
        ```sql
-       INSERT INTO service ("id", "type", "config")
-       VALUES ('94b7c56a-6537-49e3-88e5-4ea548b2f075', 'odk', '{"cadence": { "retries": 0, "timeout": 60, "concurrent": true, "retries-interval": 10 }, "credentials": { "vault": "samagra", "variable": "samagraMainODK" } }');
-       INSERT INTO adapter ("id", "provider", "channel", "config", "name") 
-       VALUES ('44a9df72-3d7a-4ece-94c5-98cf26307324', 'gupshup', 'WhatsApp', '{ "2WAY": "2000193033", "phone": "9876543210", "HSM_ID": "2000193031", "credentials": { "vault": "samagra", "variable": "gupshupSamagraProd" } }', 'SamagraProd');
-       INSERT INTO adapter ("id", "provider", "channel", "config", "name") 
-       VALUES ('44a9df72-3d7a-4ece-94c5-98cf26307323', 'Netcore', 'WhatsApp', '{ "phone": "912249757677", "credentials": { "vault": "samagra", "variable": "netcoreUAT" } }', 'SamagraNetcoreUAT');
-       INSERT INTO adapter ("id", "provider", "channel", "config", "name") 
-       VALUES ('64036edb-e763-44b1-99b8-37b6c7b292c5', 'gupshup', 'sms', '{"2WAY":"2000193033","phone":"9876543210","HSM_ID":"2000193031","credentials":{"vault":"samagra","variable":"gupshupSamagraProd"}}', 'SamagraGupshupSms');
-       INSERT INTO adapter ("id", "provider", "channel", "config", "name") 
-       VALUES ('4e0c568c-7c42-4f88-b1d6-392ad16b8546', 'cdac', 'sms', '{"2WAY":"2000193033","phone":"9876543210","HSM_ID":"2000193031","credentials":{"vault":"samagra","variable":"gupshupSamagraProd"}}', 'SamagraCdacSms');
-       INSERT INTO adapter ("id", "provider", "channel", "config", "name") 
-       VALUES ('2a704e82-132e-41f2-9746-83e74550d2ea', 'firebase', 'web', '{ "credentials": { "vault": "samagra", "variable": "uci-firebase-notification" } }', 'SamagraFirebaseWeb');
-       INSERT INTO transformer ("name", "tags", "config", "id", "service_id") 
-       VALUES ('SamagraODKAgg', array['ODK'], '{}', 'bbf56981-b8c9-40e9-8067-468c2c753659', '94b7c56a-6537-49e3-88e5-4ea548b2f075');
-       INSERT INTO transformer ("name", "tags", "config", "id", "service_id") 
-       VALUES ('SamagraBroadcast', array['broadcast'], '{}', '774cd134-6657-4688-85f6-6338e2323dde', '94b7c56a-6537-49e3-88e5-4ea548b2f075');
-        INSERT INTO transformer ("name", "tags", "config", "id", "service_id") 
-       VALUES ('SamagraGeneric', array['generic'], '{}', '0832ca13-c698-4234-8070-b5f708bc0b1a', '94b7c56a-6537-49e3-88e5-4ea548b2f075');
+        INSERT INTO "Service" ("id", "updatedAt", "type", "config")
+        VALUES ('94b7c56a-6537-49e3-88e5-4ea548b2f075', NOW(), 'odk', '{"cadence": { "retries": 0, "timeout": 60, "concurrent": true, "retries-interval": 10 }, "credentials": { "vault": "samagra", "variable": "samagraMainODK" } }');
+        INSERT INTO "Adapter" ("id", "updatedAt", "provider", "channel", "config", "name")
+        VALUES ('44a9df72-3d7a-4ece-94c5-98cf26307324', NOW(), 'gupshup', 'WhatsApp', '{ "2WAY": "2000193033", "phone": "9876543210", "HSM_ID": "2000193031", "credentials": { "vault": "samagra", "variable": "gupshupSamagraProd" } }', 'SamagraProd');
+
+        INSERT INTO "Adapter" ("id", "updatedAt", "provider", "channel", "config", "name")
+        VALUES ('44a9df72-3d7a-4ece-94c5-98cf26307323', NOW(), 'Netcore', 'WhatsApp', '{ "phone": "912249757677", "credentials": { "vault": "samagra", "variable": "netcoreUAT" } }', 'SamagraNetcoreUAT');
+
+        INSERT INTO "Adapter" ("id", "updatedAt", "provider", "channel", "config", "name")
+        VALUES ('64036edb-e763-44b1-99b8-37b6c7b292c5', NOW(), 'gupshup', 'sms', '{"2WAY":"2000193033","phone":"9876543210","HSM_ID":"2000193031","credentials":{"vault":"samagra","variable":"gupshupSamagraProd"}}', 'SamagraGupshupSms');
+
+        INSERT INTO "Adapter" ("id", "updatedAt", "provider", "channel", "config", "name")
+        VALUES ('4e0c568c-7c42-4f88-b1d6-392ad16b8546', NOW(), 'cdac', 'sms', '{"2WAY":"2000193033","phone":"9876543210","HSM_ID":"2000193031","credentials":{"vault":"samagra","variable":"gupshupSamagraProd"}}', 'SamagraCdacSms');
+
+        INSERT INTO "Adapter" ("id", "updatedAt", "provider", "channel", "config", "name")
+        VALUES ('2a704e82-132e-41f2-9746-83e74550d2ea', NOW(), 'firebase', 'web', '{ "credentials": { "vault": "samagra", "variable": "uci-firebase-notification" } }', 'SamagraFirebaseWeb');
+
+        INSERT INTO "Transformer" ("name", "tags", "config", "id", "serviceId", "updatedAt")
+        VALUES ('SamagraODKAgg', array['ODK'], '{}', 'bbf56981-b8c9-40e9-8067-468c2c753659', '94b7c56a-6537-49e3-88e5-4ea548b2f075', NOW());
+
+        INSERT INTO "Transformer" ("name", "tags", "config", "id", "serviceId", "updatedAt")
+        VALUES ('SamagraBroadcast', array['broadcast'], '{}', '774cd134-6657-4688-85f6-6338e2323dde', '94b7c56a-6537-49e3-88e5-4ea548b2f075', NOW());
+
+        INSERT INTO "Transformer" ("name", "tags", "config", "id", "serviceId", "updatedAt")
+        VALUES ('SamagraGeneric', array['generic'], '{}', '0832ca13-c698-4234-8070-b5f708bc0b1a', '94b7c56a-6537-49e3-88e5-4ea548b2f075', NOW());
        ```
 3. Now we can start Sent/Receive messages using uci web channel http://localhost:9098/ but first you should create a bot for conversation after that you will send starting message.
 4. You can start using FusionAuth Console using http://localhost:9011/ and create an Account, for managing users and what resources they are authorized to access.
