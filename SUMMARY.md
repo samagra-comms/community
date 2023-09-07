@@ -52,6 +52,12 @@
     * [History APIs](use/developer/api-documentation/history-apis.md)
     * [Direct Message APIs](use/developer/api-documentation/direct-message-apis.md)
     * [Vault APIs](use/developer/api-documentation/vault-apis.md)
+  * [Database Schema](use/developer/database-schema/README.md)
+    * [Cassandra Xmessage Database](use/developer/database-schema/database-cassandra.md)
+    * [Postgres Forms Database](use/developer/database-schema/database-formsdb.md)
+    * [Postgres User Analytics Database](use/developer/database-schema/database-user-analytics.md)
+    * [Postgres Comms Database](use/developer/database-schema/database-comms.md)
+
   * [Contribution Guide](use/developer/contribution-guide/README.md)
     * [Your first PR](use/developer/contribution-guide/your-first-pr.md)
     * [Contribute an Adapter](use/developer/contribution-guide/create-an-adapter.md)
