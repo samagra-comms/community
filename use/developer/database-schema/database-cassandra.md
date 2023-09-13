@@ -18,11 +18,11 @@ At UCI, we leverage Cassandra as our database solution due to its distributed na
 | messageState     |        Text         | Current state or status of the message.          |
 |   xMessage       |        Text         | Content of the message.                          |
 |      app         |        Text         | App is the name of bot                           |
-|    auxData       |        Text         |      |
+|    auxData       |        Text         | Currently not using     |
 |   messageId      |        Text         | Unique identifier for fcm callback.               |
 |    replyId       |        Text         | We can store id which provied by your provider like gupshup, netcore etc. |
-|    causeId       |        Text         |          |
-|   sessionId      |        UUID         |                |
+|    causeId       |        Text         | Same as the messageId         |
+|   sessionId      |        UUID         | Random UUID               |
 |   ownerOrgId     |        Text         | Identifier for the owning organization.           |
 |     ownerId      |        Text         | Identifier for the owner of the message.         |
 |     botUuid      |        UUID         | Unique identifier for the associated bot.        |
