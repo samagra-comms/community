@@ -35,7 +35,11 @@
 3.  Install the requirements
 
     `pip3 install -r requirements.txt`
-4.  Run below command to download & start the services using docker.
+
+4. Fill in the environment variables in the `.env` file. Find out more about the `.env` [here](https://uci.sunbird.org/use/adopter/about-the-env).
+
+
+5.  Run below command to download & start the services using docker.
 
     `python3 install.py {ENCRYPTION_KEY} {NETCORE_WHATSAPP_AUTH_TOKEN} {NETCORE_WHATSAPP_SOURCE} {NETCORE_WHATSAPP_URI}`
 
@@ -52,7 +56,7 @@
           `sudo rm -rf data`
       *   Run the script again
 
-4.  Follow the instructions in the script.
+6.  Follow the instructions in the script.
 
 **Note**: Please note this installation is based on a very standard and generalized use case. If your needs are not fulfilled with the current installation, please start scaling the individual services by using them in docker stack.
 
