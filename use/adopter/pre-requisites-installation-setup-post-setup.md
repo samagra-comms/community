@@ -47,7 +47,8 @@
 
     `python3 install.py 1234`
 
-    * If script fails on runtime then you should run below commands for continue run this script
+    * If script fails on runtime ,run the following commands and re-run the script
+
       *   Stop the all services and volumes
 
           `docker-compose down -v`
@@ -56,13 +57,15 @@
           `sudo rm -rf data`
       *   Run the script again
 
-6.  Follow the instructions in the script.
+6.  Follow the instructions in the script. At one point, the script will ask you to run some queries in the hasura console to fill in adapters. Follow the instructions there to do so.
+
+7.  Once the setup is completed, go to the web channel (http://localhost:9098/) to test out the conversation with the bot.
 
 **Note**: Please note this installation is based on a very standard and generalized use case. If your needs are not fulfilled with the current installation, please start scaling the individual services by using them in docker stack.
 
 #### **After a Successful Docker Setup Completion**
 
-1. Script execution time - **Around 30 minutes hours** (depends on your server)
+1. Script execution time - **Around 30 minutes** (depends on your server)
 2.  On a successful run of the script you will get below services:
 
     * Inbound Service: http://localhost:9080/health
@@ -89,6 +92,6 @@
 ## **Post Setup**
 
 1. You can start using FusionAuth Console using http://localhost:9011/ and create an Account, for managing users and what resources they are authorized to access.
-2. For managing all the assesment data go on URL : http://localhost:15002/ and track all the tables and relation.
+2. For managing all the assesment data go on URL : http://localhost:8080/ to view all the submissions
 
 **Note**: If you face any difficulty in setting up UCI, please raise an issue [here](https://github.com/samagra-comms/docker-deploy/issues). All the issues that you raise will help us make UCI make better for adopters.

@@ -14,7 +14,7 @@ This is a 4 step process.
 
 ```bash
 curl --location 'http://localhost:3002/admin/conversationLogic' \
---header 'admin-token: dR67yAkMAqW5P9xk6DDJnfn6KbD4EJFVpmPEjuZMq44jJGcj65' \
+--header 'admin-token: 4737ea8520bd454caabb7cb3d36e14bc1832c0d3f70a4189b82598670f11b1bd' \
 --header 'Content-Type: application/json' \
 --header 'Cookie: fusionauth.locale=en_US; fusionauth.sso=AgOat0GjncGOHhPpH_HuL9QQqnfMitd15O-ofS-uTcdA' \
 --data '{
@@ -66,7 +66,7 @@ Creating a user segment is analogous to importing a list of users into UCI. The 
 
 ```bash
 curl --location 'http://localhost:3002/admin/user-segment' \
---header 'admin-token: dR67yAkMAqW5P9xk6DDJnfn6KbD4EJFVpmPEjuZMq44jJGcj65' \
+--header 'admin-token: 4737ea8520bd454caabb7cb3d36e14bc1832c0d3f70a4189b82598670f11b1bd' \
 --header 'Content-Type: application/json' \
 --data '{
     "name": "Netcore demo",
@@ -175,7 +175,7 @@ This user list definition is only valid for Whatsapp flow. Definitions will diff
 
 ```bash
 curl --location 'http://localhost:3002/admin/bot' \
---header 'admin-token: dR67yAkMAqW5P9xk6DDJnfn6KbD4EJFVpmPEjuZMq44jJGcj65' \
+--header 'admin-token: 4737ea8520bd454caabb7cb3d36e14bc1832c0d3f70a4189b82598670f11b1bd' \
 --form 'botImage=@"/home/ryanwalker277/Pictures/Screenshot from 2023-08-08 15-10-09.png"' \
 --form 'data="{
     \"data\": {
@@ -233,7 +233,7 @@ This is a 3 step process.
 curl --location 'http://localhost:3002/admin/form/upload' \
 --header 'ownerId: 8f7ee860-0163-4229-9d2a-01cef53145ba' \
 --header 'ownerOrgId: org1' \
---header 'admin-token: dR67yAkMAqW5P9xk6DDJnfn6KbD4EJFVpmPEjuZMq44jJGcj65' \
+--header 'admin-token: 4737ea8520bd454caabb7cb3d36e14bc1832c0d3f70a4189b82598670f11b1bd' \
 --form 'form=@"/home/ryanwalker277/Music/WhatsappDemo/SampleOdkForm.xml"'
 ```
 
@@ -252,7 +252,7 @@ In the conversation logic, ODK form becomes necessary as the whole conversation 
 
 ```bash
 curl --location 'http://localhost:3002/admin/conversationLogic' \
---header 'admin-token: dR67yAkMAqW5P9xk6DDJnfn6KbD4EJFVpmPEjuZMq44jJGcj65' \
+--header 'admin-token: 4737ea8520bd454caabb7cb3d36e14bc1832c0d3f70a4189b82598670f11b1bd' \
 --header 'Content-Type: application/json' \
 --header 'Cookie: fusionauth.locale=en_US; fusionauth.sso=AgOat0GjncGOHhPpH_HuL9QQqnfMitd15O-ofS-uTcdA' \
 --data '{
@@ -294,7 +294,7 @@ Replace the formId with the id of the form uploaded. This returns a unique conve
 
 ```bash
 curl --location 'http://localhost:3002/admin/bot' \
---header 'admin-token: dR67yAkMAqW5P9xk6DDJnfn6KbD4EJFVpmPEjuZMq44jJGcj65' \
+--header 'admin-token: 4737ea8520bd454caabb7cb3d36e14bc1832c0d3f70a4189b82598670f11b1bd' \
 --form 'botImage=@"/home/ryanwalker277/Music/WhatsappDemo/boticon.jpeg"' \
 --form 'data="{
     \"data\": {
