@@ -21,6 +21,8 @@
   * [API Documentation](use/adopter/api-documentation.md)
   * [Data Exhaust and Analytics](use/adopter/data-exhaust-and-analytics.md)
   * [Posthog Event](use/adopter/posthog-event.md)
+  * [Whatsapp (Netcore)](use/adopter/whatsapp-flow-for-uci.md)
+  * [Environment Variables](use/adopter/about-the-env.md)
 * [Developer - Contribute to UCI ](use/developer/README.md)
   * [UCI Basics](use/developer/uci-basics/README.md)
     * [XMessage Specification](use/developer/uci-basics/xmessage-specification.md)
