@@ -17,6 +17,3 @@
    1. **If yes** -> Follow [these steps](../developer/api-documentation/bot-setup-apis.md#2.1-add-adapter) to add your adapter along with your own credentials for the platform
    2. **If No** -> Follow [these steps](../developer/contribution-guide/create-an-adapter.md#3.-creating-your-own-adapters) to contribute a new adapter and then follow the step above
 3. Follow the [direct Message APIs](../developer/api-documentation/direct-message-apis.md) to send the messages directly
-
-
-
