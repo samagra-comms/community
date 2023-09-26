@@ -1,5 +1,13 @@
 # Whatsapp Flow (Netcore)
 
+## Environment Variables Required
+
+- NETCORE_WHATSAPP_AUTH_TOKEN
+- NETCORE_WHATSAPP_SOURCE
+- NETCORE_WHATSAPP_URI
+
+In order to test out the whatsapp flow, you need to provide these to the installation script while setting up UCI. Refer to the docs [here](https://uci.sunbird.org/use/adopter/pre-requisites-installation-setup-post-setup)
+
 ## Types of Bots:
 
 1. **Broadcast Bot:** This type of bot is used to send a single message to a large group of people. It doesn't expect a reply to the message.
