@@ -67,6 +67,10 @@
     * [Create a Transformer](use/developer/contribution-guide/create-a-transformer.md)
 * [Contact the administrator](use/contact-the-administrator.md)
 
+## ✅ Releases
+
+* [Release V2](RELEASE_V2.md)
+
 ## 🤝 Engage
 
 * [Software License](engage/software-license.md)
