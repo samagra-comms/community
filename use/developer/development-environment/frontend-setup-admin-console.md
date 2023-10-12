@@ -8,6 +8,7 @@
 Version:
     node 12
     npm 6 
+    ng cli 9.1.9
 ```
 
 ### Check the node and npm version by running the following commands.
@@ -15,9 +16,10 @@ Version:
 ``` 
     node -v
     npm -v
+    ng --version
 ```
 
-### Installation Steps:
+### Installation Steps for project:
 
 #### 1. Fork it
    You can get your own fork/copy of Frontend  by using the Fork button.
@@ -49,9 +51,19 @@ origin    https://github.com/samagra-comms/uci-admin.git (fetch)
 origin    https://github.com/samagra-comms/uci-admin.git (push)
 ```
 
+#### 4 Environment setup
+
+The Environment is being used from the below file in the project root folder.
+```
+   .env
+```
+this file contains following variables:
+- NG_APP_url: API base url
+- NG_APP_blobUrl:  Sample file base URL
+- NG_APP_botPhoneNumber: Bot phone whatsapp phone number 
 
 
-#### 4. Run it
+#### 5. Run it
 
 #### Install dependencies
 
@@ -59,10 +71,10 @@ origin    https://github.com/samagra-comms/uci-admin.git (push)
 npm install
 ```
 
-#### 5. Build 
+#### 6. Build 
 
 ```
-ng build –prod
+ng build --prod
 ```
 Build @dist
 
