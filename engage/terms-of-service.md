@@ -1,6 +1,6 @@
 # Terms of Service
 
-These terms of service ("Terms") govern your use and access to our client software. Your agreement is with Samagra | Transforming Governance, a corporation organized under the laws of \<To be updated> and its affiliate entities ("UCI", "Sunbird UCI", "we", "us", or "our").
+These terms of service ("Terms") govern your use and access to our client software. Your agreement is with Samagra | Transforming Governance, a private limited firm incorporated under the laws of The Companies Act, 2013 and its affiliate entities ("UCI", "Sunbird UCI", "we", "us", or "our").
 
 * If you are using our Services on behalf of a third party, you hereby agree to these Terms on such third party's behalf, and you hereby confirm that you have authority to bind such third party by such agreement.
 
@@ -13,6 +13,36 @@ You are solely responsible and liable for your conduct and Your Data, which must
 You may use our Services only as permitted by applicable law, including export control laws and regulations.
 
 Finally, by using our services, you represent to us that you and Your Delegates comply with the requirements of digital consent as per applicable law, as specified in the Privacy Policy. If you and Your Delegates do not meet these requirements, you may not use the Services.
+
+#### Compliance with The Digital Personal Data Protection Act, 2023
+
+In our commitment to safeguarding your personal data, Samagra | Transforming Governance, adheres strictly to the provisions of The Digital Personal Data Protection Act, 2023, of India. This Act governs the processing of digital personal data, ensuring that your rights to privacy and protection are respected and upheld at all stages of our interactions.
+
+**Collection and Use of Personal Data**
+
+We collect and process your personal data only to the extent necessary for providing our software services, enhancing your user experience, and fulfilling any contractual or legal obligations. The types of data we collect, the purposes for which it is processed, and the duration of its storage are detailed in our Acceptable Use Policy (https://uci.sunbird.org/engage/acceptable-use-policy).
+
+**Your Rights Under the Act**
+
+The Digital Personal Data Protection Act, 2023, empowers you with several rights regarding your personal data, including but not limited to:
+- The right to access and correct your data
+- The right to data portability
+- The right to withdraw consent for data processing
+- The right to have your data erased in certain circumstances
+
+Samagra | Transforming Governance is committed to facilitating the exercise of these rights in a transparent and timely manner. For details on how to exercise your rights, please refer to our Privacy Policy (https://www.sunbird.org/privacy-policy).
+
+**Data Protection Measures**
+
+We implement stringent security measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction. These measures are regularly reviewed and updated to align with the latest security standards and the requirements of The Digital Personal Data Protection Act, 2023.
+
+**Contact Information**
+
+Should you have any questions or concerns regarding the processing of your personal data or wish to exercise your rights under the Act, please contact our Data Protection Officer at admin@samagragovernance.in.
+
+**Changes to This Clause**
+
+Samagra | Transforming Governance reserves the right to modify this clause to reflect changes in the law or our data processing practices. Any such modifications will be effective immediately upon posting the updated Terms of Service on our website.
 
 #### Software
 
